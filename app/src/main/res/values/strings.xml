@@ -22,4 +22,10 @@
     <string name="menu_send">Send</string>
     <string name="drawer_closed"></string>
     <string name="drawer_opened"></string>
+
+    <!-- Drawer options -->
+    <string name="nueva_consulta">Nueva consulta</string>
+    <string name="ver_consultas_realizadas">Ver consultas realizadas</string>
+    <string name="chats">Chats</string>
+    <string name="mi_perfil">Mi perfil</string>
 </resources>

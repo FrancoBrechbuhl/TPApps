@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menuItemRegistrar"
+        android:orderInCategory="1"
+        android:title="@string/nueva_consulta"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menuItemCrear"
+        android:orderInCategory="2"
+        android:title="@string/ver_consultas_realizadas"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menuItemConsultar"
+        android:orderInCategory="3"
+        android:title="@string/chats"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menuItemBuscar"
+        android:orderInCategory="4"
+        android:title="@string/mi_perfil"
+        app:showAsAction="never" />
+</menu>

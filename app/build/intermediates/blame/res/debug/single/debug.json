@@ -76,6 +76,10 @@
         "source": "C:\\Users\\Usuario\\.gradle\\caches\\transforms-2\\files-2.1\\37ec02f661e3547c5499ecdfd9f3cd1f\\appcompat-1.1.0\\res\\drawable-v21\\abc_edit_text_material.xml"
     },
     {
+        "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_flower.png.flat",
+        "source": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\src\\main\\res\\drawable-mdpi\\ic_flower.png"
+    },
+    {
         "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-watch-v20_abc_dialog_material_background.xml.flat",
         "source": "C:\\Users\\Usuario\\.gradle\\caches\\transforms-2\\files-2.1\\37ec02f661e3547c5499ecdfd9f3cd1f\\appcompat-1.1.0\\res\\drawable-watch-v20\\abc_dialog_material_background.xml"
     },
@@ -748,6 +752,10 @@
         "source": "C:\\Users\\Usuario\\.gradle\\caches\\transforms-2\\files-2.1\\37ec02f661e3547c5499ecdfd9f3cd1f\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
     },
     {
+        "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_drawer.png.flat",
+        "source": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\src\\main\\res\\drawable-hdpi\\ic_drawer.png"
+    },
+    {
         "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_black_48dp.png.flat",
         "source": "C:\\Users\\Usuario\\.gradle\\caches\\transforms-2\\files-2.1\\37ec02f661e3547c5499ecdfd9f3cd1f\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_ic_star_black_48dp.png"
     },
@@ -766,6 +774,10 @@
     {
         "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_menu_overflow_material.xml.flat",
         "source": "C:\\Users\\Usuario\\.gradle\\caches\\transforms-2\\files-2.1\\37ec02f661e3547c5499ecdfd9f3cd1f\\appcompat-1.1.0\\res\\drawable\\abc_ic_menu_overflow_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_flower.png.flat",
+        "source": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\src\\main\\res\\drawable-xhdpi\\ic_flower.png"
     },
     {
         "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_tint_btn_checkable.xml.flat",
@@ -1076,6 +1088,14 @@
         "source": "C:\\Users\\Usuario\\.gradle\\caches\\transforms-2\\files-2.1\\37ec02f661e3547c5499ecdfd9f3cd1f\\appcompat-1.1.0\\res\\layout\\abc_screen_simple.xml"
     },
     {
+        "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_flower.png.flat",
+        "source": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\src\\main\\res\\drawable-hdpi\\ic_flower.png"
+    },
+    {
+        "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_drawer.png.flat",
+        "source": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\src\\main\\res\\drawable-xhdpi\\ic_drawer.png"
+    },
+    {
         "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
         "source": "C:\\Users\\Usuario\\.gradle\\caches\\transforms-2\\files-2.1\\37ec02f661e3547c5499ecdfd9f3cd1f\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
     },
@@ -1110,6 +1130,10 @@
     {
         "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Usuario\\.gradle\\caches\\transforms-2\\files-2.1\\37ec02f661e3547c5499ecdfd9f3cd1f\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_flower.png.flat",
+        "source": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\src\\main\\res\\drawable-xxhdpi\\ic_flower.png"
     },
     {
         "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
@@ -1186,6 +1210,10 @@
     {
         "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\Usuario\\.gradle\\caches\\transforms-2\\files-2.1\\37ec02f661e3547c5499ecdfd9f3cd1f\\appcompat-1.1.0\\res\\drawable-xhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi_ic_drawer.xml.flat",
+        "source": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\src\\main\\res\\drawable-anydpi\\ic_drawer.xml"
     },
     {
         "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_media_action.xml.flat",
@@ -1268,6 +1296,10 @@
         "source": "C:\\Users\\Usuario\\.gradle\\caches\\transforms-2\\files-2.1\\37ec02f661e3547c5499ecdfd9f3cd1f\\appcompat-1.1.0\\res\\color-v23\\abc_color_highlight_material.xml"
     },
     {
+        "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_drawer.png.flat",
+        "source": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\src\\main\\res\\drawable-xxhdpi\\ic_drawer.png"
+    },
+    {
         "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
         "source": "C:\\Users\\Usuario\\.gradle\\caches\\transforms-2\\files-2.1\\37ec02f661e3547c5499ecdfd9f3cd1f\\appcompat-1.1.0\\res\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
     },
@@ -1282,6 +1314,10 @@
     {
         "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\color_abc_primary_text_disable_only_material_dark.xml.flat",
         "source": "C:\\Users\\Usuario\\.gradle\\caches\\transforms-2\\files-2.1\\37ec02f661e3547c5499ecdfd9f3cd1f\\appcompat-1.1.0\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_drawer.png.flat",
+        "source": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\src\\main\\res\\drawable-mdpi\\ic_drawer.png"
     },
     {
         "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_media_custom.xml.flat",
@@ -1638,6 +1674,10 @@
     {
         "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
         "source": "C:\\Users\\Usuario\\.gradle\\caches\\transforms-2\\files-2.1\\37ec02f661e3547c5499ecdfd9f3cd1f\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi_ic_flower.xml.flat",
+        "source": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\src\\main\\res\\drawable-anydpi\\ic_flower.xml"
     },
     {
         "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",

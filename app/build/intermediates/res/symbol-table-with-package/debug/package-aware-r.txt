@@ -676,6 +676,8 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable ic_drawer
+drawable ic_flower
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable notification_action_background
@@ -812,12 +814,13 @@ id info
 id invisible
 id italic
 id left
-id left_drawer
 id line1
 id line3
 id listMode
 id list_item
 id media_actions
+id menuItemNuevaConsulta
+id menuItemVerConsultasRealizadas
 id message
 id middle
 id multiply
@@ -1008,11 +1011,13 @@ string nav_header_title
 string navigation_drawer_close
 string navigation_drawer_open
 string nombre_usuario
+string nueva_consulta
 string registro
 string search_menu_title
 string status_bar_notification_info_overflow
 string texto_bienvenida
 string title_activity_home_drawer
+string ver_consultas_realizadas
 style ActionBarTheme
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

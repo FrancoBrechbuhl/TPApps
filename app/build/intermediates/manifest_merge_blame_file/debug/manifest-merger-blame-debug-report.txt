@@ -25,29 +25,28 @@
 17-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:9:9-54
 18        android:supportsRtl="true"
 18-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:10:9-35
-19        android:testOnly="true"
-20        android:theme="@style/ActionBarTheme" >
-20-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:11:9-46
-21        <activity android:name="com.B3B.farmbros.MainActivity" >
-21-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:12:9-18:20
-21-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:12:19-47
-22            <intent-filter>
-22-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:13:13-17:29
-23                <action android:name="android.intent.action.MAIN" />
-23-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:14:17-69
-23-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:14:25-66
-24
-25                <category android:name="android.intent.category.LAUNCHER" />
-25-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:16:17-77
-25-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:16:27-74
-26            </intent-filter>
-27        </activity>
-28        <activity
-28-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:20:9-85
-29            android:name="com.B3B.farmbros.Home"
-29-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:20:19-39
-30            android:parentActivityName="com.B3B.farmbros.MainActivity" />
-30-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:20:40-82
-31    </application>
-32
-33</manifest>
+19        android:theme="@style/ActionBarTheme" >
+19-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:11:9-46
+20        <activity android:name="com.B3B.farmbros.MainActivity" >
+20-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:12:9-18:20
+20-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:12:19-47
+21            <intent-filter>
+21-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:13:13-17:29
+22                <action android:name="android.intent.action.MAIN" />
+22-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:14:17-69
+22-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:14:25-66
+23
+24                <category android:name="android.intent.category.LAUNCHER" />
+24-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:16:17-77
+24-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:16:27-74
+25            </intent-filter>
+26        </activity>
+27        <activity
+27-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:20:9-85
+28            android:name="com.B3B.farmbros.Home"
+28-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:20:19-39
+29            android:parentActivityName="com.B3B.farmbros.MainActivity" />
+29-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:20:40-82
+30    </application>
+31
+32</manifest>
