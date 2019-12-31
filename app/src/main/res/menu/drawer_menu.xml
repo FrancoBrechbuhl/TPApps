@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menuItemRegistrar"
+        android:id="@+id/menuItemNuevaConsulta"
         android:orderInCategory="1"
         android:title="@string/nueva_consulta"
         app:showAsAction="never" />
     <item
-        android:id="@+id/menuItemCrear"
+        android:id="@+id/menuItemVerConsultasRealizadas"
         android:orderInCategory="2"
         android:title="@string/ver_consultas_realizadas"
         app:showAsAction="never" />
     <item
-        android:id="@+id/menuItemConsultar"
+        android:id="@+id/menuItemChats"
         android:orderInCategory="3"
         android:title="@string/chats"
         app:showAsAction="never" />
     <item
-        android:id="@+id/menuItemBuscar"
+        android:id="@+id/menuItemMiPerfil"
         android:orderInCategory="4"
         android:title="@string/mi_perfil"
         app:showAsAction="never" />
