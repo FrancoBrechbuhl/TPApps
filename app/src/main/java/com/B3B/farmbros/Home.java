@@ -37,7 +37,7 @@ public class Home extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.ic_flower);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_options);
 
         btnCierreSesion.setOnClickListener(new View.OnClickListener() {
             @Override
