@@ -1,0 +1,10 @@
+package com.B3B.sendmeal.dao;
+
+import androidx.room.TypeConverter;
+
+import com.B3B.sendmeal.domain.Plato;
+
+public class PlatoConverter {
+    @TypeConverter
+    public static Plato fromID(int id){
+   
