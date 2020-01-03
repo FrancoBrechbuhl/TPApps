@@ -1,6 +1,8 @@
 package com.B3B.farmbros;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -48,11 +50,29 @@ public class Home extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.drawer_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        if(mDrawerToggle.onOptionsItemSelected(item)){
-            return true;
+        Intent i1;
+        switch(item.getItemId()) {
+            case R.id.menuItemNuevaConsulta:
+                i1 = new Intent (getApplicationContext(),NuevaConsulta.class);
+                startActivity(i1);
+                return true;
+            case R.id.menuItemVerConsultasRealizadas:
+                return true;
+            case R.id.menuItemChats:
+                return true;
+            case R.id.menuItemMiPerfil:
+                return true;
+            case android.R.id.home:
+                return true;
         }
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
 }

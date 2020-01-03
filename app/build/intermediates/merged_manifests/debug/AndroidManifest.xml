@@ -28,6 +28,9 @@
         <activity
             android:name="com.B3B.farmbros.Home"
             android:parentActivityName="com.B3B.farmbros.MainActivity" />
+        <activity
+            android:name="com.B3B.farmbros.NuevaConsulta"
+            android:parentActivityName="com.B3B.farmbros.Home" />
     </application>
 
 </manifest>

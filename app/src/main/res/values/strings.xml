@@ -5,6 +5,10 @@
     <string name="inicio_sesion">Iniciar sesión</string>
     <string name="cierre_sesion">Cerrar sesión</string>
     <string name="nombre_usuario">Usted se ha identificado como Franco Brechbuhl</string>
+    <string name="indicador_consulta">Ingrese aquí su consulta</string>
+    <string name="tomar_foto">Añadir foto</string>
+    <string name="consulta">Consultar</string>
+
 
     <!-- Drawer -->
     <string name="title_activity_home_drawer">HomeDrawer</string>
