@@ -20,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
         btnInicioSesion = findViewById(R.id.btnInicioSesion);
         btnRegistro = findViewById(R.id.btnRegistro);
 
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.ic_flower);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         btnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
