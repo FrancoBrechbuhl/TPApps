@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ public class NuevaConsulta extends AppCompatActivity {
 
     private Button btnTomarFoto;
     private Button btnConsultar;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,8 @@ public class NuevaConsulta extends AppCompatActivity {
         setContentView(R.layout.activity_consulta);
         btnTomarFoto = findViewById(R.id.btnAgregarFoto);
         btnConsultar = findViewById(R.id.btnConsultar);
+        imageView = findViewById(R.id.imageConsulta);
+        imageView.setVisibility(View.INVISIBLE);
 
         btnTomarFoto.setOnClickListener(new View.OnClickListener() {
             @Override
