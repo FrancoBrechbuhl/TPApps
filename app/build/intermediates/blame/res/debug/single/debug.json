@@ -1936,6 +1936,10 @@
         "source": "C:\\Users\\Usuario\\.gradle\\caches\\transforms-2\\files-2.1\\37ec02f661e3547c5499ecdfd9f3cd1f\\appcompat-1.1.0\\res\\anim\\btn_radio_to_on_mtrl_ring_outer_animation.xml"
     },
     {
+        "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\xml_file_path.xml.flat",
+        "source": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\src\\main\\res\\xml\\file_path.xml"
+    },
+    {
         "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_black_16dp.png.flat",
         "source": "C:\\Users\\Usuario\\.gradle\\caches\\transforms-2\\files-2.1\\37ec02f661e3547c5499ecdfd9f3cd1f\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_ic_star_black_16dp.png"
     },
