@@ -4,10 +4,13 @@
     <string name="registro">Registro</string>
     <string name="inicio_sesion">Iniciar sesión</string>
     <string name="cierre_sesion">Cerrar sesión</string>
-    <string name="nombre_usuario">Usted se ha identificado como Franco Brechbuhl</string>
     <string name="indicador_consulta">Ingrese aquí su consulta</string>
     <string name="tomar_foto">Añadir foto</string>
     <string name="consulta">Consultar</string>
+    <string name="nombre_usuario">Nombre de usuario</string>
+    <string name="password_usuario">Contraseña</string>
+    <string name="productor">Productor</string>
+    <string name="ingeniero">Ingeniero</string>
 
 
     <!-- Drawer -->

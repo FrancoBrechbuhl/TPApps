@@ -1,5 +1,7 @@
 package com.B3B.farmbros;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,10 +9,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -19,6 +22,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Button btnCierreSesion;
+    private TextView txtIdentificadorUsuario;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private NavigationView mNavigationView;
@@ -27,6 +31,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_drawer);
+
+        txtIdentificadorUsuario = findViewById(R.id.txtIdentificadorUsuario);
         btnCierreSesion = findViewById(R.id.btnCierreSesion);
         mNavigationView = findViewById(R.id.navigation_view);
         mDrawerLayout = findViewById(R.id.drawer_layout);
@@ -45,15 +51,34 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
         mNavigationView.setNavigationItemSelectedListener(this);
+
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.ic_flower);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_options);
+        String userName = getIntent().getExtras().getString("userName");
+        txtIdentificadorUsuario.setText("Usted se ha identificado como "+ userName);
 
         btnCierreSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"Se pulso cerrar sesión", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(Home.this);
+                builder.setMessage("Está seguro que desea cerrar la sesión?")
+                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                setResult(Activity.RESULT_OK);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        });
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
     }
@@ -64,7 +89,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             mDrawerLayout.closeDrawer(GravityCompat.START);
         }
         else {
-            super.onBackPressed();
+            //no hacer nada porque para volver atras debe pulsar cerrar sesión
         }
     }
 
