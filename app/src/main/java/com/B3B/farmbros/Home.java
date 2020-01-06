@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +18,11 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
+
+/*
+    Esta clase es la principal, aqui se encuentra la barra deslizable con el menu que tiene las
+    opciones disponibles de la aplicación
+ */
 
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Button btnCierreSesion;
@@ -36,6 +40,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         btnCierreSesion = findViewById(R.id.btnCierreSesion);
         mNavigationView = findViewById(R.id.navigation_view);
         mDrawerLayout = findViewById(R.id.drawer_layout);
+
+        //el drawer toggle se usa para que la barra deslizable se pueda abrir con el boton de la action bar
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_opened, R.string.drawer_closed) {
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
@@ -50,8 +56,10 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
+
         mNavigationView.setNavigationItemSelectedListener(this);
 
+        //código para mostrar el logo en la action bar
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.ic_flower);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
@@ -67,6 +75,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                         .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
+                                //si se cierra sesión, se retorna a la actividad que llamó (mainActivity)
                                 setResult(Activity.RESULT_OK);
                                 finish();
                             }
@@ -86,6 +95,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     @Override
     public void onBackPressed(){
         if(mDrawerLayout.isDrawerOpen(GravityCompat.START)){
+            //si se presiona el boton de volver atras (de Android) y el drawer está abierto, primero hay que cerrarlo
             mDrawerLayout.closeDrawer(GravityCompat.START);
         }
         else {
@@ -129,11 +139,16 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 return true;
             case android.R.id.home:
                 onBackPressed();
-                Log.d("ENTRO", "Switch");
                 return true;
             default:
                 return true;
         }
     }
 
+    @Override
+    protected void onStart(){
+        super.onStart();
+        //se cierra siempre el drawer para evitar que si se retorna de una actividad se muestre abierto
+        mDrawerLayout.closeDrawer(GravityCompat.START);
+    }
 }

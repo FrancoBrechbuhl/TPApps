@@ -21,6 +21,10 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/*
+    Esta clase representa la actividad que permite crear una nueva consulta
+ */
+
 public class NuevaConsulta extends AppCompatActivity {
 
     private Button btnTomarFoto;
@@ -38,10 +42,15 @@ public class NuevaConsulta extends AppCompatActivity {
         fotoConsulta = findViewById(R.id.imageConsulta);
         fotoConsulta.setVisibility(View.INVISIBLE);
 
+        //código para mostrar el logo en la action bar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.ic_flower);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         btnTomarFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Copiado y pegado de SendMeal
+                //Copiado y pegado de SendMeal para tomar una foto
                 Intent takeFoto = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 if(takeFoto.resolveActivity(getPackageManager()) != null){
                     File photoFile = null;
@@ -66,10 +75,21 @@ public class NuevaConsulta extends AppCompatActivity {
                 //TODO: implementar consulta en el API REST
             }
         });
+
+        fotoConsulta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //aca se permite tocar la foto y ampliarla, como se realiza usualmente en otras apps como Twitter
+                File file = new File(pathFoto);
+                final Intent intent = new Intent(Intent.ACTION_VIEW).setDataAndType(FileProvider.getUriForFile(getApplicationContext(), "com.B3B.farmbros.android.fileprovider", file), "image/*").addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
         if(REQUEST_IMAGE_SAVE == requestCode && resultCode == RESULT_OK){
             File file = new File(pathFoto);
             try{
