@@ -32,6 +32,7 @@ public class NuevaConsulta extends AppCompatActivity {
     static ImageView fotoConsulta;
     static final int REQUEST_IMAGE_SAVE = 1;
     static String pathFoto;
+    private final int CODE_ACTIVITY_MAPS = 9;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class NuevaConsulta extends AppCompatActivity {
         fotoConsulta.setVisibility(View.INVISIBLE);
 
         //código para mostrar el logo en la action bar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.ic_flower);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
@@ -71,8 +73,11 @@ public class NuevaConsulta extends AppCompatActivity {
         btnConsultar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"Se pulso consultar", Toast.LENGTH_SHORT).show();
-                //TODO: implementar consulta en el API REST
+                //se va al mapa para marcar la ubicación del lote a consultar
+                Intent i1 = new Intent(getApplicationContext(), MapsActivity.class);
+                String userName = getIntent().getExtras().getString("userName");
+                i1.putExtra("userName", userName);
+                startActivityForResult(i1, CODE_ACTIVITY_MAPS);
             }
         });
 
@@ -103,6 +108,13 @@ public class NuevaConsulta extends AppCompatActivity {
             catch (IOException ex){
                 ex.printStackTrace();
             }
+        }
+        else if(requestCode == CODE_ACTIVITY_MAPS && resultCode == RESULT_OK){
+            String userName = getIntent().getExtras().getString("userName");
+            Intent i1 = new Intent(getApplicationContext(), Home.class);
+            i1.putExtra("userName", userName);
+            startActivity(i1);
+            //TODO: implementar consulta en el API REST
         }
     }
 

@@ -35,4 +35,5 @@
     <string name="ver_consultas_realizadas">Ver consultas realizadas</string>
     <string name="chats">Chats</string>
     <string name="mi_perfil">Mi perfil</string>
+    <string name="title_activity_maps">Mapa</string>
 </resources>

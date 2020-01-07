@@ -123,18 +123,26 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         switch (menuItem.getItemId()){
             case R.id.menuItemNuevaConsulta:
                 i1 = new Intent (this, NuevaConsulta.class);
+                String userName = getIntent().getExtras().getString("userName");
+                i1.putExtra("userName", userName);
                 startActivity(i1);
                 return true;
             case R.id.menuItemVerConsultasRealizadas:
                 //i1 = new Intent (this,ConsultasRealizadas.class);
+                //String userName2 = getIntent().getExtras().getString("userName");
+                //i1.putExtra("userName", userName2);
                 //startActivity(i1);
                 return true;
             case R.id.menuItemChats:
                 //i1 = new Intent (this,Chat.class);
+                //String userName3 = getIntent().getExtras().getString("userName");
+                //i1.putExtra("userName", userName3);
                 //startActivity(i1);
                 return true;
             case R.id.menuItemMiPerfil:
                 //i1 = new Intent (this,Perfil.class);
+                //String userName4 = getIntent().getExtras().getString("userName");
+                //i1.putExtra("userName", userName4);
                 //startActivity(i1);
                 return true;
             case android.R.id.home:
