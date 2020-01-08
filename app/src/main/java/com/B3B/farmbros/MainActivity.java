@@ -111,8 +111,10 @@ public class MainActivity extends AppCompatActivity {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             if(account != null){
                 String userName = account.getDisplayName();
+                String email = account.getEmail();
                 Intent i1 = new Intent(getApplicationContext(), Home.class);
                 i1.putExtra("userName", userName);
+                i1.putExtra("email", email);
                 i1.putExtra("profesion", profesion);
                 startActivityForResult(i1, CODE_ACTIVITY_HOME);
             }

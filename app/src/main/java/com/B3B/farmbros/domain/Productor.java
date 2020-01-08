@@ -3,29 +3,20 @@ package com.B3B.farmbros.domain;
 import java.time.LocalDateTime;
 
 public class Productor {
-    private String nombre;
-    private String apellido;
+    private String nombreApellido;
     private LocalDateTime fechaNacimiento;
-    private String dni;
+    private String email;
 
     public Productor(){
 
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreApellido() {
+        return nombreApellido;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setNombreApellido(String nombreApellido) {
+        this.nombreApellido = nombreApellido;
     }
 
     public LocalDateTime getFechaNacimiento() {
@@ -36,11 +27,11 @@ public class Productor {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getDni() {
-        return dni;
+    public String getEmail() {
+        return email;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

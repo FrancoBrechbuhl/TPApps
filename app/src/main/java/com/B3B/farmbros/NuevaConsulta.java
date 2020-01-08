@@ -1,25 +1,36 @@
 package com.B3B.farmbros;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
+import com.B3B.farmbros.domain.Consulta;
+import com.B3B.farmbros.domain.Productor;
+import com.B3B.farmbros.retrofit.ConsultaRepository;
+
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Random;
 
 /*
     Esta clase representa la actividad que permite crear una nueva consulta
@@ -29,6 +40,8 @@ public class NuevaConsulta extends AppCompatActivity {
 
     private Button btnTomarFoto;
     private Button btnConsultar;
+    private EditText txtConsulta;
+    private String fotoEnBase64;
     static ImageView fotoConsulta;
     static final int REQUEST_IMAGE_SAVE = 1;
     static String pathFoto;
@@ -40,6 +53,7 @@ public class NuevaConsulta extends AppCompatActivity {
         setContentView(R.layout.activity_consulta);
         btnTomarFoto = findViewById(R.id.btnAgregarFoto);
         btnConsultar = findViewById(R.id.btnConsultar);
+        txtConsulta = findViewById(R.id.txtFieldConsulta);
         fotoConsulta = findViewById(R.id.imageConsulta);
         fotoConsulta.setVisibility(View.INVISIBLE);
 
@@ -74,10 +88,17 @@ public class NuevaConsulta extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //se va al mapa para marcar la ubicación del lote a consultar
-                Intent i1 = new Intent(getApplicationContext(), MapsActivity.class);
-                String userName = getIntent().getExtras().getString("userName");
-                i1.putExtra("userName", userName);
-                startActivityForResult(i1, CODE_ACTIVITY_MAPS);
+                AlertDialog.Builder builder = new AlertDialog.Builder(NuevaConsulta.this);
+                builder.setMessage("Por favor, seleccione la ubicación del terreno sobre el cual quiere consultar")
+                        .setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent i1 = new Intent(getApplicationContext(), MapsActivity.class);
+                                startActivityForResult(i1, CODE_ACTIVITY_MAPS);
+                            }
+                        });
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 
@@ -98,6 +119,11 @@ public class NuevaConsulta extends AppCompatActivity {
         if(REQUEST_IMAGE_SAVE == requestCode && resultCode == RESULT_OK){
             File file = new File(pathFoto);
             try{
+                //se codifica la foto en base 64 para guardarla en el Api REST
+                FileInputStream fis = new FileInputStream(file);
+                byte[] bytesFoto = new byte[(int) file.length()];
+                fis.read(bytesFoto);
+                fotoEnBase64 = Base64.encodeToString(bytesFoto, Base64.DEFAULT);
                 Bitmap imageBitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),Uri.fromFile(file));
                 fotoConsulta.setImageBitmap(imageBitmap);
                 fotoConsulta.setVisibility(View.VISIBLE);
@@ -109,12 +135,29 @@ public class NuevaConsulta extends AppCompatActivity {
                 ex.printStackTrace();
             }
         }
-        else if(requestCode == CODE_ACTIVITY_MAPS && resultCode == RESULT_OK){
+        else if(requestCode == CODE_ACTIVITY_MAPS && resultCode == RESULT_OK) {
+            //se guarda la consulta en el Api REST
+            Random r = new Random();
+            int idConsulta = r.nextInt(10000) + 1;
+            Productor productor = new Productor();
+            productor.setNombreApellido(getIntent().getExtras().getString("userName"));
+            productor.setEmail(getIntent().getExtras().getString("email"));
+            Consulta consulta = new Consulta();
+            consulta.setIdConsulta(idConsulta);
+            consulta.setTextoConsulta(txtConsulta.getText().toString());
+            consulta.setFechaConsulta(LocalDateTime.now());
+            consulta.setLatConsulta(data.getExtras().getDouble("latitud"));
+            consulta.setLngConsulta(data.getExtras().getDouble("longitud"));
+            consulta.setRemitenteConsulta(productor);
+            consulta.setFotoConsultaBase64(fotoEnBase64);
+
+            ConsultaRepository.getInstance().crearConsulta(consulta);
+            Toast.makeText(getApplicationContext(), "La consulta se ha registrado con éxito", Toast.LENGTH_SHORT).show();
+
             String userName = getIntent().getExtras().getString("userName");
             Intent i1 = new Intent(getApplicationContext(), Home.class);
             i1.putExtra("userName", userName);
             startActivity(i1);
-            //TODO: implementar consulta en el API REST
         }
     }
 

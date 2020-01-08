@@ -124,7 +124,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             case R.id.menuItemNuevaConsulta:
                 i1 = new Intent (this, NuevaConsulta.class);
                 String userName = getIntent().getExtras().getString("userName");
+                String email = getIntent().getExtras().getString("email");
                 i1.putExtra("userName", userName);
+                i1.putExtra("email", email);
                 startActivity(i1);
                 return true;
             case R.id.menuItemVerConsultasRealizadas:

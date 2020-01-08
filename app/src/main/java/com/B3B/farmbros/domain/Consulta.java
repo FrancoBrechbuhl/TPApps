@@ -9,7 +9,7 @@ public class Consulta {
     private String fotoConsultaBase64;
     private double LatConsulta;
     private double LngConsulta;
-    private String remitenteConsulta;
+    private Productor remitenteConsulta;
 
     public Consulta(){
 
@@ -63,11 +63,11 @@ public class Consulta {
         LngConsulta = lngConsulta;
     }
 
-    public String getRemitenteConsulta() {
+    public Productor getRemitenteConsulta() {
         return remitenteConsulta;
     }
 
-    public void setRemitenteConsulta(String remitenteConsulta) {
+    public void setRemitenteConsulta(Productor remitenteConsulta) {
         this.remitenteConsulta = remitenteConsulta;
     }
 }
