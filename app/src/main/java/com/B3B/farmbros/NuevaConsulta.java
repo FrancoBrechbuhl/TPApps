@@ -138,7 +138,7 @@ public class NuevaConsulta extends AppCompatActivity {
         else if(requestCode == CODE_ACTIVITY_MAPS && resultCode == RESULT_OK) {
             //se guarda la consulta en el Api REST
             Random r = new Random();
-            int idConsulta = r.nextInt(10000) + 1;
+            int idConsulta = r.nextInt(10000) + 1; //TODO: generar bien los id
             Productor productor = new Productor();
             productor.setNombreApellido(getIntent().getExtras().getString("userName"));
             productor.setEmail(getIntent().getExtras().getString("email"));

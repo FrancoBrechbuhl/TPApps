@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnRegistro;
     private String profesion;
     private GoogleSignInClient googleSignInClient;
+    private static final int CODE_SIGNIN_GOOGLE = 999;
     private static final int CODE_ACTIVITY_HOME = 7;
 
     @Override
@@ -46,36 +47,11 @@ public class MainActivity extends AppCompatActivity {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         googleSignInClient = GoogleSignIn.getClient(getApplicationContext(), gso);
 
-        btnRegistro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String urlGmail = "https://accounts.google.com/signup/v2/webcreateaccount?service=mail&hl=es&continue=http%3A%2F%2Fmail.google.com%2Fmail%2F%3Fpc%3Dtopnav-about-es&flowName=GlifWebSignIn&flowEntry=SignUp#__utma=29003808.1113598014.1578326162.1578326162.1578326162.1&__utmb=29003808.0.10.1578326162&__utmc=29003808&__utmx=-&__utmz=29003808.1578326162.1.1.utmcsr=google%7Cutmccn=(organic)%7Cutmcmd=organic%7Cutmctr=(not%20provided)&__utmv=-&__utmk=114705604";
-                Uri uri = Uri.parse(urlGmail);
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-        });
-
         btnInicioSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Elija una opción").
-                        setItems(R.array.profesiones, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                if(i == 0){
-                                    profesion = "Productor";
-                                }
-                                else{
-                                    profesion = "Ingeniero agrónomo";
-                                }
-                                Intent signIn = googleSignInClient.getSignInIntent();
-                                startActivityForResult(signIn, 999);
-                            }
-                });
-                AlertDialog dialog = builder.create();
-                dialog.show();
+                Intent signIn = googleSignInClient.getSignInIntent();
+                startActivityForResult(signIn, CODE_SIGNIN_GOOGLE);
             }
         });
     }
@@ -97,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode,resultCode,data);
         //si recibe 999 se retorno desde Gmail, si recibe CODE_ACTIVITY_HOME retorna desde la actividad nuevaConsulta
-        if(requestCode == 999){
+        if(requestCode == CODE_SIGNIN_GOOGLE){
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
         }
@@ -110,6 +86,28 @@ public class MainActivity extends AppCompatActivity {
         try{
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             if(account != null){
+                //TODO: realizar consulta a retrofit pidiendo si el email esta registrado o no
+                /*
+                if(!registrado){
+                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Elija una opción").
+                        setItems(R.array.profesiones, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                if(i == 0){
+                                    profesion = "Productor";
+                                    Productor productor = new Productor();
+                                }
+                                else{
+                                    Ingeniero ingeniero = new Ingeniero();
+                                    profesion = "Ingeniero agrónomo";
+                                }
+                            }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                }
+                 */
                 String userName = account.getDisplayName();
                 String email = account.getEmail();
                 Intent i1 = new Intent(getApplicationContext(), Home.class);
