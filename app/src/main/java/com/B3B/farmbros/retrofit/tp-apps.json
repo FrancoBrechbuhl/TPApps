@@ -1,15 +1,6 @@
 {
-  "consultas": [
-    {
-      "LatConsulta": -31.63312122137348,
-      "LngConsulta": -60.673601366579526,
-      "fechaConsulta": {},
-      "idConsulta": 3234,
-      "remitenteConsulta": {
-        "nombreApellido": "Franco Brechbuhl"
-      },
-      "textoConsulta": "materazzi",
-      "id": 1
-    }
-  ]
+  "consultas": []
+  "productores": []
+  "ingenieros": []
+
 }
