@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ProductorRepository {
 
     private static ProductorRepository _INSTANCE;
-    public static String _SERVER = "http://192.168.43.100:5000";
+    public static String _SERVER = "http://10.0.2.2:5000";//"http://192.168.43.100:5000";
 
     private Productor productor;
 

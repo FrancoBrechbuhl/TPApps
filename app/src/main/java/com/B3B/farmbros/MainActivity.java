@@ -11,6 +11,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.B3B.farmbros.domain.Ingeniero;
+import com.B3B.farmbros.domain.Productor;
+import com.B3B.farmbros.retrofit.IngenieroRepository;
+import com.B3B.farmbros.retrofit.ProductorRepository;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -93,37 +97,52 @@ public class MainActivity extends AppCompatActivity {
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask){
         try{
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+            final GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             if(account != null){
-                //TODO: realizar consulta a retrofit pidiendo si el email esta registrado o no
-                /*
-                if(!registrado){
-                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Elija una opción").
-                        setItems(R.array.profesiones, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                if(i == 0){
-                                    profesion = "Productor";
-                                    Productor productor = new Productor();
-                                }
-                                else{
-                                    Ingeniero ingeniero = new Ingeniero();
-                                    profesion = "Ingeniero agrónomo";
-                                }
-                            }
-                });
-                AlertDialog dialog = builder.create();
-                dialog.show();
+                Intent home = new Intent(getApplicationContext(), Home.class);
+                Ingeniero cuentaIngeniero = IngenieroRepository.getInstance().buscarIngeniero(account.getEmail());
+                if (cuentaIngeniero == null) {
+                    Productor cuentaProductor = ProductorRepository.getInstance().buscarProductor(account.getEmail());
+                    if (cuentaProductor == null) {
+                        /*
+                        Dialogo de registro (eleccion de cuenta ing o prod)
+                         */
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                        builder.setTitle("Elija una opción").
+                                setItems(R.array.profesiones, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        if(i == 0){
+                                            Productor productor = new Productor();
+                                            productor.setNombre(account.getDisplayName());
+                                            productor.setEmail(account.getEmail());
+                                            profesion = "Productor";
+                                        }
+                                        else{
+                                            Ingeniero ingeniero = new Ingeniero();
+                                            ingeniero.setNombre(account.getDisplayName());
+                                            ingeniero.setEmail(account.getEmail());
+                                            profesion = "Ingeniero agrónomo";
+                                        }
+                                    }
+                                });
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                    } else {
+                        profesion = "Productor";
+                    }
+                } else {
+                    profesion = "Ingeniero agrónomo";
                 }
-                 */
+
                 String userName = account.getDisplayName();
                 String email = account.getEmail();
-                Intent i1 = new Intent(getApplicationContext(), Home.class);
-                i1.putExtra("userName", userName);
-                i1.putExtra("email", email);
-                i1.putExtra("profesion", profesion);
-                startActivityForResult(i1, CODE_ACTIVITY_HOME);
+
+                home.putExtra("userName", userName);
+                home.putExtra("email", email);
+                home.putExtra("profesion", profesion);
+
+                startActivityForResult(home, CODE_ACTIVITY_HOME);
             }
         }
         catch (ApiException e){
