@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class Productor {
 
     private String nombre;
-    private String apellido;
+    //private String apellido;
     private String email;
 
     /*
@@ -22,9 +22,11 @@ public class Productor {
         this.nombre = name;
     }
 
+/*
     public String getApellido() { return apellido;}
 
     public void setApellido(String app) { this.apellido = apellido;}
+*/
 
     public void setEmail(String email) { this.email = email;}
 

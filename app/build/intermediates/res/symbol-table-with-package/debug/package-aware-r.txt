@@ -1216,7 +1216,6 @@ id btnAgregarFoto
 id btnCierreSesion
 id btnConsultar
 id btnInicioSesion
-id btnRegistro
 id buttonPanel
 id cancel_action
 id center
