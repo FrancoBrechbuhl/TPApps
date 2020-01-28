@@ -1,7 +1,7 @@
-#Wed Jan 22 11:40:09 ART 2020
-base.0=C\:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
+#Mon Jan 27 09:58:53 ART 2020
+base.0=/home/elias/AndroidStudioProjects/TPApps/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=C\:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
+base.1=/home/elias/AndroidStudioProjects/TPApps/app/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex

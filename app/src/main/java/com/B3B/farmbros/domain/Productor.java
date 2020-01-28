@@ -3,35 +3,33 @@ package com.B3B.farmbros.domain;
 import java.time.LocalDateTime;
 
 public class Productor {
-    private String nombreApellido;
-    private LocalDateTime fechaNacimiento;
+
+    private String nombre;
+    private String apellido;
     private String email;
 
-    public Productor(){
+    /*
+    Las consultas no se si esta tan bueno tenerlas en memoria o es mejor pedirlas
+     */
 
+    public Productor(){}
+
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getNombreApellido() {
-        return nombreApellido;
+    public void setNombre(String name) {
+        this.nombre = name;
     }
 
-    public void setNombreApellido(String nombreApellido) {
-        this.nombreApellido = nombreApellido;
-    }
+    public String getApellido() { return apellido;}
 
-    public LocalDateTime getFechaNacimiento() {
-        return fechaNacimiento;
-    }
+    public void setApellido(String app) { this.apellido = apellido;}
 
-    public void setFechaNacimiento(LocalDateTime fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
+    public void setEmail(String email) { this.email = email;}
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }

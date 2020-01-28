@@ -33,25 +33,13 @@
         app:layout_constraintVertical_bias="0.10" />
 
     <Button
-        android:id="@+id/btnRegistro"
-        android:layout_width="350dp"
-        android:layout_height="65dp"
-        android:text="@string/registro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/imgPantallaInicio1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.75"/>
-
-    <Button
         android:id="@+id/btnInicioSesion"
         android:layout_width="350dp"
         android:layout_height="65dp"
         android:text="@string/inicio_sesion"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/btnRegistro"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.55"/>
+        app:layout_constraintTop_toBottomOf="@+id/imgPantallaInicio1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

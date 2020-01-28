@@ -3,6 +3,7 @@ package com.B3B.farmbros.domain;
 import java.time.LocalDateTime;
 
 public class Consulta {
+
     private int idConsulta;
     private String textoConsulta;
     private LocalDateTime fechaConsulta;
@@ -10,6 +11,7 @@ public class Consulta {
     private double LatConsulta;
     private double LngConsulta;
     private Productor remitenteConsulta;
+    private Ingeniero encargadoConsulta;
 
     public Consulta(){
 
@@ -70,4 +72,8 @@ public class Consulta {
     public void setRemitenteConsulta(Productor remitenteConsulta) {
         this.remitenteConsulta = remitenteConsulta;
     }
+
+    public Ingeniero getEncargadoConsulta(){return encargadoConsulta;}
+
+    public void setEncargadoConsulta(Ingeniero ingeniero) {encargadoConsulta = ingeniero;}
 }

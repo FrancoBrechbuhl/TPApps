@@ -24,26 +24,33 @@ import com.google.android.gms.tasks.Task;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnInicioSesion;
-    private Button btnRegistro;
-    private String profesion;
-    private GoogleSignInClient googleSignInClient;
     private static final int CODE_SIGNIN_GOOGLE = 999;
     private static final int CODE_ACTIVITY_HOME = 7;
 
+    private Button btnInicioSesion;
+    private String profesion;
+    private GoogleSignInClient googleSignInClient;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btnInicioSesion = findViewById(R.id.btnInicioSesion);
-        btnRegistro = findViewById(R.id.btnRegistro);
 
-        //código para mostrar el logo en la action bar
+        /*
+            código para mostrar el logo en la action bar
+        */
+
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.ic_flower);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        //inicio de sesion por defecto de Gmail
+        /*
+        inicio de sesion por defecto de Gmail
+        */
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         googleSignInClient = GoogleSignIn.getClient(getApplicationContext(), gso);
 
@@ -72,7 +79,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode,resultCode,data);
-        //si recibe 999 se retorno desde Gmail, si recibe CODE_ACTIVITY_HOME retorna desde la actividad nuevaConsulta
+        /*
+        si recibe CODE_SIGNIN_GOOGLE se retorno desde Gmail, si recibe CODE_ACTIVITY_HOME retorna desde la actividad nuevaConsulta
+        */
         if(requestCode == CODE_SIGNIN_GOOGLE){
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
