@@ -66,6 +66,9 @@
             android:name=".Home"
             android:parentActivityName=".MainActivity" />
         <activity
+            android:name=".CrearCuentaActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".NuevaConsulta"
             android:parentActivityName=".Home" />
     </application>

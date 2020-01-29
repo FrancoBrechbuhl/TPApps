@@ -1215,6 +1215,8 @@ id bottom
 id btnAgregarFoto
 id btnCierreSesion
 id btnConsultar
+id btnCrearIngeniero
+id btnCrearProductor
 id btnInicioSesion
 id buttonPanel
 id cancel_action
@@ -1384,6 +1386,7 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textView
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1472,6 +1475,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_consulta
+layout activity_crear_cuenta
 layout activity_home_drawer
 layout activity_main
 layout activity_maps
@@ -1545,6 +1549,8 @@ string action_settings
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
+string btn_crear_ingeniero
+string btn_crear_productor
 string character_counter_content_description
 string character_counter_pattern
 string chats
@@ -1606,6 +1612,7 @@ string texto_bienvenida
 string title_activity_home_drawer
 string title_activity_maps
 string tomar_foto
+string txt_elegir_cuenta
 string ver_consultas_realizadas
 style ActionBarTheme
 style AlertDialog_AppCompat

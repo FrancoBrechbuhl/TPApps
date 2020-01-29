@@ -36,4 +36,9 @@
     <string name="chats">Chats</string>
     <string name="mi_perfil">Mi perfil</string>
     <string name="title_activity_maps">Mapa</string>
+
+    <!-- Crear cuenta -->
+    <string name="btn_crear_productor">Productor</string>
+    <string name="btn_crear_ingeniero">Ingeniero agronomo</string>
+    <string name="txt_elegir_cuenta">Elija la actividad que desarrolla para continuar</string>
 </resources>

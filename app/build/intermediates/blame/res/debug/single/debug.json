@@ -1600,6 +1600,10 @@
         "source": "/home/elias/.gradle/caches/transforms-2/files-2.1/37ec02f661e3547c5499ecdfd9f3cd1f/appcompat-1.1.0/res/drawable-xxhdpi-v4/abc_ic_star_half_black_36dp.png"
     },
     {
+        "merged": "/home/elias/AndroidStudioProjects/TPApps/app/build/intermediates/res/merged/debug/layout_activity_crear_cuenta.xml.flat",
+        "source": "/home/elias/AndroidStudioProjects/TPApps/app/src/main/res/layout/activity_crear_cuenta.xml"
+    },
+    {
         "merged": "/home/elias/AndroidStudioProjects/TPApps/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
         "source": "/home/elias/.gradle/caches/transforms-2/files-2.1/291563c6708268cf4683b088770f2b39/play-services-base-17.0.0/res/drawable-xxhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
     },

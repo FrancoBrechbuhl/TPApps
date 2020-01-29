@@ -1,6 +1,12 @@
 {
   "consultas": [],
   "productores": [],
-  "ingenieros": []
-
+  "ingenieros": [
+    {
+      "califiacion": 0,
+      "email": "eliasbrizi@gmail.com",
+      "nombre": "elias brizi",
+      "id": 1
+    }
+  ]
 }

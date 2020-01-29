@@ -19,6 +19,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInStatusCodes;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 
@@ -31,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int CODE_SIGNIN_GOOGLE = 999;
     private static final int CODE_ACTIVITY_HOME = 7;
 
-    private Button btnInicioSesion;
+    private SignInButton btnInicioSesion;
     private String profesion;
     private GoogleSignInClient googleSignInClient;
 
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btnInicioSesion = findViewById(R.id.btnInicioSesion);
+        btnInicioSesion = (SignInButton) findViewById(R.id.btnInicioSesion);
 
         /*
             código para mostrar el logo en la action bar
@@ -55,7 +57,10 @@ public class MainActivity extends AppCompatActivity {
         inicio de sesion por defecto de Gmail
         */
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestServerAuthCode("220911260245-atfg57no69qchq5t5k1dislh85lbf9k1.apps.googleusercontent.com")
+                .requestEmail()
+                .build();
         googleSignInClient = GoogleSignIn.getClient(getApplicationContext(), gso);
 
         btnInicioSesion.setOnClickListener(new View.OnClickListener() {
@@ -99,51 +104,42 @@ public class MainActivity extends AppCompatActivity {
         try{
             final GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             if(account != null){
-                Intent home = new Intent(getApplicationContext(), Home.class);
                 Ingeniero cuentaIngeniero = IngenieroRepository.getInstance().buscarIngeniero(account.getEmail());
                 if (cuentaIngeniero == null) {
                     Productor cuentaProductor = ProductorRepository.getInstance().buscarProductor(account.getEmail());
                     if (cuentaProductor == null) {
-                        /*
-                        Dialogo de registro (eleccion de cuenta ing o prod)
-                         */
-                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                        builder.setTitle("Elija una opción").
-                                setItems(R.array.profesiones, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        if(i == 0){
-                                            Productor productor = new Productor();
-                                            productor.setNombre(account.getDisplayName());
-                                            productor.setEmail(account.getEmail());
-                                            profesion = "Productor";
-                                        }
-                                        else{
-                                            Ingeniero ingeniero = new Ingeniero();
-                                            ingeniero.setNombre(account.getDisplayName());
-                                            ingeniero.setEmail(account.getEmail());
-                                            profesion = "Ingeniero agrónomo";
-                                        }
-                                    }
-                                });
-                        AlertDialog dialog = builder.create();
-                        dialog.show();
+                        Intent crearCuenta = new Intent(getApplicationContext(),CrearCuentaActivity.class);
+                        crearCuenta.putExtra("nombre",account.getDisplayName());
+                        crearCuenta.putExtra("email",account.getEmail());
+                        startActivity(crearCuenta);
                     } else {
                         profesion = "Productor";
+                        String userName = account.getDisplayName();
+                        String email = account.getEmail();
+
+                        Intent home = new Intent(getApplicationContext(), Home.class);
+                        home.putExtra("userName", userName);
+                        home.putExtra("email", email);
+                        home.putExtra("profesion", profesion);
+
+                        startActivityForResult(home, CODE_ACTIVITY_HOME);
+
                     }
                 } else {
                     profesion = "Ingeniero agrónomo";
+                    String userName = account.getDisplayName();
+                    String email = account.getEmail();
+
+                    Intent home = new Intent(getApplicationContext(), Home.class);
+                    home.putExtra("userName", userName);
+                    home.putExtra("email", email);
+                    home.putExtra("profesion", profesion);
+
+                    startActivityForResult(home, CODE_ACTIVITY_HOME);
+
                 }
 
-                String userName = account.getDisplayName();
-                String email = account.getEmail();
-
-                home.putExtra("userName", userName);
-                home.putExtra("email", email);
-                home.putExtra("profesion", profesion);
-
-                startActivityForResult(home, CODE_ACTIVITY_HOME);
-            }
+                }
         }
         catch (ApiException e){
             Log.d("FALLO", "Código de error: "+e.getStatusCode());

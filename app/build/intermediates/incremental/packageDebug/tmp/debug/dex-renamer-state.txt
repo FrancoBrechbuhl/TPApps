@@ -1,4 +1,4 @@
-#Tue Jan 28 19:26:05 ART 2020
+#Wed Jan 29 14:28:57 ART 2020
 base.0=/home/elias/AndroidStudioProjects/TPApps/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
