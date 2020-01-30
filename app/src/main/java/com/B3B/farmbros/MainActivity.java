@@ -80,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
             String userName = account.getDisplayName();
             Intent i1 = new Intent(getApplicationContext(), Home.class);
             i1.putExtra("userName", userName);
+            if (IngenieroRepository.getInstance().buscarIngeniero(account.getEmail()) != null) profesion = "ingeniero";
+            else profesion = "productor";
             i1.putExtra("profesion", profesion);
             startActivityForResult(i1, CODE_ACTIVITY_HOME);
         }
@@ -113,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                         crearCuenta.putExtra("email",account.getEmail());
                         startActivity(crearCuenta);
                     } else {
-                        profesion = "Productor";
+                        profesion = "productor";
                         String userName = account.getDisplayName();
                         String email = account.getEmail();
 
@@ -126,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 } else {
-                    profesion = "Ingeniero agrónomo";
+                    profesion = "ingeniero";
                     String userName = account.getDisplayName();
                     String email = account.getEmail();
 

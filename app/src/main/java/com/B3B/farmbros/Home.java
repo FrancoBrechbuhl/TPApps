@@ -65,6 +65,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         getSupportActionBar().setLogo(R.drawable.ic_flower);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_options);
+
         String userName = getIntent().getExtras().getString("userName");
         txtIdentificadorUsuario.setText("Usted se ha identificado como "+ userName);
 
@@ -106,7 +107,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.drawer_menu, menu);
+        if (this.getIntent().getExtras().getString("profesion").equals("productor"))
+            getMenuInflater().inflate(R.menu.drawer_menu_productor, menu);
+        else getMenuInflater().inflate(R.menu.drawer_menu_ingeniero, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -147,6 +150,16 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 //String userName4 = getIntent().getExtras().getString("userName");
                 //i1.putExtra("userName", userName4);
                 //startActivity(i1);
+                return true;
+            case R.id.menuItemVerConsultasAtendidas:
+                /*
+                intent de consultas asociadas a ingeniero
+                 */
+                return true;
+            case R.id.menuItemForoDeConsultas:
+                /*
+                intent que muestra consultas sin atender
+                 */
                 return true;
             case android.R.id.home:
                 onBackPressed();
