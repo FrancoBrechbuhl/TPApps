@@ -30,12 +30,16 @@
     <string name="drawer_closed"></string>
     <string name="drawer_opened"></string>
 
-    <!-- Drawer options -->
-    <string name="nueva_consulta">Nueva consulta</string>
-    <string name="ver_consultas_realizadas">Ver consultas realizadas</string>
+    <!-- Drawer options Productor-->
+    <string name="nueva_consulta">Consultar</string>
+    <string name="ver_consultas_realizadas">Mis consultas realizadas</string>
     <string name="chats">Chats</string>
     <string name="mi_perfil">Mi perfil</string>
     <string name="title_activity_maps">Mapa</string>
+
+    <!-- Drawer options Ingeniero -->
+    <string name="foro_consultas">Foro de consultas</string>
+    <string name="ver_consultas_atendidas">Mis consultas atendidas</string>
 
     <!-- Crear cuenta -->
     <string name="btn_crear_productor">Productor</string>

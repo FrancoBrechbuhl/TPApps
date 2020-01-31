@@ -1,15 +1,14 @@
 package com.B3B.farmbros;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
 import com.B3B.farmbros.domain.Ingeniero;
 import com.B3B.farmbros.domain.Productor;
@@ -19,7 +18,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInStatusCodes;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
@@ -36,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private SignInButton btnInicioSesion;
     private String profesion;
     private GoogleSignInClient googleSignInClient;
-
+    private GoogleSignInAccount account;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,10 +76,13 @@ public class MainActivity extends AppCompatActivity {
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
         if(account != null){
             String userName = account.getDisplayName();
-            Intent i1 = new Intent(getApplicationContext(), Home.class);
-            i1.putExtra("userName", userName);
-            i1.putExtra("profesion", profesion);
-            startActivityForResult(i1, CODE_ACTIVITY_HOME);
+            //Intent i1 = new Intent(getApplicationContext(), Home.class);
+            //i1.putExtra("userName", userName);
+            //if (IngenieroRepository.getInstance().buscarIngeniero(account.getEmail(),miHandler) != null) profesion = "ingeniero";
+            //else profesion = "productor";
+            //i1.putExtra("profesion", profesion);
+            //startActivityForResult(i1, CODE_ACTIVITY_HOME);
+            IngenieroRepository.getInstance().buscarIngeniero(account.getEmail(),miHandler);
         }
     }
 
@@ -102,18 +103,51 @@ public class MainActivity extends AppCompatActivity {
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask){
         try{
-            final GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+            /*final GoogleSignInAccount */account = completedTask.getResult(ApiException.class);
             if(account != null){
-                Ingeniero cuentaIngeniero = IngenieroRepository.getInstance().buscarIngeniero(account.getEmail());
-                if (cuentaIngeniero == null) {
-                    Productor cuentaProductor = ProductorRepository.getInstance().buscarProductor(account.getEmail());
+                /*
+                busco primero si exite cuenta tipo ingeniero, en el handler hago el resto
+                 */
+                Ingeniero cuentaIngeniero = IngenieroRepository.getInstance().buscarIngeniero(account.getEmail(),miHandler);
+                }
+        }
+        catch (ApiException e){
+            Log.d("FALLO", "Código de error: "+e.getStatusCode());
+            e.printStackTrace();
+        }
+    }
+
+    Handler miHandler = new Handler(Looper.myLooper()){
+        @Override
+        public void handleMessage(Message msg) {
+            Log.d("APP_2","Vuelve al handler"+msg.arg1);
+
+            switch (msg.arg1 ){
+                case IngenieroRepository._BUSCAR_ING:
+                    Ingeniero cuentaIngeniero = IngenieroRepository.getInstance().getIngeniero();
+                    if (cuentaIngeniero == null)
+                        ProductorRepository.getInstance().buscarProductor(account.getEmail(),miHandler);
+                    else {
+                            profesion = "ingeniero";
+                            String userName = account.getDisplayName();
+                            String email = account.getEmail();
+
+                            Intent home = new Intent(getApplicationContext(), Home.class);
+                            home.putExtra("userName", userName);
+                            home.putExtra("email", email);
+                            home.putExtra("profesion", profesion);
+
+                            startActivityForResult(home, CODE_ACTIVITY_HOME);}
+                    break;
+                case ProductorRepository._BUSCAR_PROD:
+                    Productor cuentaProductor = ProductorRepository.getInstance().getProductor();
                     if (cuentaProductor == null) {
                         Intent crearCuenta = new Intent(getApplicationContext(),CrearCuentaActivity.class);
                         crearCuenta.putExtra("nombre",account.getDisplayName());
                         crearCuenta.putExtra("email",account.getEmail());
                         startActivity(crearCuenta);
                     } else {
-                        profesion = "Productor";
+                        profesion = "productor";
                         String userName = account.getDisplayName();
                         String email = account.getEmail();
 
@@ -125,26 +159,8 @@ public class MainActivity extends AppCompatActivity {
                         startActivityForResult(home, CODE_ACTIVITY_HOME);
 
                     }
-                } else {
-                    profesion = "Ingeniero agrónomo";
-                    String userName = account.getDisplayName();
-                    String email = account.getEmail();
-
-                    Intent home = new Intent(getApplicationContext(), Home.class);
-                    home.putExtra("userName", userName);
-                    home.putExtra("email", email);
-                    home.putExtra("profesion", profesion);
-
-                    startActivityForResult(home, CODE_ACTIVITY_HOME);
-
-                }
-
-                }
+                    break;
+            }
         }
-        catch (ApiException e){
-            Log.d("FALLO", "Código de error: "+e.getStatusCode());
-            e.printStackTrace();
-        }
-    }
-
+    };
 }

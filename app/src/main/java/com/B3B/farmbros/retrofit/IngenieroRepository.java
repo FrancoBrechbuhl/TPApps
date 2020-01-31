@@ -1,12 +1,11 @@
 package com.B3B.farmbros.retrofit;
 
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 
 
 import com.B3B.farmbros.domain.Ingeniero;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -18,6 +17,15 @@ public class IngenieroRepository {
 
     private static IngenieroRepository _INSTANCE;
     public static String _SERVER = /*"http://192.168.1.12:5000";*/"http://10.0.2.2:5000";//"http://192.168.43.100:5000";
+
+    /*
+    valores de respuesta para el handler
+     */
+    public final static int _AGREGAR_ING = 100;
+    public final static int _MODIFICAR_ING = 101;
+    public final static int _BUSCAR_ING = 102;
+    public final static int _BORRAR_ING = 103;
+    public final static int _ERROR_ING = 199;
 
     private Ingeniero ingeniero;
 
@@ -66,7 +74,7 @@ public class IngenieroRepository {
         });
     }
 
-    public Ingeniero buscarIngeniero(final String email) {
+    public Ingeniero buscarIngeniero(final String email, final Handler handler) {
 
         Call<Ingeniero> llamada = this.ingenieroRest.buscarIngeniero(email);
         llamada.enqueue(new Callback<Ingeniero>() {
@@ -75,6 +83,9 @@ public class IngenieroRepository {
                 if (response.isSuccessful()) {
                     ingeniero = response.body();
                     Log.d("Request to Retrofit", "Successful");
+                    Message m = new Message();
+                    m.arg1 = _BUSCAR_ING;
+                    handler.sendMessage(m);
                 } else {
                     ingeniero = null;
                     Log.d("Request to Retrofit", "Null");
@@ -86,6 +97,10 @@ public class IngenieroRepository {
                 Log.d("Request to Retrofit", "Fail");
             }
         });
+        return ingeniero;
+    }
+
+    public Ingeniero getIngeniero(){
         return ingeniero;
     }
 }

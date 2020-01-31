@@ -647,6 +647,7 @@
     <string name="drawer_opened"/>
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
+    <string name="foro_consultas">Foro de consultas</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCuYHwH_F4qzlVLJYDJWIR5FZWS_eN5loA</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
     <string name="indicador_consulta">Ingrese aquí su consulta</string>
@@ -666,7 +667,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="nombre_usuario">Nombre de usuario</string>
-    <string name="nueva_consulta">Nueva consulta</string>
+    <string name="nueva_consulta">Consultar</string>
     <string name="password_toggle_content_description">Show password</string>
     <string name="password_usuario">Contraseña</string>
     <string name="path_password_eye" translatable="false">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
@@ -682,7 +683,8 @@
     <string name="title_activity_maps">Mapa</string>
     <string name="tomar_foto">Añadir foto</string>
     <string name="txt_elegir_cuenta">Elija la actividad que desarrolla para continuar</string>
-    <string name="ver_consultas_realizadas">Ver consultas realizadas</string>
+    <string name="ver_consultas_atendidas">Mis consultas atendidas</string>
+    <string name="ver_consultas_realizadas">Mis consultas realizadas</string>
     <style name="ActionBarTheme" parent="Theme.AppCompat.Light">
         
         <item name="colorPrimary">@color/actionbar</item>

@@ -65,5 +65,6 @@ public class CrearCuentaActivity extends AppCompatActivity {
         home.putExtra("email", email);
         home.putExtra("profesion", profesion);
         startActivity(home);
+        this.finish();
     }
 }

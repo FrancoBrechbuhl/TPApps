@@ -19,6 +19,16 @@ public class ConsultaRepository {
     private List<Consulta> listaConsultas;
     private Consulta consulta;
 
+    /*
+    valores de respuesta para el handler
+     */
+    public final static int _AGREGAR_CONS = 300;
+    public final static int _MODIFICAR_CONS = 301;
+    public final static int _BUSCAR_CONS = 302;
+    public final static int _BUSCAR_MUCHAS_CONS = 312;
+    public final static int _BORRAR_CONS = 303;
+    public final static int _ERROR_CONS = 399;
+
     //Retrofit
 
     private Retrofit rf;
