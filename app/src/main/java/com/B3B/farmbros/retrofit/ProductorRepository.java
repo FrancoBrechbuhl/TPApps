@@ -1,8 +1,9 @@
 package com.B3B.farmbros.retrofit;
 
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 
-import com.B3B.farmbros.domain.Ingeniero;
 import com.B3B.farmbros.domain.Productor;
 
 import retrofit2.Call;
@@ -15,6 +16,15 @@ public class ProductorRepository {
 
     private static ProductorRepository _INSTANCE;
     public static String _SERVER = /*"http://192.168.1.12:5000";*/"http://10.0.2.2:5000";//"http://192.168.43.100:5000";
+
+    /*
+        valores de respuesta para el handler
+         */
+    public final static int _AGREGAR_PROD = 200;
+    public final static int _MODIFICAR_PROD = 201;
+    public final static int _BUSCAR_PROD = 202;
+    public final static int _BORRAR_PROD = 203;
+    public final static int _ERROR_PROD = 299;
 
     private Productor productor;
 
@@ -63,7 +73,7 @@ public class ProductorRepository {
         });
     }
 
-    public Productor buscarProductor(final String email) {
+    public Productor buscarProductor(final String email,final Handler handler) {
 
         Call<Productor> llamada = this.productorRest.buscarProductor(email);
         llamada.enqueue(new Callback<Productor>() {
@@ -72,6 +82,9 @@ public class ProductorRepository {
                 if (response.isSuccessful()) {
                     productor = response.body();
                     Log.d("Request to Retrofit", "Successful");
+                    Message m = new Message();
+                    m.arg1 = _BUSCAR_PROD;
+                    handler.sendMessage(m);
                 } else {
                     productor = null;
                     Log.d("Request to Retrofit", "Null");
@@ -83,6 +96,10 @@ public class ProductorRepository {
                 Log.d("Request to Retrofit", "Fail");
             }
         });
+        return productor;
+    }
+
+    public Productor getProductor() {
         return productor;
     }
 }
