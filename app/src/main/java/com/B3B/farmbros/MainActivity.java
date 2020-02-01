@@ -91,12 +91,15 @@ public class MainActivity extends AppCompatActivity {
         /*
         si recibe CODE_SIGNIN_GOOGLE se retorno desde Gmail, si recibe CODE_ACTIVITY_HOME retorna desde la actividad nuevaConsulta
         */
-        if(requestCode == CODE_SIGNIN_GOOGLE){
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            handleSignInResult(task);
-        }
-        else if(requestCode == CODE_ACTIVITY_HOME){
-            googleSignInClient.signOut();
+
+        switch (requestCode){
+            case CODE_SIGNIN_GOOGLE:
+                Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                handleSignInResult(task);
+                break;
+            case CODE_ACTIVITY_HOME:
+                googleSignInClient.signOut();
+                break;
         }
     }
 
@@ -114,40 +117,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void iniciarSesion(){
-        /*Ingeniero cuentaIngeniero = IngenieroRepository.getInstance().buscarIngeniero(account.getEmail());
-        if (cuentaIngeniero == null) {
-            Productor cuentaProductor = ProductorRepository.getInstance().buscarProductor(account.getEmail());
-            if (cuentaProductor == null) {
-                Intent crearCuenta = new Intent(getApplicationContext(),CrearCuentaActivity.class);
-                crearCuenta.putExtra("nombre",account.getDisplayName());
-                crearCuenta.putExtra("email",account.getEmail());
-                startActivity(crearCuenta);
-            } else {
-                profesion = "productor";
-                String userName = account.getDisplayName();
-                String email = account.getEmail();
-
-                Intent home = new Intent(getApplicationContext(), Home.class);
-                home.putExtra("userName", userName);
-                home.putExtra("email", email);
-                home.putExtra("profesion", profesion);
-
-                startActivityForResult(home, CODE_ACTIVITY_HOME);
-
-            }
-        } else {
-            profesion = "ingeniero";
-            String userName = account.getDisplayName();
-            String email = account.getEmail();
-
-            Intent home = new Intent(getApplicationContext(), Home.class);
-            home.putExtra("userName", userName);
-            home.putExtra("email", email);
-            home.putExtra("profesion", profesion);
-
-            startActivityForResult(home, CODE_ACTIVITY_HOME);
-
-        }*/
         /*
         primer llamada, el resto se hacen en el handler
          */
