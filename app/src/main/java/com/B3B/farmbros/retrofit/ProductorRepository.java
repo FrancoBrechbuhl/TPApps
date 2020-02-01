@@ -7,6 +7,8 @@ import android.util.Log;
 import com.B3B.farmbros.domain.Ingeniero;
 import com.B3B.farmbros.domain.Productor;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -98,13 +100,14 @@ public class ProductorRepository {
     }*/
 
     public void buscarProductor(final String email, final Handler h){
-        Call<Productor> llamada = this.productorRest.buscarProductor(email);
-        llamada.enqueue(new Callback<Productor>() {
+        Call<List<Productor>> llamada = this.productorRest.buscarProductor(email);
+        llamada.enqueue(new Callback<List<Productor>>() {
             @Override
-            public void onResponse(Call<Productor> call, Response<Productor> response) {
+            public void onResponse(Call<List<Productor>> call, Response<List<Productor>> response) {
                 if(response.isSuccessful()){
                     Log.d("Retrofit:","Respuesta Exitosa buscarProductor");
-                    productor = response.body();
+                    if (response.body().size() > 0) productor = response.body().get(0);
+                    else productor = null;
                     Message m = new Message();
                     m.arg1 = _GET;
                     h.sendMessage(m);
@@ -112,7 +115,7 @@ public class ProductorRepository {
             }
 
             @Override
-            public void onFailure(Call<Productor> call, Throwable t) {
+            public void onFailure(Call<List<Productor>> call, Throwable t) {
                 Log.d("Fallo Retrofit:","buscarProductor - arg = " + email);
                 Message m = new Message();
 //                m.arg1 = _GET_FAIL;

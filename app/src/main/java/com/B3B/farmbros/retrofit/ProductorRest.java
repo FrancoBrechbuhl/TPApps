@@ -4,6 +4,8 @@ import com.B3B.farmbros.domain.Consulta;
 import com.B3B.farmbros.domain.Ingeniero;
 import com.B3B.farmbros.domain.Productor;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -16,5 +18,5 @@ public interface ProductorRest {
     Call<Productor> crearProductor(@Body Productor productor);
 
     @GET("productores/")
-    Call<Productor> buscarProductor(@Query("email") String email);
+    Call<List<Productor>> buscarProductor(@Query("email") String email);
 }

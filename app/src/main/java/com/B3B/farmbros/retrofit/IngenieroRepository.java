@@ -102,13 +102,14 @@ public class IngenieroRepository {
     }*/
 
     public void buscarIngeniero(final String email, final Handler h){
-        Call<Ingeniero> llamada = this.ingenieroRest.buscarIngeniero(email);
-        llamada.enqueue(new Callback<Ingeniero>() {
+        Call<List<Ingeniero>> llamada = this.ingenieroRest.buscarIngeniero(email);
+        llamada.enqueue(new Callback<List<Ingeniero>>() {
             @Override
-            public void onResponse(Call<Ingeniero> call, Response<Ingeniero> response) {
+            public void onResponse(Call<List<Ingeniero>> call, Response<List<Ingeniero>> response) {
                 if(response.isSuccessful()){
                     Log.d("Retrofit:","Respuesta Exitosa buscarIngeniero");
-                    ingeniero = response.body();
+                    if (response.body().size() > 0) ingeniero = response.body().get(0);
+                    else ingeniero = null;
                     Message m = new Message();
                     m.arg1 = _GET;
                     h.sendMessage(m);
@@ -116,7 +117,7 @@ public class IngenieroRepository {
             }
 
             @Override
-            public void onFailure(Call<Ingeniero> call, Throwable t) {
+            public void onFailure(Call<List<Ingeniero>> call, Throwable t) {
                 Log.d("Fallo Retrofit:","buscarIngeniero - arg = " + email);
                 Message m = new Message();
 //                m.arg1 = _GET_FAIL;
