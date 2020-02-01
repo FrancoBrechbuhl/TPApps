@@ -18,6 +18,14 @@ public class ConsultaRepository {
     public static String _SERVER = /*"http://192.168.1.12:5000";*/"http://10.0.2.2:5000";//"http://192.168.43.100:5000";
     private List<Consulta> listaConsultas;
     private Consulta consulta;
+    /*
+    Retornos de llamadas en el handler
+     */
+    public static final int _POST = 300;
+    public static final int _GET = 301;
+    public static final int _UPDATE = 302;
+    public static final int _DELETE = 303;
+    public static final int _ERROR = 309;
 
     //Retrofit
 

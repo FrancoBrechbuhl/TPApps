@@ -1188,16 +1188,16 @@
         "source": "/home/elias/.gradle/caches/transforms-2/files-2.1/c527b78844be871c44103f6f45a963fb/core-1.1.0/res/drawable/notification_tile_bg.xml"
     },
     {
+        "merged": "/home/elias/AndroidStudioProjects/TPApps/app/build/intermediates/res/merged/debug/menu_drawer_menu_productor.xml.flat",
+        "source": "/home/elias/AndroidStudioProjects/TPApps/app/src/main/res/menu/drawer_menu_productor.xml"
+    },
+    {
         "merged": "/home/elias/AndroidStudioProjects/TPApps/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "/home/elias/AndroidStudioProjects/TPApps/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
         "merged": "/home/elias/AndroidStudioProjects/TPApps/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_googleg_disabled_color_18.png.flat",
         "source": "/home/elias/.gradle/caches/transforms-2/files-2.1/291563c6708268cf4683b088770f2b39/play-services-base-17.0.0/res/drawable-hdpi-v4/googleg_disabled_color_18.png"
-    },
-    {
-        "merged": "/home/elias/AndroidStudioProjects/TPApps/app/build/intermediates/res/merged/debug/menu_drawer_menu_productor.xml.flat",
-        "source": "/home/elias/AndroidStudioProjects/TPApps/app/src/main/res/menu/drawer_menu_productor.xml"
     },
     {
         "merged": "/home/elias/AndroidStudioProjects/TPApps/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",

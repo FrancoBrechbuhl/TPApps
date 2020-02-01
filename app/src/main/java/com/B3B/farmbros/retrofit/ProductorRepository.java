@@ -1,5 +1,7 @@
 package com.B3B.farmbros.retrofit;
 
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 
 import com.B3B.farmbros.domain.Ingeniero;
@@ -14,7 +16,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ProductorRepository {
 
     private static ProductorRepository _INSTANCE;
-    public static String _SERVER = /*"http://192.168.1.12:5000";*/"http://10.0.2.2:5000";//"http://192.168.43.100:5000";
+    public static String _SERVER = "http://10.0.2.2:5000/";
+    /*
+    Retornos de llamadas en el handler
+     */
+    public static final int _POST = 200;
+    public static final int _GET = 201;
+    public static final int _GET_FAIL = 211;
+    public static final int _UPDATE = 202;
+    public static final int _DELETE = 203;
+    public static final int _ERROR = 209;
 
     private Productor productor;
 
@@ -63,7 +74,7 @@ public class ProductorRepository {
         });
     }
 
-    public Productor buscarProductor(final String email) {
+    /*public Productor buscarProductor(final String email) {
 
         Call<Productor> llamada = this.productorRest.buscarProductor(email);
         llamada.enqueue(new Callback<Productor>() {
@@ -75,7 +86,7 @@ public class ProductorRepository {
                 } else {
                     productor = null;
                     Log.d("Request to Retrofit", "Null");
-                }
+               }
             }
 
             @Override
@@ -83,6 +94,35 @@ public class ProductorRepository {
                 Log.d("Request to Retrofit", "Fail");
             }
         });
+        return productor;
+    }*/
+
+    public void buscarProductor(final String email, final Handler h){
+        Call<Productor> llamada = this.productorRest.buscarProductor(email);
+        llamada.enqueue(new Callback<Productor>() {
+            @Override
+            public void onResponse(Call<Productor> call, Response<Productor> response) {
+                if(response.isSuccessful()){
+                    Log.d("Retrofit:","Respuesta Exitosa buscarProductor");
+                    productor = response.body();
+                    Message m = new Message();
+                    m.arg1 = _GET;
+                    h.sendMessage(m);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Productor> call, Throwable t) {
+                Log.d("Fallo Retrofit:","buscarProductor - arg = " + email);
+                Message m = new Message();
+//                m.arg1 = _GET_FAIL;
+                m.arg1 = _ERROR;
+                h.sendMessage(m);
+            }
+        });
+    }
+
+    public Productor getProductor() {
         return productor;
     }
 }

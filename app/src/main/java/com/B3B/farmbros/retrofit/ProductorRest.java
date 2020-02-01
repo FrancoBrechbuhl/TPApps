@@ -15,6 +15,6 @@ public interface ProductorRest {
     @POST("productores/")
     Call<Productor> crearProductor(@Body Productor productor);
 
-    @GET("productores")
+    @GET("productores/")
     Call<Productor> buscarProductor(@Query("email") String email);
 }

@@ -7,6 +7,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private SignInButton btnInicioSesion;
     private String profesion;
     private GoogleSignInClient googleSignInClient;
+    private GoogleSignInAccount account;
 
 
     @Override
@@ -75,15 +79,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart(){
         super.onStart();
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
+        account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
         if(account != null){
-            String userName = account.getDisplayName();
-            Intent i1 = new Intent(getApplicationContext(), Home.class);
-            i1.putExtra("userName", userName);
-            if (IngenieroRepository.getInstance().buscarIngeniero(account.getEmail()) != null) profesion = "ingeniero";
-            else profesion = "productor";
-            i1.putExtra("profesion", profesion);
-            startActivityForResult(i1, CODE_ACTIVITY_HOME);
+            iniciarSesion();
         }
     }
 
@@ -104,43 +102,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask){
         try{
-            final GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+            /*final GoogleSignInAccount */account = completedTask.getResult(ApiException.class);
             if(account != null){
-                Ingeniero cuentaIngeniero = IngenieroRepository.getInstance().buscarIngeniero(account.getEmail());
-                if (cuentaIngeniero == null) {
-                    Productor cuentaProductor = ProductorRepository.getInstance().buscarProductor(account.getEmail());
-                    if (cuentaProductor == null) {
-                        Intent crearCuenta = new Intent(getApplicationContext(),CrearCuentaActivity.class);
-                        crearCuenta.putExtra("nombre",account.getDisplayName());
-                        crearCuenta.putExtra("email",account.getEmail());
-                        startActivity(crearCuenta);
-                    } else {
-                        profesion = "productor";
-                        String userName = account.getDisplayName();
-                        String email = account.getEmail();
-
-                        Intent home = new Intent(getApplicationContext(), Home.class);
-                        home.putExtra("userName", userName);
-                        home.putExtra("email", email);
-                        home.putExtra("profesion", profesion);
-
-                        startActivityForResult(home, CODE_ACTIVITY_HOME);
-
-                    }
-                } else {
-                    profesion = "ingeniero";
-                    String userName = account.getDisplayName();
-                    String email = account.getEmail();
-
-                    Intent home = new Intent(getApplicationContext(), Home.class);
-                    home.putExtra("userName", userName);
-                    home.putExtra("email", email);
-                    home.putExtra("profesion", profesion);
-
-                    startActivityForResult(home, CODE_ACTIVITY_HOME);
-
-                }
-
+                iniciarSesion();
                 }
         }
         catch (ApiException e){
@@ -149,4 +113,84 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void iniciarSesion(){
+        /*Ingeniero cuentaIngeniero = IngenieroRepository.getInstance().buscarIngeniero(account.getEmail());
+        if (cuentaIngeniero == null) {
+            Productor cuentaProductor = ProductorRepository.getInstance().buscarProductor(account.getEmail());
+            if (cuentaProductor == null) {
+                Intent crearCuenta = new Intent(getApplicationContext(),CrearCuentaActivity.class);
+                crearCuenta.putExtra("nombre",account.getDisplayName());
+                crearCuenta.putExtra("email",account.getEmail());
+                startActivity(crearCuenta);
+            } else {
+                profesion = "productor";
+                String userName = account.getDisplayName();
+                String email = account.getEmail();
+
+                Intent home = new Intent(getApplicationContext(), Home.class);
+                home.putExtra("userName", userName);
+                home.putExtra("email", email);
+                home.putExtra("profesion", profesion);
+
+                startActivityForResult(home, CODE_ACTIVITY_HOME);
+
+            }
+        } else {
+            profesion = "ingeniero";
+            String userName = account.getDisplayName();
+            String email = account.getEmail();
+
+            Intent home = new Intent(getApplicationContext(), Home.class);
+            home.putExtra("userName", userName);
+            home.putExtra("email", email);
+            home.putExtra("profesion", profesion);
+
+            startActivityForResult(home, CODE_ACTIVITY_HOME);
+
+        }*/
+        /*
+        primer llamada, el resto se hacen en el handler
+         */
+        IngenieroRepository.getInstance().buscarIngeniero(account.getEmail(),handlerInicioSesion);
+
+    }
+
+    Handler handlerInicioSesion = new Handler(Looper.myLooper()){
+        @Override
+        public void handleMessage(Message msg) {
+            Log.d("HANDLER","Vuelve al handler"+msg.arg1);
+            switch (msg.arg1){
+                case IngenieroRepository._GET:
+                    Ingeniero ingeniero = IngenieroRepository.getInstance().getIngeniero();
+                    if (ingeniero == null)
+                        ProductorRepository.getInstance().buscarProductor(account.getEmail(),handlerInicioSesion);
+                    else goToHome("ingeniero");
+                    break;
+                case ProductorRepository._GET:
+                    Productor productor = ProductorRepository.getInstance().getProductor();
+                    if (productor == null) crearCuenta();
+                    else goToHome("productor");
+                    break;
+
+                case ProductorRepository._ERROR:
+                    case IngenieroRepository._ERROR:
+                    Log.d("HANDLER","Llego con error");
+            }
+        }
+    };
+
+    private void goToHome(String profesion){
+        Intent home = new Intent(getApplicationContext(), Home.class);
+        home.putExtra("userName", account.getDisplayName());
+        home.putExtra("email", account.getEmail());
+        home.putExtra("profesion", profesion);
+        startActivityForResult(home, CODE_ACTIVITY_HOME);
+    }
+
+    private void crearCuenta(){
+        Intent crearCuenta = new Intent(getApplicationContext(),CrearCuentaActivity.class);
+        crearCuenta.putExtra("nombre",account.getDisplayName());
+        crearCuenta.putExtra("email",account.getEmail());
+        startActivity(crearCuenta);
+    }
 }

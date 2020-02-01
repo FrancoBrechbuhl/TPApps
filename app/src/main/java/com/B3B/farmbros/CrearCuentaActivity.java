@@ -34,7 +34,6 @@ public class CrearCuentaActivity extends AppCompatActivity {
         final String nombre = this.getIntent().getExtras().getString("nombre");
         final String email = this.getIntent().getExtras().getString("email");
 
-
         btnProductor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -19,7 +19,7 @@ public interface IngenieroRest {
     @POST("ingenieros/")
     Call<Ingeniero> crearIngeniero(@Body Ingeniero ingeniero);
 
-    @GET("ingenieros")
+    @GET("ingenieros/")
     Call<Ingeniero> buscarIngeniero(@Query("email") String email);
 
 }
