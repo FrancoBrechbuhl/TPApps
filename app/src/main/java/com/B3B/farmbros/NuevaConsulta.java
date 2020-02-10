@@ -41,6 +41,7 @@ public class NuevaConsulta extends AppCompatActivity {
     private Button btnTomarFoto;
     private Button btnConsultar;
     private EditText txtConsulta;
+    private EditText txtAsunto;
     private String fotoEnBase64;
     static ImageView fotoConsulta;
     static final int REQUEST_IMAGE_SAVE = 1;
@@ -54,6 +55,7 @@ public class NuevaConsulta extends AppCompatActivity {
         btnTomarFoto = findViewById(R.id.btnAgregarFoto);
         btnConsultar = findViewById(R.id.btnConsultar);
         txtConsulta = findViewById(R.id.txtFieldConsulta);
+        txtAsunto = findViewById(R.id.editAsuntoConsulta);
         fotoConsulta = findViewById(R.id.imageConsulta);
         fotoConsulta.setVisibility(View.INVISIBLE);
 
@@ -151,6 +153,7 @@ public class NuevaConsulta extends AppCompatActivity {
             consulta.setLngConsulta(data.getExtras().getDouble("longitud"));
             consulta.setRemitenteConsulta(productor);
             consulta.setFotoConsultaBase64(fotoEnBase64);
+            consulta.setAsuntoConsulta(txtAsunto.getText().toString());
 
             ConsultaRepository.getInstance().crearConsulta(consulta);
             Toast.makeText(getApplicationContext(), "La consulta se ha registrado con éxito", Toast.LENGTH_SHORT).show();

@@ -78,29 +78,6 @@ public class IngenieroRepository {
         });
     }
 
-    /*public Ingeniero buscarIngeniero(final String email) {
-
-        Call<Ingeniero> llamada = this.ingenieroRest.buscarIngeniero(email);
-        llamada.enqueue(new Callback<Ingeniero>() {
-            @Override
-            public void onResponse(Call<Ingeniero> call, Response<Ingeniero> response) {
-                if (response.isSuccessful()) {
-                    ingeniero = response.body();
-                    Log.d("Request to Retrofit", "Successful");
-                } else {
-                    ingeniero = null;
-                    Log.d("Request to Retrofit", "Null");
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Ingeniero> call, Throwable t) {
-                Log.d("Request to Retrofit", "Fail");
-            }
-        });
-        return ingeniero;
-    }*/
-
     public void buscarIngeniero(final String email, final Handler h){
         Call<List<Ingeniero>> llamada = this.ingenieroRest.buscarIngeniero(email);
         llamada.enqueue(new Callback<List<Ingeniero>>() {

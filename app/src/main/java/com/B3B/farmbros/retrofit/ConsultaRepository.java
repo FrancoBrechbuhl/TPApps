@@ -1,5 +1,7 @@
 package com.B3B.farmbros.retrofit;
 
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 
 import com.B3B.farmbros.domain.Consulta;
@@ -54,7 +56,7 @@ public class ConsultaRepository {
         this.consultaRest = this.rf.create(ConsultaRest.class);
     }
 
-    public void listarConsultas(){
+    public void listarConsultas(final Handler h){
         Call<List<Consulta>> llamada = this.consultaRest.listarTodas();
         llamada.enqueue(new Callback<List<Consulta>>() {
             @Override
@@ -62,12 +64,18 @@ public class ConsultaRepository {
                 if(response.isSuccessful()){
                     listaConsultas.clear();
                     listaConsultas.addAll(response.body());
+                    Message m = new Message();
+                    m.arg1 = _GET;
+                    h.sendMessage(m);
                 }
             }
 
             @Override
             public void onFailure(Call<List<Consulta>> call, Throwable t) {
                 Log.d("Request to Retrofit","Fail");
+                Message m = new Message();
+                m.arg1 = _ERROR;
+                h.sendMessage(m);
             }
         });
     }

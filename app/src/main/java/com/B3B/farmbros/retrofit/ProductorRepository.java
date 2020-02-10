@@ -76,29 +76,6 @@ public class ProductorRepository {
         });
     }
 
-    /*public Productor buscarProductor(final String email) {
-
-        Call<Productor> llamada = this.productorRest.buscarProductor(email);
-        llamada.enqueue(new Callback<Productor>() {
-            @Override
-            public void onResponse(Call<Productor> call, Response<Productor> response) {
-                if (response.isSuccessful()) {
-                    productor = response.body();
-                    Log.d("Request to Retrofit", "Successful");
-                } else {
-                    productor = null;
-                    Log.d("Request to Retrofit", "Null");
-               }
-            }
-
-            @Override
-            public void onFailure(Call<Productor> call, Throwable t) {
-                Log.d("Request to Retrofit", "Fail");
-            }
-        });
-        return productor;
-    }*/
-
     public void buscarProductor(final String email, final Handler h){
         Call<List<Productor>> llamada = this.productorRest.buscarProductor(email);
         llamada.enqueue(new Callback<List<Productor>>() {
@@ -118,7 +95,6 @@ public class ProductorRepository {
             public void onFailure(Call<List<Productor>> call, Throwable t) {
                 Log.d("Fallo Retrofit:","buscarProductor - arg = " + email);
                 Message m = new Message();
-//                m.arg1 = _GET_FAIL;
                 m.arg1 = _ERROR;
                 h.sendMessage(m);
             }

@@ -2,6 +2,11 @@ package com.B3B.farmbros;
 
 import android.content.BroadcastReceiver;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -9,7 +14,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.B3B.farmbros.domain.Consulta;
+import com.B3B.farmbros.domain.Ingeniero;
+import com.B3B.farmbros.domain.Productor;
 import com.B3B.farmbros.retrofit.ConsultaRepository;
+import com.B3B.farmbros.retrofit.IngenieroRepository;
+import com.B3B.farmbros.retrofit.ProductorRepository;
 
 import java.util.ArrayList;
 
@@ -37,14 +46,27 @@ public class ListaConsultasActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        _CONSULTAS = (ArrayList<Consulta>) ConsultaRepository.getInstance().getListaConsultas();
-        if (_CONSULTAS.isEmpty()) {
-            ConsultaRepository.getInstance().listarConsultas();
-            _CONSULTAS = (ArrayList<Consulta>) ConsultaRepository.getInstance().getListaConsultas();
-        }
+        ConsultaRepository.getInstance().listarConsultas(handlerListarConsultas);
 
         mAdapter = new ConsultaViewAdapter(_CONSULTAS,getApplicationContext());
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
     }
+
+    Handler handlerListarConsultas = new Handler(Looper.myLooper()){
+        @Override
+        public void handleMessage(Message msg) {
+            Log.d("HANDLER","Vuelve al handler"+msg.arg1);
+            switch (msg.arg1){
+                case ConsultaRepository._GET:
+                    _CONSULTAS.clear();
+                    _CONSULTAS.addAll(ConsultaRepository.getInstance().getListaConsultas());
+                    mAdapter.notifyDataSetChanged();
+                    break;
+                case ConsultaRepository._ERROR:
+                    Log.d("HANDLER","Llego con error");
+                    Toast.makeText(getApplicationContext(),"@string/error_BD",Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
 }
