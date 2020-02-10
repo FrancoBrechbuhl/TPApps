@@ -1,6 +1,7 @@
 package com.B3B.farmbros;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,10 +17,12 @@ public class ConsultaViewAdapter extends RecyclerView.Adapter<ConsultaViewHolder
 
     private List<Consulta> listaConsultas;
     private Context contexto;
+    private ListaConsultasActivity listaConsultasActivity;
 
-    public ConsultaViewAdapter(List<Consulta> listaConsultas, Context appContext){
+    public ConsultaViewAdapter(List<Consulta> listaConsultas, Context appContext, ListaConsultasActivity activity){
         this.listaConsultas = listaConsultas;
         this.contexto = appContext;
+        this.listaConsultasActivity = activity;
     }
 
     @NonNull
@@ -36,6 +39,15 @@ public class ConsultaViewAdapter extends RecyclerView.Adapter<ConsultaViewHolder
         holder.setAsunto(consulta.getAsuntoConsulta());
         holder.setProductor(consulta.getRemitenteConsulta().getNombre());
         holder.setUbicacion(String.valueOf(consulta.getLatConsulta()) + " " + String.valueOf(consulta.getLngConsulta()));
+        holder.btnDetalles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent detalle = new Intent(contexto,DetalleConsultaActivity.class);
+                detalle.putExtra("nombre productor",consulta.getRemitenteConsulta().getNombre());
+                detalle.putExtra("consulta",consulta.getTextoConsulta());
+                listaConsultasActivity.startActivity(detalle);
+            }
+        });
     }
 
     @Override

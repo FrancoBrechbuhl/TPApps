@@ -91,6 +91,9 @@
             android:name="com.B3B.farmbros.ListaConsultasActivity"
             android:parentActivityName="com.B3B.farmbros.Home" />
         <activity
+            android:name="com.B3B.farmbros.DetalleConsultaActivity"
+            android:parentActivityName="com.B3B.farmbros.ListaConsultasActivity" />
+        <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
             android:excludeFromRecents="true"
             android:exported="false"

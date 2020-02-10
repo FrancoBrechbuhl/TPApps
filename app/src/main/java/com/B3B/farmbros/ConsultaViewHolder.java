@@ -12,7 +12,7 @@ public class ConsultaViewHolder extends RecyclerView.ViewHolder {
     private TextView asunto;
     private TextView ubicacion;
     private TextView productor;
-    private Button btnDetalles;
+    Button btnDetalles;
 
     public ConsultaViewHolder(@NonNull View itemView){
         super(itemView);
