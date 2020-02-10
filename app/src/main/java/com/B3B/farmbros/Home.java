@@ -57,7 +57,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
-
         mNavigationView.setNavigationItemSelectedListener(this);
 
         //código para mostrar el logo en la action bar
@@ -108,7 +107,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (this.getIntent().getExtras().getString("profesion").equals("productor"))
+        {
             getMenuInflater().inflate(R.menu.drawer_menu_productor, menu);
+        }
         else getMenuInflater().inflate(R.menu.drawer_menu_ingeniero, menu);
         return super.onCreateOptionsMenu(menu);
     }
@@ -157,9 +158,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                  */
                 return true;
             case R.id.menuItemForoDeConsultas:
-                /*
-                intent que muestra consultas sin atender
-                 */
+                i1 = new Intent (this, ListaConsultasActivity.class);
+                startActivity(i1);
                 return true;
             case android.R.id.home:
                 onBackPressed();

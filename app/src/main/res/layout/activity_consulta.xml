@@ -9,63 +9,70 @@
         android:id="@+id/txtNuevaConsulta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="@string/nueva_consulta"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.15" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtFieldConsulta"
         android:layout_width="350dp"
         android:layout_height="100dp"
+        android:layout_marginBottom="24dp"
+        android:background="@color/fondo_claro"
         android:ems="1000"
-        android:background="@color/white"
+        android:hint="@string/indicador_consulta"
+        android:inputType="textPersonName"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:inputType="textPersonName"
-        android:hint="@string/indicador_consulta"
+        app:layout_constraintBottom_toTopOf="@+id/imageConsulta"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/txtNuevaConsulta"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.17" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageConsulta"
         android:layout_width="320dp"
         android:layout_height="180dp"
-        app:srcCompat="@drawable/planta2"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAgregarFoto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/txtFieldConsulta"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.35" />
+        app:srcCompat="@drawable/planta2" />
 
     <Button
         android:id="@+id/btnAgregarFoto"
         android:layout_width="350dp"
         android:layout_height="65dp"
         android:text="@string/tomar_foto"
+        app:layout_constraintBottom_toTopOf="@+id/btnConsultar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/imageConsulta"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.615" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnConsultar"
         android:layout_width="350dp"
         android:layout_height="65dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/consulta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editAsuntoConsulta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/fondo_claro"
+        android:ems="10"
+        android:hint="@string/txt_asunto"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/txtFieldConsulta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/btnAgregarFoto"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.55" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNuevaConsulta" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

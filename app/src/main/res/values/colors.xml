@@ -2,6 +2,7 @@
 <resources>
     <color name="red">#ff0000</color>
     <color name="fondo">#34944c</color>
+    <color name="fondo_claro">#ADD4B7</color>
     <color name="actionbar">#b5e61d</color>
     <color name="actionbardark">#7092af</color>
     <color name="black">#000000</color>

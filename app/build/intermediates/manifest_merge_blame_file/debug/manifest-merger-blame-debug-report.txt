@@ -46,7 +46,7 @@
 30-->[com.google.android.gms:play-services-maps:16.1.0] /home/elias/.gradle/caches/transforms-2/files-2.1/52bf50df6dca0ca2b16cbe18f6654b2c/jetified-play-services-maps-16.1.0/AndroidManifest.xml:28:9-32
 31
 32    <application
-32-->/home/elias/AndroidStudioProjects/TPApps/app/src/main/AndroidManifest.xml:19:5-74:19
+32-->/home/elias/AndroidStudioProjects/TPApps/app/src/main/AndroidManifest.xml:19:5-76:19
 33        android:allowBackup="true"
 33-->/home/elias/AndroidStudioProjects/TPApps/app/src/main/AndroidManifest.xml:20:9-35
 34        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -147,42 +147,48 @@
 89            android:parentActivityName="com.B3B.farmbros.Home" />
 89-->/home/elias/AndroidStudioProjects/TPApps/app/src/main/AndroidManifest.xml:73:13-47
 90        <activity
-90-->[com.google.android.gms:play-services-auth:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/f3cd088eede6db1b65bf9a5737bc46f5/play-services-auth-17.0.0/AndroidManifest.xml:23:9-27:75
-91            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-91-->[com.google.android.gms:play-services-auth:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/f3cd088eede6db1b65bf9a5737bc46f5/play-services-auth-17.0.0/AndroidManifest.xml:24:13-93
-92            android:excludeFromRecents="true"
-92-->[com.google.android.gms:play-services-auth:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/f3cd088eede6db1b65bf9a5737bc46f5/play-services-auth-17.0.0/AndroidManifest.xml:25:13-46
-93            android:exported="false"
-93-->[com.google.android.gms:play-services-auth:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/f3cd088eede6db1b65bf9a5737bc46f5/play-services-auth-17.0.0/AndroidManifest.xml:26:13-37
-94            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-94-->[com.google.android.gms:play-services-auth:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/f3cd088eede6db1b65bf9a5737bc46f5/play-services-auth-17.0.0/AndroidManifest.xml:27:13-72
-95        <!--
-96            Service handling Google Sign-In user revocation. For apps that do not integrate with
-97            Google Sign-In, this service will never be started.
-98        -->
-99        <service
-99-->[com.google.android.gms:play-services-auth:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/f3cd088eede6db1b65bf9a5737bc46f5/play-services-auth-17.0.0/AndroidManifest.xml:33:9-36:110
-100            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
-100-->[com.google.android.gms:play-services-auth:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/f3cd088eede6db1b65bf9a5737bc46f5/play-services-auth-17.0.0/AndroidManifest.xml:34:13-89
-101            android:exported="true"
-101-->[com.google.android.gms:play-services-auth:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/f3cd088eede6db1b65bf9a5737bc46f5/play-services-auth-17.0.0/AndroidManifest.xml:35:13-36
-102            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" /> <!-- Needs to be explicitly declared on P+ -->
-102-->[com.google.android.gms:play-services-auth:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/f3cd088eede6db1b65bf9a5737bc46f5/play-services-auth-17.0.0/AndroidManifest.xml:36:13-107
-103        <uses-library
-103-->[com.google.android.gms:play-services-maps:16.1.0] /home/elias/.gradle/caches/transforms-2/files-2.1/52bf50df6dca0ca2b16cbe18f6654b2c/jetified-play-services-maps-16.1.0/AndroidManifest.xml:33:9-35:40
-104            android:name="org.apache.http.legacy"
-104-->[com.google.android.gms:play-services-maps:16.1.0] /home/elias/.gradle/caches/transforms-2/files-2.1/52bf50df6dca0ca2b16cbe18f6654b2c/jetified-play-services-maps-16.1.0/AndroidManifest.xml:34:13-50
-105            android:required="false" />
-105-->[com.google.android.gms:play-services-maps:16.1.0] /home/elias/.gradle/caches/transforms-2/files-2.1/52bf50df6dca0ca2b16cbe18f6654b2c/jetified-play-services-maps-16.1.0/AndroidManifest.xml:35:13-37
-106
-107        <activity
-107-->[com.google.android.gms:play-services-base:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/291563c6708268cf4683b088770f2b39/play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
-108            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-108-->[com.google.android.gms:play-services-base:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/291563c6708268cf4683b088770f2b39/play-services-base-17.0.0/AndroidManifest.xml:24:13-79
-109            android:exported="false"
-109-->[com.google.android.gms:play-services-base:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/291563c6708268cf4683b088770f2b39/play-services-base-17.0.0/AndroidManifest.xml:25:13-37
-110            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-110-->[com.google.android.gms:play-services-base:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/291563c6708268cf4683b088770f2b39/play-services-base-17.0.0/AndroidManifest.xml:26:13-72
-111    </application>
-112
-113</manifest>
+90-->/home/elias/AndroidStudioProjects/TPApps/app/src/main/AndroidManifest.xml:74:9-75:49
+91            android:name="com.B3B.farmbros.ListaConsultasActivity"
+91-->/home/elias/AndroidStudioProjects/TPApps/app/src/main/AndroidManifest.xml:74:19-57
+92            android:parentActivityName="com.B3B.farmbros.Home" />
+92-->/home/elias/AndroidStudioProjects/TPApps/app/src/main/AndroidManifest.xml:75:13-47
+93        <activity
+93-->[com.google.android.gms:play-services-auth:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/f3cd088eede6db1b65bf9a5737bc46f5/play-services-auth-17.0.0/AndroidManifest.xml:23:9-27:75
+94            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+94-->[com.google.android.gms:play-services-auth:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/f3cd088eede6db1b65bf9a5737bc46f5/play-services-auth-17.0.0/AndroidManifest.xml:24:13-93
+95            android:excludeFromRecents="true"
+95-->[com.google.android.gms:play-services-auth:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/f3cd088eede6db1b65bf9a5737bc46f5/play-services-auth-17.0.0/AndroidManifest.xml:25:13-46
+96            android:exported="false"
+96-->[com.google.android.gms:play-services-auth:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/f3cd088eede6db1b65bf9a5737bc46f5/play-services-auth-17.0.0/AndroidManifest.xml:26:13-37
+97            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+97-->[com.google.android.gms:play-services-auth:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/f3cd088eede6db1b65bf9a5737bc46f5/play-services-auth-17.0.0/AndroidManifest.xml:27:13-72
+98        <!--
+99            Service handling Google Sign-In user revocation. For apps that do not integrate with
+100            Google Sign-In, this service will never be started.
+101        -->
+102        <service
+102-->[com.google.android.gms:play-services-auth:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/f3cd088eede6db1b65bf9a5737bc46f5/play-services-auth-17.0.0/AndroidManifest.xml:33:9-36:110
+103            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+103-->[com.google.android.gms:play-services-auth:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/f3cd088eede6db1b65bf9a5737bc46f5/play-services-auth-17.0.0/AndroidManifest.xml:34:13-89
+104            android:exported="true"
+104-->[com.google.android.gms:play-services-auth:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/f3cd088eede6db1b65bf9a5737bc46f5/play-services-auth-17.0.0/AndroidManifest.xml:35:13-36
+105            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" /> <!-- Needs to be explicitly declared on P+ -->
+105-->[com.google.android.gms:play-services-auth:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/f3cd088eede6db1b65bf9a5737bc46f5/play-services-auth-17.0.0/AndroidManifest.xml:36:13-107
+106        <uses-library
+106-->[com.google.android.gms:play-services-maps:16.1.0] /home/elias/.gradle/caches/transforms-2/files-2.1/52bf50df6dca0ca2b16cbe18f6654b2c/jetified-play-services-maps-16.1.0/AndroidManifest.xml:33:9-35:40
+107            android:name="org.apache.http.legacy"
+107-->[com.google.android.gms:play-services-maps:16.1.0] /home/elias/.gradle/caches/transforms-2/files-2.1/52bf50df6dca0ca2b16cbe18f6654b2c/jetified-play-services-maps-16.1.0/AndroidManifest.xml:34:13-50
+108            android:required="false" />
+108-->[com.google.android.gms:play-services-maps:16.1.0] /home/elias/.gradle/caches/transforms-2/files-2.1/52bf50df6dca0ca2b16cbe18f6654b2c/jetified-play-services-maps-16.1.0/AndroidManifest.xml:35:13-37
+109
+110        <activity
+110-->[com.google.android.gms:play-services-base:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/291563c6708268cf4683b088770f2b39/play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+111            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+111-->[com.google.android.gms:play-services-base:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/291563c6708268cf4683b088770f2b39/play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+112            android:exported="false"
+112-->[com.google.android.gms:play-services-base:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/291563c6708268cf4683b088770f2b39/play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+113            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+113-->[com.google.android.gms:play-services-base:17.0.0] /home/elias/.gradle/caches/transforms-2/files-2.1/291563c6708268cf4683b088770f2b39/play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+114    </application>
+115
+116</manifest>

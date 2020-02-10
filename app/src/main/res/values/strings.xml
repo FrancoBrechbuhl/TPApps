@@ -45,4 +45,10 @@
     <string name="btn_crear_productor">Productor</string>
     <string name="btn_crear_ingeniero">Ingeniero agronomo</string>
     <string name="txt_elegir_cuenta">Elija la actividad que desarrolla para continuar</string>
+
+    <!-- Fila consulta -->
+    <string name="btn_ver_detalles">Ver detalles</string>
+    <string name="txt_productor">Productor:</string>
+    <string name="txt_ubicacion">Ubicacion:</string>
+    <string name="txt_asunto">Asunto de consulta:</string>
 </resources>

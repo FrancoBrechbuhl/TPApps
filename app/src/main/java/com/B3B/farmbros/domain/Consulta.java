@@ -6,6 +6,7 @@ public class Consulta {
 
     private int idConsulta;
     private String textoConsulta;
+    private String asuntoConsulta;
     private LocalDateTime fechaConsulta;
     private String fotoConsultaBase64;
     private double LatConsulta;
@@ -76,4 +77,12 @@ public class Consulta {
     public Ingeniero getEncargadoConsulta(){return encargadoConsulta;}
 
     public void setEncargadoConsulta(Ingeniero ingeniero) {encargadoConsulta = ingeniero;}
+
+    public void setAsuntoConsulta(String asuntoConsulta) {
+        this.asuntoConsulta = asuntoConsulta;
+    }
+
+    public String getAsuntoConsulta() {
+        return asuntoConsulta;
+    }
 }

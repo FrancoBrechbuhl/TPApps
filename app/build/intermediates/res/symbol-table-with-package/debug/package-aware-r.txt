@@ -696,6 +696,7 @@ color dim_foreground_material_light
 color error_color_material_dark
 color error_color_material_light
 color fondo
+color fondo_claro
 color foreground_material_dark
 color foreground_material_light
 color grey
@@ -1218,6 +1219,7 @@ id btnConsultar
 id btnCrearIngeniero
 id btnCrearProductor
 id btnInicioSesion
+id btnVerDetallesListaCons
 id buttonPanel
 id cancel_action
 id center
@@ -1249,6 +1251,10 @@ id dimensions
 id direct
 id disableHome
 id drawer_layout
+id editAsuntoConsulta
+id editAsuntoListaCons
+id editProductorListaCons
+id editUbicacionListaCons
 id edit_query
 id end
 id end_padder
@@ -1326,6 +1332,7 @@ id pin
 id progress_circular
 id progress_horizontal
 id radio
+id recyclerListaConsultas
 id right
 id right_icon
 id right_side
@@ -1385,10 +1392,13 @@ id tag_unhandled_key_listeners
 id terrain
 id text
 id text2
+id textAsuntoListaCons
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
+id textViewProductorListaCons
+id textViewUbicacionListaCons
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1479,6 +1489,7 @@ layout abc_tooltip
 layout activity_consulta
 layout activity_crear_cuenta
 layout activity_home_drawer
+layout activity_lista_consultas
 layout activity_main
 layout activity_maps
 layout custom_dialog
@@ -1496,6 +1507,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout fila_consulta
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action
@@ -1554,6 +1566,7 @@ string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
 string btn_crear_ingeniero
 string btn_crear_productor
+string btn_ver_detalles
 string character_counter_content_description
 string character_counter_pattern
 string chats
@@ -1616,7 +1629,10 @@ string texto_bienvenida
 string title_activity_home_drawer
 string title_activity_maps
 string tomar_foto
+string txt_asunto
 string txt_elegir_cuenta
+string txt_productor
+string txt_ubicacion
 string ver_consultas_atendidas
 string ver_consultas_realizadas
 style ActionBarTheme
