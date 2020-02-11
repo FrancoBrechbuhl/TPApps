@@ -80,7 +80,7 @@ public class ConsultaRepository {
         });
     }
 
-    public void crearConsulta (Consulta consulta){
+    public void crearConsulta (Consulta consulta,final Handler h){
         Call<Consulta> llamada = this.consultaRest.crearConsulta(consulta);
         llamada.enqueue(new Callback<Consulta>() {
             @Override
@@ -88,12 +88,18 @@ public class ConsultaRepository {
                 if(response.isSuccessful()){
                     listaConsultas.add(response.body());
                     Log.d("Request to Retrofit","Successful");
+                    Message m = new Message();
+                    m.arg1 = _POST;
+                    h.sendMessage(m);
                 }
             }
 
             @Override
             public void onFailure(Call<Consulta> call, Throwable t) {
                 Log.d("Request to Retrofit","Fail");
+                Message m = new Message();
+                m.arg1 = _ERROR;
+                h.sendMessage(m);
             }
         });
     }

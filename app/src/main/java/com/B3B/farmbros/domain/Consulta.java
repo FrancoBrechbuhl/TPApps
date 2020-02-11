@@ -13,9 +13,10 @@ public class Consulta {
     private double LngConsulta;
     private Productor remitenteConsulta;
     private Ingeniero encargadoConsulta;
+    private String localidad;
 
     public Consulta(){
-
+        fotoConsultaBase64="";
     }
 
     public int getIdConsulta() {
@@ -84,5 +85,13 @@ public class Consulta {
 
     public String getAsuntoConsulta() {
         return asuntoConsulta;
+    }
+
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
+    }
+
+    public String getLocalidad() {
+        return localidad;
     }
 }

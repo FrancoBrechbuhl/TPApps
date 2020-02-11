@@ -6,6 +6,9 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
@@ -155,8 +158,7 @@ public class NuevaConsulta extends AppCompatActivity {
             consulta.setFotoConsultaBase64(fotoEnBase64);
             consulta.setAsuntoConsulta(txtAsunto.getText().toString());
 
-            ConsultaRepository.getInstance().crearConsulta(consulta);
-            Toast.makeText(getApplicationContext(), "La consulta se ha registrado con éxito", Toast.LENGTH_SHORT).show();
+            ConsultaRepository.getInstance().crearConsulta(consulta,handlerCrearConsultas);
 
             String userName = getIntent().getExtras().getString("userName");
             Intent i1 = new Intent(getApplicationContext(), Home.class);
@@ -173,4 +175,24 @@ public class NuevaConsulta extends AppCompatActivity {
         pathFoto = image.getAbsolutePath();
         return image;
     }
+
+    Handler handlerCrearConsultas = new Handler(Looper.myLooper()){
+        @Override
+        public void handleMessage(Message msg) {
+            Log.d("HANDLER","Vuelve al handler"+msg.arg1);
+            switch (msg.arg1){
+                case ConsultaRepository._POST:
+                 //TODO notificacion
+                    /*
+                    codigo de notificacion exitosa
+                     */
+                    Toast.makeText(getApplicationContext(), "La consulta se ha registrado con éxito", Toast.LENGTH_SHORT).show();
+
+                    break;
+                case ConsultaRepository._ERROR:
+                    Log.d("HANDLER","Llego con error");
+                    Toast.makeText(getApplicationContext(),"@string/error_BD",Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
 }

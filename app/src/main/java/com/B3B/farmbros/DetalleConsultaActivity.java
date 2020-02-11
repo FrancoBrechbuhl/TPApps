@@ -34,15 +34,11 @@ public class DetalleConsultaActivity extends AppCompatActivity {
 
         nombreProductor.setText(this.getIntent().getExtras().getString("nombre productor"));
         consulta.setText(this.getIntent().getExtras().getString("consulta"));
-        byte[] decoded = Base64.decode(this.getIntent().getExtras().getString("foto consulta"),Base64.DEFAULT);
-        Bitmap imagen = BitmapFactory.decodeByteArray(decoded,0,decoded.length);
-        imagenConsulta.setImageBitmap(imagen);
-        imagenConsulta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent verImagen = new Intent(Intent.ACTION_VIEW).
-            }
-        });
+        if (!this.getIntent().getExtras().getString("foto consulta").equals("")){
+            byte[] decoded = Base64.decode(this.getIntent().getExtras().getString("foto consulta"),Base64.DEFAULT);
+            Bitmap imagen = BitmapFactory.decodeByteArray(decoded,0,decoded.length);
+            imagenConsulta.setImageBitmap(imagen);
+        }
         //TODO imagen y botones
     }
 }

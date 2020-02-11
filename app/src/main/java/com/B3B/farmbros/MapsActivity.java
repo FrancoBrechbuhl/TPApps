@@ -59,6 +59,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Intent i1 = new Intent();
         i1.putExtra("latitud", point.latitude);
         i1.putExtra("longitud", point.longitude);
+//        Geocoder gcd = new Geocoder(context, Locale.getDefault());
+//        List<Address> addresses = gcd.getFromLocation(lat, lng, 1);
+//        if (addresses.size() > 0) {
+//            System.out.println(addresses.get(0).getLocality());
+//        }
+//        else {
+//            // do your stuff
+//        }
+//        i1.putExtra("localidad",point.)
         setResult(RESULT_OK, i1);
         finish();
     }

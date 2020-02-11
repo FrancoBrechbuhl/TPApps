@@ -1,6 +1,5 @@
 package com.B3B.farmbros;
 
-import android.content.BroadcastReceiver;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -9,17 +8,11 @@ import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.B3B.farmbros.domain.Consulta;
-import com.B3B.farmbros.domain.Ingeniero;
-import com.B3B.farmbros.domain.Productor;
 import com.B3B.farmbros.retrofit.ConsultaRepository;
-import com.B3B.farmbros.retrofit.IngenieroRepository;
-import com.B3B.farmbros.retrofit.ProductorRepository;
-
 import java.util.ArrayList;
 
 public class ListaConsultasActivity extends AppCompatActivity {
