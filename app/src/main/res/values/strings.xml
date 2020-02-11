@@ -56,4 +56,5 @@
     <string name="detalle_DetCons">Detalle de consulta de: </string>
     <string name="btn_enviar_mensaje_DetCons">Enviar mensaje a productor</string>
     <string name="btn_finalizar_consulta">Finalizar Consulta</string>
+    <string name="error_BD">Error de Base de Datos</string>
 </resources>

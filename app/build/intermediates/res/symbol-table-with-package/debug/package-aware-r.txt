@@ -1603,6 +1603,7 @@ string consulta
 string detalle_DetCons
 string drawer_closed
 string drawer_opened
+string error_BD
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string foro_consultas
