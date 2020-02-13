@@ -28,6 +28,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
     private Button btnCierreSesion;
     private TextView txtIdentificadorUsuario;
+    private String profesion;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private NavigationView mNavigationView;
@@ -57,7 +58,21 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
+
+        //aca se cambian las opciones del drawer, por defecto se ponen las de productor y se cambian si el usuario es ingeniero
+        profesion = getIntent().getExtras().getString("profesion");
+        if(profesion.equals("ingeniero")){
+            Menu menu = mNavigationView.getMenu();
+            MenuItem menuItem = menu.findItem(R.id.menuItemNuevaConsulta);
+            menuItem.setVisible(false);
+            menuItem = menu.findItem(R.id.menuItemVerConsultasRealizadas);
+            menuItem.setVisible(false);
+            menuItem = menu.findItem(R.id.menuItemChats);
+            menuItem.setVisible(false);
+        }
+
         mNavigationView.setNavigationItemSelectedListener(this);
+
 
         //código para mostrar el logo en la action bar
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -106,11 +121,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (this.getIntent().getExtras().getString("profesion").equals("productor"))
-        {
-            getMenuInflater().inflate(R.menu.drawer_menu_productor, menu);
-        }
-        else getMenuInflater().inflate(R.menu.drawer_menu_ingeniero, menu);
+        getMenuInflater().inflate(R.menu.drawer_menu_productor, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -147,20 +158,38 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 //startActivity(i1);
                 return true;
             case R.id.menuItemMiPerfil:
-                //i1 = new Intent (this,Perfil.class);
-                //String userName4 = getIntent().getExtras().getString("userName");
-                //i1.putExtra("userName", userName4);
-                //startActivity(i1);
+                //controlar porque esta opcion puede estar en los dos menúes
+                if(profesion.equals("productor")) {
+                    //i1 = new Intent (this,Perfil.class);
+                    //String userName4 = getIntent().getExtras().getString("userName");
+                    //i1.putExtra("userName", userName4);
+                    //startActivity(i1);
+                }
+                else{
+
+                }
                 return true;
             case R.id.menuItemVerConsultasAtendidas:
-                /*
-                intent de consultas asociadas a ingeniero
-                 */
-                return true;
+                //controlar porque esta opcion puede estar en los dos menúes
+                if(profesion.equals("productor")) {
+                    /*
+                    intent de consultas asociadas a ingeniero
+                    */
+                    return true;
+                }
+                else{
+                    return true;
+                }
             case R.id.menuItemForoDeConsultas:
-                i1 = new Intent (this, ListaConsultasActivity.class);
-                startActivity(i1);
-                return true;
+                //controlar porque esta opcion puede estar en los dos menúes
+                if(profesion.equals("productor")) {
+                    i1 = new Intent (this, ListaConsultasActivity.class);
+                    startActivity(i1);
+                    return true;
+                }
+                else{
+                    return true;
+                }
             case android.R.id.home:
                 onBackPressed();
                 return true;

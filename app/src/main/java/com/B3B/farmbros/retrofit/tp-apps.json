@@ -98,7 +98,19 @@
       "email": "eliasbrizi@gmail.com",
       "nombre": "elias brizi",
       "id": 1
+    },
+    {
+      "email": "francob19051997@gmail.com",
+      "nombre": "Franco Brechbuhl",
+      "id": 2
     }
   ],
-  "ingenieros": []
+  "ingenieros": [
+    {
+      "califiacion": 0,
+      "email": "fybrechbuhl@gmail.com",
+      "nombre": "Franco Brechbuhl",
+      "id": 1
+    }
+  ]
 }

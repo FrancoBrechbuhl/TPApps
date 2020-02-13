@@ -1,18 +1,13 @@
 package com.B3B.farmbros;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
 import com.B3B.farmbros.domain.Ingeniero;
 import com.B3B.farmbros.domain.Productor;
@@ -22,7 +17,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.auth.api.signin.GoogleSignInStatusCodes;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
@@ -62,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
         */
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestServerAuthCode("220911260245-atfg57no69qchq5t5k1dislh85lbf9k1.apps.googleusercontent.com")
+                .requestServerAuthCode("704799621360-ad08qm9s1srvn820bu7vq410fe2faklo.apps.googleusercontent.com")
+                //.requestServerAuthCode("220911260245-atfg57no69qchq5t5k1dislh85lbf9k1.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
         googleSignInClient = GoogleSignIn.getClient(getApplicationContext(), gso);
