@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestServerAuthCode("704799621360-ad08qm9s1srvn820bu7vq410fe2faklo.apps.googleusercontent.com")
-                //.requestServerAuthCode("220911260245-atfg57no69qchq5t5k1dislh85lbf9k1.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
         googleSignInClient = GoogleSignIn.getClient(getApplicationContext(), gso);
