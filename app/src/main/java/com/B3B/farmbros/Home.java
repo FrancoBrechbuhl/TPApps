@@ -121,7 +121,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.drawer_menu_productor, menu);
+        getMenuInflater().inflate(R.menu.drawer_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
