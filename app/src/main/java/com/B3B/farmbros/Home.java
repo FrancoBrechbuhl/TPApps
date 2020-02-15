@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -61,6 +62,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         //aca se cambian las opciones del drawer, por defecto se ponen las de productor y se cambian si el usuario es ingeniero
         profesion = getIntent().getExtras().getString("profesion");
+        Log.d("Profesion: ", profesion);
         if(profesion.equals("ingeniero")){
             Menu menu = mNavigationView.getMenu();
             MenuItem menuItem = menu.findItem(R.id.menuItemNuevaConsulta);
