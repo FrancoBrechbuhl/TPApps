@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ConsultaRepository {
     private static ConsultaRepository _INSTANCE;
-    public static String _SERVER = "http://192.168.1.112:5000";/*"http://10.0.2.2:5000";*///"http://192.168.43.100:5000";
+    public static String _SERVER = /*"http://10.0.2.2:5000";*/"http://192.168.43.100:5000";
     private List<Consulta> listaConsultas;
     private Consulta consulta;
     /*

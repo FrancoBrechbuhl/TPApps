@@ -161,8 +161,10 @@ public class NuevaConsulta extends AppCompatActivity {
             ConsultaRepository.getInstance().crearConsulta(consulta,handlerCrearConsultas);
 
             String userName = getIntent().getExtras().getString("userName");
+            String profesion = getIntent().getExtras().getString("profesion");
             Intent i1 = new Intent(getApplicationContext(), Home.class);
             i1.putExtra("userName", userName);
+            i1.putExtra("profesion", profesion);
             startActivity(i1);
         }
     }

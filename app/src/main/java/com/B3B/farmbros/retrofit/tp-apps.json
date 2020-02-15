@@ -91,6 +91,19 @@
       },
       "textoConsulta": "",
       "id": 7
+    },
+    {
+      "LatConsulta": -31.49250587842298,
+      "LngConsulta": -61.03354275226593,
+      "asuntoConsulta": "Fitosanitarios",
+      "fechaConsulta": {},
+      "idConsulta": 8734,
+      "remitenteConsulta": {
+        "email": "francob19051997@gmail.com",
+        "nombre": "Franco Brechbuhl"
+      },
+      "textoConsulta": "Necesito saber cual es la dosis (cm3/ha) de producto x a aplicar ",
+      "id": 8
     }
   ],
   "productores": [
