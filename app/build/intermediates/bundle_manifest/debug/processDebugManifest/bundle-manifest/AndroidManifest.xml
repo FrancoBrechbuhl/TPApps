@@ -37,6 +37,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/ActionBarTheme"
         android:usesCleartextTraffic="true" >
 
@@ -92,6 +93,9 @@
         <activity
             android:name="com.B3B.farmbros.DetalleConsultaActivity"
             android:parentActivityName="com.B3B.farmbros.ListaConsultasActivity" />
+        <activity
+            android:name="com.B3B.farmbros.ChatsActivity"
+            android:parentActivityName="com.B3B.farmbros.DetalleConsultaActivity" />
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
             android:excludeFromRecents="true"

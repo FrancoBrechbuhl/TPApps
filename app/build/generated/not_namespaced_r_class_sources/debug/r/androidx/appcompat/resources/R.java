@@ -156,17 +156,17 @@ public final class R {
         private layout() {}
 
         public static final int custom_dialog = 0x7f0c0024;
-        public static final int notification_action = 0x7f0c0037;
-        public static final int notification_action_tombstone = 0x7f0c0038;
-        public static final int notification_template_custom_big = 0x7f0c003f;
-        public static final int notification_template_icon_group = 0x7f0c0040;
-        public static final int notification_template_part_chronometer = 0x7f0c0044;
-        public static final int notification_template_part_time = 0x7f0c0045;
+        public static final int notification_action = 0x7f0c0038;
+        public static final int notification_action_tombstone = 0x7f0c0039;
+        public static final int notification_template_custom_big = 0x7f0c0040;
+        public static final int notification_template_icon_group = 0x7f0c0041;
+        public static final int notification_template_part_chronometer = 0x7f0c0045;
+        public static final int notification_template_part_time = 0x7f0c0046;
     }
     public static final class string {
         private string() {}
 
-        public static final int status_bar_notification_info_overflow = 0x7f0f005f;
+        public static final int status_bar_notification_info_overflow = 0x7f0f0061;
     }
     public static final class style {
         private style() {}

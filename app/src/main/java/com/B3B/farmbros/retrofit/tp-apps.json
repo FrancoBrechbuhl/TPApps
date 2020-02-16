@@ -93,16 +93,17 @@
       "id": 7
     },
     {
-      "LatConsulta": -31.472194420678864,
-      "LngConsulta": -60.990036316215985,
-      "asuntoConsulta": "fito",
+      "LatConsulta": -31.405008113237848,
+      "LngConsulta": -61.08223054558038,
+      "asuntoConsulta": "Fitosanitarios",
+      "estado": "ABIERTA",
       "fechaConsulta": {},
-      "idConsulta": 7699,
+      "idConsulta": 4801,
       "remitenteConsulta": {
         "email": "francob19051997@gmail.com",
         "nombre": "Franco Brechbuhl"
       },
-      "textoConsulta": "blabla",
+      "textoConsulta": "Necesito saber la dosis para aplicar producto x (en cm3/ha)",
       "id": 8
     }
   ],
@@ -120,13 +121,26 @@
   ],
   "ingenieros": [
     {
-      "califiacion": 0,
+      "calificacion": 0,
       "email": "fybrechbuhl@gmail.com",
       "nombre": "Franco Brechbuhl",
       "id": 1
     }
   ],
   "mensajes": [
-
+    {
+      "datos": "Hello world",
+      "emailReceptor": "francob19051997@gmail.com",
+      "emailRemitente": "fybrechbuhl@gmail.com",
+      "horaCreacion": 1581893266049,
+      "id": 1
+    },
+    {
+      "datos": "Mensaje 2",
+      "emailReceptor": "francob19051997@gmail.com",
+      "emailRemitente": "fybrechbuhl@gmail.com",
+      "horaCreacion": 1581893388417,
+      "id": 2
+    }
   ]
 }

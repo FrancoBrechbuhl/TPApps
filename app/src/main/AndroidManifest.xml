@@ -71,10 +71,15 @@
         <activity
             android:name=".NuevaConsulta"
             android:parentActivityName=".Home" />
-        <activity android:name=".ListaConsultasActivity"
+        <activity
+            android:name=".ListaConsultasActivity"
             android:parentActivityName=".Home"/>
-        <activity android:name=".DetalleConsultaActivity"
+        <activity
+            android:name=".DetalleConsultaActivity"
             android:parentActivityName=".ListaConsultasActivity"/>
+        <activity
+            android:name=".ChatsActivity"
+            android:parentActivityName=".DetalleConsultaActivity"/>
     </application>
 
 </manifest>

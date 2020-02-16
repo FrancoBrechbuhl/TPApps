@@ -90,6 +90,7 @@ public class MensajeRepository {
                 if(response.isSuccessful()){
                     listaMensajes.clear();
                     listaMensajes.addAll(response.body());
+                    Log.d("Request to Retrofit", "Successful");
                 }
             }
 
@@ -98,5 +99,9 @@ public class MensajeRepository {
                 Log.d("Request to Retrofit","Fail");
             }
         });
+    }
+
+    public List<Mensaje> getListaMensajes() {
+        return listaMensajes;
     }
 }

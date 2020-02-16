@@ -13,7 +13,6 @@ import android.util.Base64;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.B3B.farmbros.domain.ChatsActivity;
 import com.B3B.farmbros.domain.Consulta;
 import com.B3B.farmbros.domain.EstadoConsulta;
 import com.B3B.farmbros.retrofit.ConsultaRepository;
@@ -44,6 +43,7 @@ public class DetalleConsultaActivity extends AppCompatActivity {
 
         String profesion = getIntent().getExtras().getString("profesion");
 
+        //solo se permiten chats de ingeniero a productor o viceversa, pero nunca entre dos productores
         if(profesion.equals("productor")){
             envioMensaje.setVisibility(View.INVISIBLE);
         }
@@ -59,7 +59,9 @@ public class DetalleConsultaActivity extends AppCompatActivity {
         envioMensaje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String emailProductor = getIntent().getExtras().getString("email productor");
                 Intent i1 = new Intent(getApplicationContext(), ChatsActivity.class);
+                i1.putExtra("email productor", emailProductor);
                 startActivity(i1);
             }
         });
@@ -67,6 +69,7 @@ public class DetalleConsultaActivity extends AppCompatActivity {
         cierreConsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //se marca la consulta en estado FINALIZADA
                 int id = getIntent().getExtras().getInt("idConsulta");
                 Consulta consulta = ConsultaRepository.getInstance().buscarConsultaPorID(id);
                 consulta.setEstado(EstadoConsulta.FINALIZADA);

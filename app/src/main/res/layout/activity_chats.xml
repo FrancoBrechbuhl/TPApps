@@ -39,7 +39,7 @@
 
         <EditText
             android:id="@+id/edit_chat"
-            android:hint="Escriba su mensaje"
+            android:hint="@string/campo_mensaje"
             android:background="@android:color/transparent"
             android:layout_gravity="center"
             android:layout_marginLeft="16dp"
@@ -51,7 +51,7 @@
 
         <Button
             android:id="@+id/btnEnviarMensaje"
-            android:text="Enviar"
+            android:text="@string/enviar"
             android:textSize="14dp"
             android:background="?attr/selectableItemBackground"
             android:layout_width="64dp"
