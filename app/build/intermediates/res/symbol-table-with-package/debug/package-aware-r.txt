@@ -665,6 +665,7 @@ color cardview_dark_background
 color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
+color color_linea_chats
 color common_google_signin_btn_text_dark
 color common_google_signin_btn_text_dark_default
 color common_google_signin_btn_text_dark_disabled
@@ -702,6 +703,7 @@ color foreground_material_light
 color grey
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color light_blue
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1219,6 +1221,7 @@ id btnConsultar
 id btnCrearIngeniero
 id btnCrearProductor
 id btnEmviarMsgDetCons
+id btnEnviarMensaje
 id btnFinalizarConsultaDetCons
 id btnInicioSesion
 id btnVerDetallesListaCons
@@ -1258,6 +1261,7 @@ id editAsuntoListaCons
 id editConsultaDetCons
 id editProductorListaCons
 id editUbicacionListaCons
+id edit_chat
 id edit_query
 id end
 id end_padder
@@ -1294,6 +1298,7 @@ id italic
 id item_touch_helper_previous_elevation
 id labeled
 id largeLabel
+id layout_chat
 id left
 id light
 id line1
@@ -1337,6 +1342,7 @@ id pin
 id progress_circular
 id progress_horizontal
 id radio
+id recyclerChats
 id recyclerListaConsultas
 id right
 id right_icon
@@ -1493,6 +1499,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_chats
 layout activity_consulta
 layout activity_crear_cuenta
 layout activity_detalle_consulta
@@ -1515,6 +1522,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout fila_chat
 layout fila_consulta
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
