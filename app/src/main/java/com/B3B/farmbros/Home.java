@@ -183,15 +183,16 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                     return true;
                 }
             case R.id.menuItemForoDeConsultas:
+                i1 = new Intent (this, ListaConsultasActivity.class);
                 //controlar porque esta opcion puede estar en los dos menúes
                 if(profesion.equals("productor")) {
-                    i1 = new Intent (this, ListaConsultasActivity.class);
-                    startActivity(i1);
-                    return true;
+                    i1.putExtra("profesion", "productor");
                 }
                 else{
-                    return true;
+                    i1.putExtra("profesion", "ingeniero");
                 }
+                startActivity(i1);
+                return true;
             case android.R.id.home:
                 onBackPressed();
                 return true;

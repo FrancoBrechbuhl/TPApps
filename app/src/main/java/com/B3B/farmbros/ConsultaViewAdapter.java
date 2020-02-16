@@ -18,11 +18,13 @@ public class ConsultaViewAdapter extends RecyclerView.Adapter<ConsultaViewHolder
     private List<Consulta> listaConsultas;
     private Context contexto;
     private ListaConsultasActivity listaConsultasActivity;
+    private String profesion;
 
-    public ConsultaViewAdapter(List<Consulta> listaConsultas, Context appContext, ListaConsultasActivity activity){
+    public ConsultaViewAdapter(List<Consulta> listaConsultas, Context appContext, ListaConsultasActivity activity, String profesion){
         this.listaConsultas = listaConsultas;
         this.contexto = appContext;
         this.listaConsultasActivity = activity;
+        this.profesion = profesion;
     }
 
     @NonNull
@@ -46,6 +48,7 @@ public class ConsultaViewAdapter extends RecyclerView.Adapter<ConsultaViewHolder
                 detalle.putExtra("nombre productor",consulta.getRemitenteConsulta().getNombre());
                 detalle.putExtra("consulta",consulta.getTextoConsulta());
                 detalle.putExtra("idConsulta", consulta.getIdConsulta());
+                detalle.putExtra("profesion", profesion);
                 if (consulta.getFotoConsultaBase64()!=null)
                     detalle.putExtra("foto consulta",consulta.getFotoConsultaBase64());
                 listaConsultasActivity.startActivity(detalle);

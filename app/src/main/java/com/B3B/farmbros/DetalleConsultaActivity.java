@@ -41,6 +41,12 @@ public class DetalleConsultaActivity extends AppCompatActivity {
         envioMensaje = (Button) findViewById(R.id.btnEmviarMsgDetCons);
         cierreConsulta = (Button) findViewById(R.id.btnFinalizarConsultaDetCons);
 
+        String profesion = getIntent().getExtras().getString("profesion");
+
+        if(profesion.equals("productor")){
+            envioMensaje.setVisibility(View.INVISIBLE);
+        }
+
         nombreProductor.setText(this.getIntent().getExtras().getString("nombre productor"));
         consulta.setText(this.getIntent().getExtras().getString("consulta"));
         if (!this.getIntent().getExtras().getString("foto consulta").equals("")){
@@ -52,7 +58,7 @@ public class DetalleConsultaActivity extends AppCompatActivity {
         envioMensaje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //TODO: a pantalla de chats
             }
         });
 

@@ -41,7 +41,9 @@ public class ListaConsultasActivity extends AppCompatActivity {
 
         ConsultaRepository.getInstance().listarConsultas(handlerListarConsultas);
 
-        mAdapter = new ConsultaViewAdapter(_CONSULTAS,getApplicationContext(),this);
+        String profesion = getIntent().getExtras().getString("profesion");
+
+        mAdapter = new ConsultaViewAdapter(_CONSULTAS,getApplicationContext(),this, profesion);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
     }
