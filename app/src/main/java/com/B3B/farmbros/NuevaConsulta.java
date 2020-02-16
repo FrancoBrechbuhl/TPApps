@@ -23,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import com.B3B.farmbros.domain.Consulta;
+import com.B3B.farmbros.domain.EstadoConsulta;
 import com.B3B.farmbros.domain.Productor;
 import com.B3B.farmbros.retrofit.ConsultaRepository;
 
@@ -155,6 +156,7 @@ public class NuevaConsulta extends AppCompatActivity {
             consulta.setLatConsulta(data.getExtras().getDouble("latitud"));
             consulta.setLngConsulta(data.getExtras().getDouble("longitud"));
             consulta.setRemitenteConsulta(productor);
+            consulta.setEstado(EstadoConsulta.ABIERTA);
             consulta.setFotoConsultaBase64(fotoEnBase64);
             consulta.setAsuntoConsulta(txtAsunto.getText().toString());
 

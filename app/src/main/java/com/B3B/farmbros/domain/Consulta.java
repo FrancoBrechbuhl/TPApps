@@ -14,6 +14,7 @@ public class Consulta {
     private Productor remitenteConsulta;
     private Ingeniero encargadoConsulta;
     private String localidad;
+    private EstadoConsulta estado;
 
     public Consulta(){
         fotoConsultaBase64="";
@@ -93,5 +94,13 @@ public class Consulta {
 
     public String getLocalidad() {
         return localidad;
+    }
+
+    public EstadoConsulta getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoConsulta estado) {
+        this.estado = estado;
     }
 }

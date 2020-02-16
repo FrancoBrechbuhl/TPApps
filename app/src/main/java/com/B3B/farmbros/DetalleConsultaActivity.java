@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,11 +13,17 @@ import android.util.Base64;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.B3B.farmbros.domain.Consulta;
+import com.B3B.farmbros.domain.EstadoConsulta;
+import com.B3B.farmbros.retrofit.ConsultaRepository;
+
 public class DetalleConsultaActivity extends AppCompatActivity {
 
     private TextView nombreProductor;
     private EditText consulta;
     private ImageView imagenConsulta;
+    private Button envioMensaje;
+    private Button cierreConsulta;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +38,8 @@ public class DetalleConsultaActivity extends AppCompatActivity {
         nombreProductor = (TextView) findViewById(R.id.textNombreDetCons);
         consulta = (EditText) findViewById(R.id.editConsultaDetCons);
         imagenConsulta = (ImageView) findViewById(R.id.imgDetCons);
+        envioMensaje = (Button) findViewById(R.id.btnEmviarMsgDetCons);
+        cierreConsulta = (Button) findViewById(R.id.btnFinalizarConsultaDetCons);
 
         nombreProductor.setText(this.getIntent().getExtras().getString("nombre productor"));
         consulta.setText(this.getIntent().getExtras().getString("consulta"));
@@ -39,6 +48,22 @@ public class DetalleConsultaActivity extends AppCompatActivity {
             Bitmap imagen = BitmapFactory.decodeByteArray(decoded,0,decoded.length);
             imagenConsulta.setImageBitmap(imagen);
         }
-        //TODO imagen y botones
+
+        envioMensaje.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        cierreConsulta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int id = getIntent().getExtras().getInt("idConsulta");
+                Consulta consulta = ConsultaRepository.getInstance().buscarConsultaPorID(id);
+                consulta.setEstado(EstadoConsulta.FINALIZADA);
+                ConsultaRepository.getInstance().actualizarConsulta(consulta);
+            }
+        });
     }
 }

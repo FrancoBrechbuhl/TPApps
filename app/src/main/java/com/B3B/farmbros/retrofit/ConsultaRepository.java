@@ -145,6 +145,23 @@ public class ConsultaRepository {
         });
     }
 
+    public void actualizarConsulta(final Consulta consulta){
+        Call<Consulta> llamada = this.consultaRest.actualizarConsulta(consulta.getIdConsulta(), consulta);
+        llamada.enqueue(new Callback<Consulta>() {
+            @Override
+            public void onResponse(Call<Consulta> call, Response<Consulta> response) {
+                if(response.isSuccessful()){
+                    Log.d("Request to Retrofit","Successful");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Consulta> call, Throwable t) {
+                Log.d("Request to Retrofit","Fail");
+            }
+        });
+    }
+
     public List<Consulta> getListaConsultas() {
         return listaConsultas;
     }
