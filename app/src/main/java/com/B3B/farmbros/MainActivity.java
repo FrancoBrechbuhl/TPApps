@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     private static final int CODE_ACTIVITY_HOME = 7;
 
     private SignInButton btnInicioSesion;
-    private String profesion;
     private GoogleSignInClient googleSignInClient;
     private GoogleSignInAccount account;
 

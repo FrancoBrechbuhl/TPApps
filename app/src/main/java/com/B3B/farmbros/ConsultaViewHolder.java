@@ -1,9 +1,7 @@
 package com.B3B.farmbros;
 
-import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;

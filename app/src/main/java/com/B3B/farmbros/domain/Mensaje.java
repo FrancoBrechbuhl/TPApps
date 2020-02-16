@@ -2,16 +2,18 @@ package com.B3B.farmbros.domain;
 
 public class Mensaje {
     private String datos;
-    private Usuario remitente;
+    private String emailRemitente;
+    private String emailReceptor;
     private Long horaCreacion;
 
     public Mensaje(){
 
     }
 
-    public Mensaje(String datos, Usuario remitente, Long horaCreacion){
+    public Mensaje(String datos, String remitente, String receptor, Long horaCreacion){
         this.datos = datos;
-        this.remitente = remitente;
+        this.emailRemitente = remitente;
+        this.emailReceptor = receptor;
         this.horaCreacion = horaCreacion;
     }
 
@@ -23,12 +25,20 @@ public class Mensaje {
         this.datos = datos;
     }
 
-    public Usuario getRemitente() {
-        return remitente;
+    public String getRemitente() {
+        return emailRemitente;
     }
 
-    public void setRemitente(Usuario remitente) {
-        this.remitente = remitente;
+    public void setRemitente(String remitente) {
+        this.emailRemitente = remitente;
+    }
+
+    public String getReceptor() {
+        return emailReceptor;
+    }
+
+    public void setReceptor(String receptor) {
+        this.emailReceptor = receptor;
     }
 
     public Long getHoraCreacion() {

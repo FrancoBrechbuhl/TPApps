@@ -13,6 +13,7 @@ import android.util.Base64;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.B3B.farmbros.domain.ChatsActivity;
 import com.B3B.farmbros.domain.Consulta;
 import com.B3B.farmbros.domain.EstadoConsulta;
 import com.B3B.farmbros.retrofit.ConsultaRepository;
@@ -58,7 +59,8 @@ public class DetalleConsultaActivity extends AppCompatActivity {
         envioMensaje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: a pantalla de chats
+                Intent i1 = new Intent(getApplicationContext(), ChatsActivity.class);
+                startActivity(i1);
             }
         });
 
