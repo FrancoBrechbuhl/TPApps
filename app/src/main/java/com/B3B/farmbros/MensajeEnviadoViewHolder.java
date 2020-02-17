@@ -1,13 +1,12 @@
 package com.B3B.farmbros;
 
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.B3B.farmbros.domain.Mensaje;
 
 public class MensajeEnviadoViewHolder extends RecyclerView.ViewHolder {
     private TextView textoMensaje;
@@ -15,12 +14,17 @@ public class MensajeEnviadoViewHolder extends RecyclerView.ViewHolder {
 
     public MensajeEnviadoViewHolder(@NonNull View itemView){
         super(itemView);
-        textoMensaje = (TextView) itemView.findViewById(R.id.txtMensajeEnviado);
-        horaMensaje = (TextView) itemView.findViewById(R.id.txtHoraMensajeEnviado);
+        textoMensaje = itemView.findViewById(R.id.txtMensajeEnviado);
+        horaMensaje = itemView.findViewById(R.id.txtHoraMensajeEnviado);
     }
 
-    void bind(Mensaje mensaje){
-        textoMensaje.setText(mensaje.getDatos());
-        horaMensaje.setText(DateUtils.formatElapsedTime(mensaje.getHoraCreacion()));
+    public void setTextoMensaje(String texto){
+        textoMensaje.setText(texto);
+        Log.d("llego", "seteo de mensaje enviado");
+    }
+
+    public void setHoraMensaje(long hora){
+        horaMensaje.setText(DateUtils.formatElapsedTime(hora));
+        Log.d("llego", "seteo de mensaje enviado");
     }
 }

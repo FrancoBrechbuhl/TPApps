@@ -20,6 +20,6 @@ public interface MensajeRest {
     @GET("mensajes/")
     Call<List<Mensaje>> listarTodosPorUsuarioTextoyHora();
 
-    @GET("consultas/")
+    @GET("mensajes/")
     Call<List<Mensaje>> buscarMensajesPorEmisoryReceptor(@Query("emailRemitente") String remitente, @Query("emailReceptor") String receptor);
 }

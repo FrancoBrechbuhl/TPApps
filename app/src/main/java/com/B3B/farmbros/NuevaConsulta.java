@@ -187,6 +187,7 @@ public class NuevaConsulta extends AppCompatActivity {
             switch (msg.arg1){
                 case ConsultaRepository._POST:
                  //TODO notificacion
+                    //TODO: revisar porque hay consultas que se crean sin email del productor
                     /*
                     codigo de notificacion exitosa
                      */

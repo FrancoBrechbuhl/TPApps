@@ -1,5 +1,6 @@
 package com.B3B.farmbros;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,17 +21,22 @@ import java.util.List;
 
 public class ChatsActivity extends AppCompatActivity {
     private RecyclerView recyclerViewMensajes;
-    private MensajeViewAdapter adapterMensajes;
+    private RecyclerView.Adapter adapterMensajes;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private RecyclerView.Adapter mAdapter;
     private TextView textoMensaje;
     private Button btnEnviar;
 
     @Override
     protected void onCreate(Bundle saveInstanceState){
         super.onCreate(saveInstanceState);
+        setContentView(R.layout.activity_mensajes);
+        /*
         setContentView(R.layout.activity_chats);
+        btnEnviar = findViewById(R.id.btnEnviarMensaje);
+        textoMensaje = findViewById(R.id.edit_chat);
 
-        btnEnviar = (Button) findViewById(R.id.btnEnviarMensaje);
-        textoMensaje = (TextView) findViewById(R.id.edit_chat);
+         */
 
         List<Mensaje> mensajes = new ArrayList<Mensaje>();
 
@@ -38,18 +44,35 @@ public class ChatsActivity extends AppCompatActivity {
         final String emailEmisor = account.getEmail();
         final String emailReceptor = getIntent().getExtras().getString("email productor");
 
-        MensajeRepository.getInstance().listarMensajesPorEmisoryReceptor(emailEmisor, emailReceptor);
         List<Mensaje> lista = MensajeRepository.getInstance().getListaMensajes();
+        Log.d("Size: ", String.valueOf(lista.size()));
         for(Mensaje m : lista){
             Log.d("message: ", m.getDatos());
         }
-        Log.d("Size: ", String.valueOf(lista.size()));
-        mensajes.addAll(MensajeRepository.getInstance().getListaMensajes());
+        mensajes.addAll(lista);
 
-        recyclerViewMensajes = (RecyclerView) findViewById(R.id.recyclerChats);
-        adapterMensajes = new MensajeViewAdapter(this, mensajes);
-        recyclerViewMensajes.setLayoutManager(new LinearLayoutManager(this));
+        /*
+        recyclerViewMensajes = findViewById(R.id.recyclerChats);
+        recyclerViewMensajes.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(this);
+        recyclerViewMensajes.setLayoutManager(mLayoutManager);
 
+        adapterMensajes = new MensajeViewAdapter(getApplicationContext(), mensajes, this);
+        recyclerViewMensajes.setAdapter(adapterMensajes);
+        adapterMensajes.notifyDataSetChanged();
+
+         */
+
+        recyclerViewMensajes = findViewById(R.id.recyclerListaMensajes);
+        recyclerViewMensajes.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(this);
+        recyclerViewMensajes.setLayoutManager(mLayoutManager);
+
+        mAdapter = new MensajeAdapter(mensajes, getApplicationContext(), this);
+        recyclerViewMensajes.setAdapter(mAdapter);
+        mAdapter.notifyDataSetChanged();
+
+        /*
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,7 +85,21 @@ public class ChatsActivity extends AppCompatActivity {
                 textoMensaje.setText("");
 
                 MensajeRepository.getInstance().crearMensaje(mensaje);
+                adapterMensajes.notifyDataSetChanged();
             }
         });
+
+         */
     }
+
+    /*
+    @Override
+    public void onBackPressed(){
+        String profesion = getIntent().getExtras().getString("profesion");
+        Intent i1 = new Intent(getApplicationContext(), DetalleConsultaActivity.class);
+        i1.putExtra("profesion", profesion);
+        startActivity(i1);
+    }
+
+     */
 }
