@@ -72,6 +72,7 @@ public class ChatsActivity extends AppCompatActivity {
         recyclerViewMensajes.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
 
+
         /*
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
