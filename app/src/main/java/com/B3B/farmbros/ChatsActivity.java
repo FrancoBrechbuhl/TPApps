@@ -26,6 +26,8 @@ public class ChatsActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     private TextView textoMensaje;
     private Button btnEnviar;
+    private String emailEmisor;
+    private String emailReceptor;
 
     @Override
     protected void onCreate(Bundle saveInstanceState){
@@ -42,10 +44,19 @@ public class ChatsActivity extends AppCompatActivity {
 
         List<Mensaje> mensajes = new ArrayList<Mensaje>();
 
-        //Revisar que cambios hacer para que funcione con productores e ingenieros
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
-        final String emailEmisor = account.getEmail();
-        final String emailReceptor = getIntent().getExtras().getString("email productor");
+
+        String profesion = getIntent().getExtras().getString("profesion");
+        if(profesion.equals("productor")){
+            //viene desde ListaContactosActivity
+            emailEmisor = account.getEmail();
+            emailReceptor = getIntent().getExtras().getString("email productor");
+        }
+        else {
+            //viene desde DetalleConsultaActivity
+            emailEmisor = account.getEmail();
+            emailReceptor = getIntent().getExtras().getString("email productor");
+        }
 
         List<Mensaje> listaAux = MensajeRepository.getInstance().getListaMensajes();
         List<Mensaje> lista = ordenarMensajes(listaAux);

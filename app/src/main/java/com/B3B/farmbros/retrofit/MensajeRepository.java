@@ -1,5 +1,7 @@
 package com.B3B.farmbros.retrofit;
 
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 
 import com.B3B.farmbros.domain.Mensaje;
@@ -14,6 +16,12 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MensajeRepository {
+    public static final int _POST = 300;
+    public static final int _GET = 301;
+    public static final int _UPDATE = 302;
+    public static final int _DELETE = 303;
+    public static final int _ERROR = 309;
+
     private static MensajeRepository _INSTANCE;
     public static String _SERVER = /*"http://10.0.2.2:5000";*/"http://192.168.43.100:5000";
     private List<Mensaje> listaMensajes;
@@ -113,6 +121,31 @@ public class MensajeRepository {
             @Override
             public void onFailure(Call<List<Mensaje>> call, Throwable t) {
                 Log.d("Request to Retrofit","Fail");
+            }
+        });
+    }
+
+    public void listarMensajesPorReceptor(String emailProductor, final Handler h){
+        Call<List<Mensaje>> llamada = this.mensajeRest.listarTodosPorReceptor(emailProductor);
+        llamada.enqueue(new Callback<List<Mensaje>>() {
+            @Override
+            public void onResponse(Call<List<Mensaje>> call, Response<List<Mensaje>> response) {
+                if(response.isSuccessful()){
+                    listaMensajes.clear();
+                    listaMensajes.addAll(response.body());
+                    Message m = new Message();
+                    m.arg1 = _GET;
+                    h.sendMessage(m);
+                    Log.d("Request to Retrofit", "Successful");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Mensaje>> call, Throwable t) {
+                Log.d("Request to Retrofit","Fail");
+                Message m = new Message();
+                m.arg1 = _ERROR;
+                h.sendMessage(m);
             }
         });
     }

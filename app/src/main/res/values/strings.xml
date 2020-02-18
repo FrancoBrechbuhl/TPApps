@@ -61,5 +61,6 @@
     <!-- Chats -->
     <string name="enviar">Enviar</string>
     <string name="campo_mensaje">Escriba su mensaje</string>
+    <string name="ver_conversacion">Ver</string>
 
 </resources>

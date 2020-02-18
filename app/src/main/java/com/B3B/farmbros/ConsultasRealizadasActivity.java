@@ -48,9 +48,7 @@ public class ConsultasRealizadasActivity extends AppCompatActivity {
 
         ConsultaRepository.getInstance().listarConsultasPorProductor(emailProductor, handlerListarConsultas);
 
-        String profesion = getIntent().getExtras().getString("profesion");
-
-        mAdapterConsultas = new ConsultaViewAdapter(_CONSULTAS, getApplicationContext(), null, this, profesion);
+        mAdapterConsultas = new ConsultaViewAdapter(_CONSULTAS, getApplicationContext(), null, this, "productor");
         mRecyclerViewConsultas.setAdapter(mAdapterConsultas);
         mAdapterConsultas.notifyDataSetChanged();
     }

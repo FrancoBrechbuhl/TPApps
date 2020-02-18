@@ -160,12 +160,11 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 return true;
             case R.id.menuItemVerConsultasRealizadas:
                 i1 = new Intent (this, ConsultasRealizadasActivity.class);
-                i1.putExtra("profesion", "productor");
                 startActivity(i1);
                 return true;
             case R.id.menuItemChats:
-                //i1 = new Intent (this,Chat.class);
-                //startActivity(i1);
+                i1 = new Intent (this, ListaContactosActivity.class);
+                startActivity(i1);
                 return true;
             case R.id.menuItemMiPerfil:
                 //controlar porque esta opcion puede estar en los dos menúes

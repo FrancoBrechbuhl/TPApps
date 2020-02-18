@@ -82,7 +82,7 @@ public class DetalleConsultaActivity extends AppCompatActivity {
                 Intent i1 = new Intent(getApplicationContext(), ChatsActivity.class);
                 i1.putExtra("nombre productor", nombreProductor);
                 i1.putExtra("email productor", emailProductor);
-                i1.putExtra("profesion", profesion);
+                i1.putExtra("profesion", "ingeniero");
                 startActivity(i1);
             }
         });
