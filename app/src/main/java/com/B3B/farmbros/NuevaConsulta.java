@@ -147,6 +147,7 @@ public class NuevaConsulta extends AppCompatActivity {
             Random r = new Random();
             int idConsulta = r.nextInt(10000) + 1; //TODO: generar bien los id
             Productor productor = new Productor();
+
             productor.setNombre(getIntent().getExtras().getString("userName"));
             productor.setEmail(getIntent().getExtras().getString("email"));
             Consulta consulta = new Consulta();

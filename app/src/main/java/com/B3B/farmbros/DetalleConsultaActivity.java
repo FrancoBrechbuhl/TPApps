@@ -94,6 +94,9 @@ public class DetalleConsultaActivity extends AppCompatActivity {
                 consultaDetallada = ConsultaRepository.getInstance().getConsulta();
                 consultaDetallada.setEstado(EstadoConsulta.FINALIZADA);
                 ConsultaRepository.getInstance().actualizarConsulta(consultaDetallada);
+                //TODO: controlar que el finalizado se haga por un ingeniero o por el productor
+                // que realizo la consulta
+
                 //TODO: Corregir, no se hace el update porque la consulta tiene id y idConsulta
                 // yo trate de hacer que actualice con @Query y el idConsulta, pero en el server
                 // se ejecuta el PUT solo que no cambia la consulta, si o si hay que hacerlo con

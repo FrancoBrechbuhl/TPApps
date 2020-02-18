@@ -98,6 +98,9 @@
             android:name="com.B3B.farmbros.ChatsActivity"
             android:parentActivityName="com.B3B.farmbros.DetalleConsultaActivity" />
         <activity
+            android:name="com.B3B.farmbros.ConsultasRealizadasActivity"
+            android:parentActivityName="com.B3B.farmbros.Home" />
+        <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
             android:excludeFromRecents="true"
             android:exported="false"
