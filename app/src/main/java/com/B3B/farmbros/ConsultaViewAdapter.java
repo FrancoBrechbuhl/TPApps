@@ -40,7 +40,6 @@ public class ConsultaViewAdapter extends RecyclerView.Adapter<ConsultaViewHolder
     @Override
     public void onBindViewHolder(@NonNull ConsultaViewHolder holder, int position) {
         final Consulta consulta = listaConsultas.get(position);
-        ConsultaRepository.getInstance().buscarConsultaPorIdConsulta(consulta.getIdConsulta());
         holder.setAsunto(consulta.getAsuntoConsulta());
         holder.setProductor(consulta.getRemitenteConsulta().getNombre());
         holder.setUbicacion(String.valueOf(consulta.getLatConsulta()) + " " + String.valueOf(consulta.getLngConsulta()));
@@ -51,10 +50,10 @@ public class ConsultaViewAdapter extends RecyclerView.Adapter<ConsultaViewHolder
                 detalle.putExtra("nombre productor",consulta.getRemitenteConsulta().getNombre());
                 detalle.putExtra("email productor", consulta.getRemitenteConsulta().getEmail());
                 detalle.putExtra("consulta",consulta.getTextoConsulta());
-                detalle.putExtra("idConsulta", consulta.getIdConsulta());
                 detalle.putExtra("profesion", profesion);
                 if (consulta.getFotoConsultaBase64()!=null)
                     detalle.putExtra("foto consulta",consulta.getFotoConsultaBase64());
+                ConsultaRepository.getInstance().buscarConsultaPorIdConsulta(consulta.getIdConsulta());
                 listaConsultasActivity.startActivity(detalle);
             }
         });

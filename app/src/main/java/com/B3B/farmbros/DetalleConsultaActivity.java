@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.util.Base64;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -44,10 +46,6 @@ public class DetalleConsultaActivity extends AppCompatActivity {
         imagenConsulta = (ImageView) findViewById(R.id.imgDetCons);
         envioMensaje = (Button) findViewById(R.id.btnEmviarMsgDetCons);
         cierreConsulta = (Button) findViewById(R.id.btnFinalizarConsultaDetCons);
-
-        final int id = getIntent().getExtras().getInt("idConsulta");
-        ConsultaRepository.getInstance().buscarConsultaPorIdConsulta(id);
-        consultaDetallada = ConsultaRepository.getInstance().getListaConsultas().get(0);
 
         final String profesion = getIntent().getExtras().getString("profesion");
 
@@ -93,10 +91,13 @@ public class DetalleConsultaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //se marca la consulta en estado FINALIZADA
-                //TODO: se hace el PUT en retrofit pero no se actualiza en el archivo JSON
+                consultaDetallada = ConsultaRepository.getInstance().getConsulta();
                 consultaDetallada.setEstado(EstadoConsulta.FINALIZADA);
                 ConsultaRepository.getInstance().actualizarConsulta(consultaDetallada);
-                //TODO: una vez cerrada la consulta ir al for de consultas
+                Toast.makeText(getApplicationContext(), "La consulta se ha finalizado con éxito", Toast.LENGTH_SHORT).show();
+                Intent i1 = new Intent(getApplicationContext(), ListaConsultasActivity.class);
+                i1.putExtra("profesion", profesion);
+                startActivity(i1);
             }
         });
     }
