@@ -94,6 +94,10 @@ public class DetalleConsultaActivity extends AppCompatActivity {
                 consultaDetallada = ConsultaRepository.getInstance().getConsulta();
                 consultaDetallada.setEstado(EstadoConsulta.FINALIZADA);
                 ConsultaRepository.getInstance().actualizarConsulta(consultaDetallada);
+                //TODO: Corregir, no se hace el update porque la consulta tiene id y idConsulta
+                // yo trate de hacer que actualice con @Query y el idConsulta, pero en el server
+                // se ejecuta el PUT solo que no cambia la consulta, si o si hay que hacerlo con
+                // el id que es la PK, pero no se como obtenerlo porque eso lo hace el handler
                 Toast.makeText(getApplicationContext(), "La consulta se ha finalizado con éxito", Toast.LENGTH_SHORT).show();
                 Intent i1 = new Intent(getApplicationContext(), ListaConsultasActivity.class);
                 i1.putExtra("profesion", profesion);

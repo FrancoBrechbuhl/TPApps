@@ -27,10 +27,10 @@ public interface ConsultaRest {
     Call<List<Consulta>> buscarConsultaPorIdConsulta(@Query("idConsulta") Integer id);
 
     @GET("consultas/")
-    Call<List<Consulta>> buscarConsultaPorProductor(@Query("remitenteConsulta") String remitente);
+    Call<List<Consulta>> buscarConsultaPorProductor(@Query("email") String remitente);
 
-    @PUT("consultas/{ID}")
-    Call<Consulta> actualizarConsulta(@Path("ID") Integer id, @Body Consulta consulta);
+    @PUT("consultas/")
+    Call<Consulta> actualizarConsulta(@Query("idConsulta") Integer id, @Body Consulta consulta);
 
     @DELETE("consultas/{ID}")
     Call<Void> eliminarConsulta(@Path("ID") Integer id);

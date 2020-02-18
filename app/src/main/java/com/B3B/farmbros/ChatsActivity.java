@@ -82,16 +82,6 @@ public class ChatsActivity extends AppCompatActivity {
         });
     }
 
-    /*
-    @Override
-    public void onBackPressed(){
-        String profesion = getIntent().getExtras().getString("profesion");
-        Intent i1 = new Intent(getApplicationContext(), DetalleConsultaActivity.class);
-        i1.putExtra("profesion", profesion);
-        startActivity(i1);
-    }
-     */
-
     private List<Mensaje> ordenarMensajes(List<Mensaje> mensajesDesordenados){
         List<Mensaje> mensajesOrdenados = new ArrayList<>();
         int longitud = mensajesDesordenados.size();

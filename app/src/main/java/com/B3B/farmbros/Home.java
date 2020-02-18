@@ -147,24 +147,29 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 i1.putExtra("email", email);
                 startActivity(i1);
                 return true;
+            case R.id.menuItemForoDeConsultas:
+                i1 = new Intent (this, ListaConsultasActivity.class);
+                //controlar porque esta opcion puede estar en los dos menúes
+                if(profesion.equals("productor")) {
+                    i1.putExtra("profesion", "productor");
+                }
+                else{
+                    i1.putExtra("profesion", "ingeniero");
+                }
+                startActivity(i1);
+                return true;
             case R.id.menuItemVerConsultasRealizadas:
-                //i1 = new Intent (this,ConsultasRealizadas.class);
-                //String userName2 = getIntent().getExtras().getString("userName");
-                //i1.putExtra("userName", userName2);
-                //startActivity(i1);
+                i1 = new Intent (this, ConsultasRealizadasActivity.class);
+                startActivity(i1);
                 return true;
             case R.id.menuItemChats:
                 //i1 = new Intent (this,Chat.class);
-                //String userName3 = getIntent().getExtras().getString("userName");
-                //i1.putExtra("userName", userName3);
                 //startActivity(i1);
                 return true;
             case R.id.menuItemMiPerfil:
                 //controlar porque esta opcion puede estar en los dos menúes
                 if(profesion.equals("productor")) {
                     //i1 = new Intent (this,Perfil.class);
-                    //String userName4 = getIntent().getExtras().getString("userName");
-                    //i1.putExtra("userName", userName4);
                     //startActivity(i1);
                 }
                 else{
@@ -182,17 +187,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 else{
                     return true;
                 }
-            case R.id.menuItemForoDeConsultas:
-                i1 = new Intent (this, ListaConsultasActivity.class);
-                //controlar porque esta opcion puede estar en los dos menúes
-                if(profesion.equals("productor")) {
-                    i1.putExtra("profesion", "productor");
-                }
-                else{
-                    i1.putExtra("profesion", "ingeniero");
-                }
-                startActivity(i1);
-                return true;
             case android.R.id.home:
                 onBackPressed();
                 return true;

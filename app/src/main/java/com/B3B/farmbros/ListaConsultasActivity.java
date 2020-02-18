@@ -43,7 +43,7 @@ public class ListaConsultasActivity extends AppCompatActivity {
 
         String profesion = getIntent().getExtras().getString("profesion");
 
-        mAdapter = new ConsultaViewAdapter(_CONSULTAS,getApplicationContext(),this, profesion);
+        mAdapter = new ConsultaViewAdapter(_CONSULTAS,getApplicationContext(),this, null, profesion);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
     }

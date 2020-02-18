@@ -2,7 +2,6 @@ package com.B3B.farmbros;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,13 +19,25 @@ public class ConsultaViewAdapter extends RecyclerView.Adapter<ConsultaViewHolder
     private List<Consulta> listaConsultas;
     private Context contexto;
     private ListaConsultasActivity listaConsultasActivity;
+    private ConsultasRealizadasActivity consultasRealizadasActivity;
+    private int actividad;
     private String profesion;
 
-    public ConsultaViewAdapter(List<Consulta> listaConsultas, Context appContext, ListaConsultasActivity activity, String profesion){
+    private static final int ACTIVITY_LISTA_CONSULTAS = 1;
+    private static final int ACTIVITY_CONSULTAS_REALIZADAS = 2;
+
+    public ConsultaViewAdapter(List<Consulta> listaConsultas, Context appContext, ListaConsultasActivity activity, ConsultasRealizadasActivity realizadasActivity, String profesion){
         this.listaConsultas = listaConsultas;
         this.contexto = appContext;
         this.listaConsultasActivity = activity;
+        this.consultasRealizadasActivity = realizadasActivity;
         this.profesion = profesion;
+        if(listaConsultasActivity != null){
+            actividad = ACTIVITY_LISTA_CONSULTAS;
+        }
+        else if(realizadasActivity != null){
+            actividad = ACTIVITY_CONSULTAS_REALIZADAS;
+        }
     }
 
     @NonNull
@@ -54,7 +65,12 @@ public class ConsultaViewAdapter extends RecyclerView.Adapter<ConsultaViewHolder
                 if (consulta.getFotoConsultaBase64()!=null)
                     detalle.putExtra("foto consulta",consulta.getFotoConsultaBase64());
                 ConsultaRepository.getInstance().buscarConsultaPorIdConsulta(consulta.getIdConsulta());
-                listaConsultasActivity.startActivity(detalle);
+                if(actividad == ACTIVITY_LISTA_CONSULTAS) {
+                    listaConsultasActivity.startActivity(detalle);
+                }
+                else if(actividad == ACTIVITY_CONSULTAS_REALIZADAS){
+                    consultasRealizadasActivity.startActivity(detalle);
+                }
             }
         });
     }
