@@ -1,7 +1,6 @@
 package com.B3B.farmbros;
 
 import android.text.format.DateUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -20,11 +19,9 @@ public class MensajeEnviadoViewHolder extends RecyclerView.ViewHolder {
 
     public void setTextoMensaje(String texto){
         textoMensaje.setText(texto);
-        Log.d("llego", "seteo de mensaje enviado");
     }
 
     public void setHoraMensaje(long hora){
         horaMensaje.setText(DateUtils.formatElapsedTime(hora));
-        Log.d("llego", "seteo de mensaje enviado");
     }
 }

@@ -1,7 +1,5 @@
 package com.B3B.farmbros.retrofit;
 
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 
 import com.B3B.farmbros.domain.Mensaje;
@@ -89,6 +87,24 @@ public class MensajeRepository {
             public void onResponse(Call<List<Mensaje>> call, Response<List<Mensaje>> response) {
                 if(response.isSuccessful()){
                     listaMensajes.clear();
+                    listaMensajes.addAll(response.body());
+                    Log.d("Request to Retrofit", "Successful");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Mensaje>> call, Throwable t) {
+                Log.d("Request to Retrofit","Fail");
+            }
+        });
+    }
+
+    public void listarMensajesPorReceptoryEmisor(String receptor, String emisor){
+        Call<List<Mensaje>> llamada = this.mensajeRest.buscarMensajesPorEmisoryReceptor(receptor, emisor);
+        llamada.enqueue(new Callback<List<Mensaje>>() {
+            @Override
+            public void onResponse(Call<List<Mensaje>> call, Response<List<Mensaje>> response) {
+                if(response.isSuccessful()){
                     listaMensajes.addAll(response.body());
                     Log.d("Request to Retrofit", "Successful");
                 }

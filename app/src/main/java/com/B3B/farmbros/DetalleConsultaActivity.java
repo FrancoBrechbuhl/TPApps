@@ -75,6 +75,7 @@ public class DetalleConsultaActivity extends AppCompatActivity {
                 GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
                 String emailEmisor = account.getEmail();
                 MensajeRepository.getInstance().listarMensajesPorEmisoryReceptor(emailEmisor, emailProductor);
+                MensajeRepository.getInstance().listarMensajesPorReceptoryEmisor(emailProductor, emailEmisor);
                 Intent i1 = new Intent(getApplicationContext(), ChatsActivity.class);
                 i1.putExtra("nombre productor", nombreProductor);
                 i1.putExtra("email productor", emailProductor);

@@ -1180,10 +1180,6 @@
         "source": "C:\\Users\\Usuario\\.gradle\\caches\\transforms-2\\files-2.1\\291563c6708268cf4683b088770f2b39\\play-services-base-17.0.0\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
     },
     {
-        "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\layout_fila_mensaje.xml.flat",
-        "source": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\src\\main\\res\\layout\\fila_mensaje.xml"
-    },
-    {
         "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_disabled.xml.flat",
         "source": "C:\\Users\\Usuario\\.gradle\\caches\\transforms-2\\files-2.1\\291563c6708268cf4683b088770f2b39\\play-services-base-17.0.0\\res\\drawable\\common_google_signin_btn_icon_disabled.xml"
     },
@@ -1526,10 +1522,6 @@
     {
         "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
         "source": "C:\\Users\\Usuario\\.gradle\\caches\\transforms-2\\files-2.1\\c527b78844be871c44103f6f45a963fb\\core-1.1.0\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
-    },
-    {
-        "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_mensajes.xml.flat",
-        "source": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\src\\main\\res\\layout\\activity_mensajes.xml"
     },
     {
         "merged": "C:\\Users\\Usuario\\AndroidStudioProjects\\TPApps\\app\\build\\intermediates\\res\\merged\\debug\\anim_btn_radio_to_off_mtrl_ring_outer_animation.xml.flat",

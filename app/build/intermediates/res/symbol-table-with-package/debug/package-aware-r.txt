@@ -1217,7 +1217,6 @@ id beginning
 id blocking
 id bottom
 id btnAgregarFoto
-id btnAuxiliar
 id btnCierreSesion
 id btnConsultar
 id btnCrearIngeniero
@@ -1346,7 +1345,6 @@ id progress_horizontal
 id radio
 id recyclerChats
 id recyclerListaConsultas
-id recyclerListaMensajes
 id right
 id right_icon
 id right_side
@@ -1434,14 +1432,12 @@ id transition_transform
 id txtBienvenida1
 id txtBienvenida2
 id txtFieldConsulta
-id txtHora
 id txtHoraMensajeEnviado
 id txtHoraMensajeRecibido
 id txtIdentificadorUsuario
 id txtMensajeEnviado
 id txtMensajeRecibido
 id txtNuevaConsulta
-id txtTexto
 id unchecked
 id uniform
 id unlabeled
@@ -1516,7 +1512,6 @@ layout activity_home_drawer
 layout activity_lista_consultas
 layout activity_main
 layout activity_maps
-layout activity_mensajes
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1533,7 +1528,6 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout fila_consulta
-layout fila_mensaje
 layout fila_mensajes_enviados
 layout fila_mensajes_recibidos
 layout mtrl_layout_snackbar
