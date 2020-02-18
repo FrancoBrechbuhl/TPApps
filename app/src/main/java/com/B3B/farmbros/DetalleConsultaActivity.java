@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +27,7 @@ public class DetalleConsultaActivity extends AppCompatActivity {
     private ImageView imagenConsulta;
     private Button envioMensaje;
     private Button cierreConsulta;
+    private Consulta consultaDetallada;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +45,10 @@ public class DetalleConsultaActivity extends AppCompatActivity {
         envioMensaje = (Button) findViewById(R.id.btnEmviarMsgDetCons);
         cierreConsulta = (Button) findViewById(R.id.btnFinalizarConsultaDetCons);
 
+        final int id = getIntent().getExtras().getInt("idConsulta");
+        ConsultaRepository.getInstance().buscarConsultaPorIdConsulta(id);
+        consultaDetallada = ConsultaRepository.getInstance().getListaConsultas().get(0);
+
         final String profesion = getIntent().getExtras().getString("profesion");
 
         //solo se permiten chats de ingeniero a productor o viceversa, pero nunca entre dos productores
@@ -56,6 +60,7 @@ public class DetalleConsultaActivity extends AppCompatActivity {
             GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
             String emailEmisor = account.getEmail();
             MensajeRepository.getInstance().listarMensajesPorEmisoryReceptor(emailEmisor, emailProductor);
+            MensajeRepository.getInstance().listarMensajesPorReceptoryEmisor(emailProductor, emailEmisor);
         }
 
         nombreProductor.setText(this.getIntent().getExtras().getString("nombre productor"));
@@ -88,10 +93,10 @@ public class DetalleConsultaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //se marca la consulta en estado FINALIZADA
-                int id = getIntent().getExtras().getInt("idConsulta");
-                Consulta consulta = ConsultaRepository.getInstance().buscarConsultaPorID(id);
-                consulta.setEstado(EstadoConsulta.FINALIZADA);
-                ConsultaRepository.getInstance().actualizarConsulta(consulta);
+                //TODO: se hace el PUT en retrofit pero no se actualiza en el archivo JSON
+                consultaDetallada.setEstado(EstadoConsulta.FINALIZADA);
+                ConsultaRepository.getInstance().actualizarConsulta(consultaDetallada);
+                //TODO: una vez cerrada la consulta ir al for de consultas
             }
         });
     }

@@ -104,7 +104,7 @@ public class ConsultaRepository {
         });
     }
 
-    public Consulta buscarConsultaPorID(final int id){
+    public void buscarConsultaPorID(final int id){
         Call<Consulta> llamada = this.consultaRest.buscarConsultaPorID(id);
         llamada.enqueue(new Callback<Consulta>() {
             @Override
@@ -124,7 +124,29 @@ public class ConsultaRepository {
                 Log.d("Request to Retrofit","Fail");
             }
         });
-        return consulta;
+    }
+
+    public void buscarConsultaPorIdConsulta(final int id){
+        Call<List<Consulta>> llamada = this.consultaRest.buscarConsultaPorIdConsulta(id);
+        llamada.enqueue(new Callback<List<Consulta>>() {
+            @Override
+            public void onResponse(Call<List<Consulta>> call, Response<List<Consulta>> response) {
+                if(response.isSuccessful()){
+                    listaConsultas.clear();
+                    listaConsultas.addAll(response.body());
+                    Log.d("Request to Retrofit","Successful");
+                }
+                else{
+                    consulta = null;
+                    Log.d("Request to Retrofit","Null");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Consulta>> call, Throwable t) {
+                Log.d("Request to Retrofit","Fail");
+            }
+        });
     }
 
     public void borrarConsulta (final Consulta consulta){

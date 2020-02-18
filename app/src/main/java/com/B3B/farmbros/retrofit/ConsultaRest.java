@@ -24,6 +24,9 @@ public interface ConsultaRest {
     Call<Consulta> buscarConsultaPorID(@Path("id") Integer id);
 
     @GET("consultas/")
+    Call<List<Consulta>> buscarConsultaPorIdConsulta(@Query("idConsulta") Integer id);
+
+    @GET("consultas/")
     Call<List<Consulta>> buscarConsultaPorProductor(@Query("remitenteConsulta") String remitente);
 
     @PUT("consultas/{ID}")

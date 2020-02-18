@@ -42,6 +42,7 @@ public class ChatsActivity extends AppCompatActivity {
 
         List<Mensaje> mensajes = new ArrayList<Mensaje>();
 
+        //Revisar que cambios hacer para que funcione con productores e ingenieros
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
         final String emailEmisor = account.getEmail();
         final String emailReceptor = getIntent().getExtras().getString("email productor");

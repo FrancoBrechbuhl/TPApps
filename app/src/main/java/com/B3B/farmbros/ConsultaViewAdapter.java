@@ -2,6 +2,7 @@ package com.B3B.farmbros;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.B3B.farmbros.domain.Consulta;
+import com.B3B.farmbros.retrofit.ConsultaRepository;
 
 import java.util.List;
 
@@ -38,6 +40,7 @@ public class ConsultaViewAdapter extends RecyclerView.Adapter<ConsultaViewHolder
     @Override
     public void onBindViewHolder(@NonNull ConsultaViewHolder holder, int position) {
         final Consulta consulta = listaConsultas.get(position);
+        ConsultaRepository.getInstance().buscarConsultaPorIdConsulta(consulta.getIdConsulta());
         holder.setAsunto(consulta.getAsuntoConsulta());
         holder.setProductor(consulta.getRemitenteConsulta().getNombre());
         holder.setUbicacion(String.valueOf(consulta.getLatConsulta()) + " " + String.valueOf(consulta.getLngConsulta()));
