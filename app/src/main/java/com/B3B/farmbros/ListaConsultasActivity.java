@@ -1,5 +1,6 @@
 package com.B3B.farmbros;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -20,6 +21,7 @@ public class ListaConsultasActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private String profesion;
 
     public static ArrayList<Consulta> _CONSULTAS= new ArrayList<>();
 
@@ -41,9 +43,9 @@ public class ListaConsultasActivity extends AppCompatActivity {
 
         ConsultaRepository.getInstance().listarConsultas(handlerListarConsultas);
 
-        String profesion = getIntent().getExtras().getString("profesion");
+        profesion = getIntent().getExtras().getString("profesion");
 
-        mAdapter = new ConsultaViewAdapter(_CONSULTAS,getApplicationContext(),this, null, profesion);
+        mAdapter = new ConsultaViewAdapter(_CONSULTAS,getApplicationContext(),this, null, null, profesion);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
     }
@@ -64,4 +66,11 @@ public class ListaConsultasActivity extends AppCompatActivity {
             }
         }
     };
+
+    @Override
+    public void onBackPressed(){
+        Intent i1 = new Intent(getApplicationContext(), Home.class);
+        i1.putExtra("profesion", profesion);
+        startActivity(i1);
+    }
 }

@@ -89,7 +89,6 @@ public class ChatsActivity extends AppCompatActivity {
                 mensaje.setReceptor(emailReceptor);
                 textoMensaje.setText("");
                 MensajeRepository.getInstance().crearMensaje(mensaje, handlerListarMensajes);
-                //TODO: revisar que cuando se envia un mensaje se desordena la lista
                 if(profesion.equals("ingeniero")){
                     IngenieroRepository.getInstance().buscarIngeniero(emailEmisor, handlerListarMensajes);
                 }

@@ -41,6 +41,24 @@
       },
       "textoConsulta": "Que productos usar para controlar malezas resistentes?",
       "id": 3
+    },
+    {
+      "LatConsulta": -31.622604202986825,
+      "LngConsulta": -60.59543240815401,
+      "asuntoConsulta": "Siembra",
+      "estado": "ABIERTA",
+      "fechaConsulta": {},
+      "idConsulta": 9907,
+      "remitenteConsulta": {
+        "email": "francob19051997@gmail.com",
+        "nombre": "Franco Brechbuhl"
+      },
+      "encargadoConsulta": {
+        "email": "fybrechbuhl@gmail.com",
+        "nombre": "Franco Brechbuhl"
+      },
+      "textoConsulta": "Que densidad de siembra se recomienda para sorgo sembrado a 35cm?",
+      "id": 4
     }
   ],
   "productores": [
@@ -64,12 +82,5 @@
     }
   ],
   "mensajes": [
-    {
-      "datos": "Se recomienda usar fosfato diamonico en la siembra y en V5 aplicar urea granulada",
-      "emailReceptor": "francob19051997@gmail.com",
-      "emailRemitente": "fybrechbuhl@gmail.com",
-      "horaCreacion": 1582124457540,
-      "id": 1
-    }
   ]
 }

@@ -48,7 +48,7 @@ public class ConsultasRealizadasActivity extends AppCompatActivity {
 
         ConsultaRepository.getInstance().listarConsultasPorProductor(emailProductor, handlerListarConsultas);
 
-        mAdapterConsultas = new ConsultaViewAdapter(_CONSULTAS, getApplicationContext(), null, this, "productor");
+        mAdapterConsultas = new ConsultaViewAdapter(_CONSULTAS, getApplicationContext(), null, this, null, "productor");
         mRecyclerViewConsultas.setAdapter(mAdapterConsultas);
         mAdapterConsultas.notifyDataSetChanged();
     }
@@ -69,5 +69,4 @@ public class ConsultasRealizadasActivity extends AppCompatActivity {
             }
         }
     };
-
 }

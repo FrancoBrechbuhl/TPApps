@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode,resultCode,data);
         /*
-        si recibe CODE_SIGNIN_GOOGLE se retorno desde Gmail, si recibe CODE_ACTIVITY_HOME retorna desde la actividad nuevaConsulta
+        si recibe CODE_SIGNIN_GOOGLE se retorno desde Gmail, si recibe CODE_ACTIVITY_HOME retorna desde la actividad Home
         */
 
         switch (requestCode){
@@ -149,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(home, CODE_ACTIVITY_HOME);
     }
 
+    //TODO: mejorar la interfaz de nueva cuenta
     private void crearCuenta(){
         Intent crearCuenta = new Intent(getApplicationContext(),CrearCuentaActivity.class);
         crearCuenta.putExtra("nombre",account.getDisplayName());

@@ -27,7 +27,10 @@ public interface ConsultaRest {
     Call<List<Consulta>> buscarConsultaPorIdConsulta(@Query("idConsulta") Integer id);
 
     @GET("consultas/")
-    Call<List<Consulta>> buscarConsultaPorProductor(@Query("email") String remitente);
+    Call<List<Consulta>> buscarConsultaPorProductor(@Query("remitenteConsulta.email") String remitente);
+
+    @GET("consultas/")
+    Call<List<Consulta>> buscarConsultaPorIngeniero(@Query("encargadoConsulta.email") String encargado);
 
     @PUT("consultas/")
     Call<Consulta> actualizarConsulta(@Query("idConsulta") Integer id, @Body Consulta consulta);

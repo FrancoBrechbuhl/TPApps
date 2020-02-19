@@ -20,23 +20,29 @@ public class ConsultaViewAdapter extends RecyclerView.Adapter<ConsultaViewHolder
     private Context contexto;
     private ListaConsultasActivity listaConsultasActivity;
     private ConsultasRealizadasActivity consultasRealizadasActivity;
+    private ConsultasAtendidasActivity consultasAtendidasActivity;
     private int actividad;
     private String profesion;
 
     private static final int ACTIVITY_LISTA_CONSULTAS = 1;
     private static final int ACTIVITY_CONSULTAS_REALIZADAS = 2;
+    private static final int ACTIVITY_CONSULTAS_ATENDIDAS = 3;
 
-    public ConsultaViewAdapter(List<Consulta> listaConsultas, Context appContext, ListaConsultasActivity activity, ConsultasRealizadasActivity realizadasActivity, String profesion){
+    public ConsultaViewAdapter(List<Consulta> listaConsultas, Context appContext, ListaConsultasActivity listaActivity, ConsultasRealizadasActivity realizadasActivity, ConsultasAtendidasActivity atendidasActivity, String profesion){
         this.listaConsultas = listaConsultas;
         this.contexto = appContext;
-        this.listaConsultasActivity = activity;
+        this.listaConsultasActivity = listaActivity;
         this.consultasRealizadasActivity = realizadasActivity;
+        this.consultasAtendidasActivity = atendidasActivity;
         this.profesion = profesion;
         if(listaConsultasActivity != null){
             actividad = ACTIVITY_LISTA_CONSULTAS;
         }
         else if(realizadasActivity != null){
             actividad = ACTIVITY_CONSULTAS_REALIZADAS;
+        }
+        else if(atendidasActivity != null){
+            actividad = ACTIVITY_CONSULTAS_ATENDIDAS;
         }
     }
 
@@ -70,6 +76,9 @@ public class ConsultaViewAdapter extends RecyclerView.Adapter<ConsultaViewHolder
                 }
                 else if(actividad == ACTIVITY_CONSULTAS_REALIZADAS){
                     consultasRealizadasActivity.startActivity(detalle);
+                }
+                else if(actividad == ACTIVITY_CONSULTAS_ATENDIDAS){
+                    consultasAtendidasActivity.startActivity(detalle);
                 }
             }
         });

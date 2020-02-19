@@ -80,7 +80,6 @@ public class DetalleConsultaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 consultaDetallada = ConsultaRepository.getInstance().getConsulta();
-
                 /*
                 se controla que la consulta sea cerrada por un ingeniero o por el
                 remitente de la misma
@@ -89,6 +88,7 @@ public class DetalleConsultaActivity extends AppCompatActivity {
                 if(profesion.equals("ingeniero") || consultaDetallada.getRemitenteConsulta().getEmail().equals(emailProductor)) {
                     consultaDetallada.setEstado(EstadoConsulta.FINALIZADA);
                     ConsultaRepository.getInstance().actualizarConsulta(consultaDetallada);
+                    Toast.makeText(getApplicationContext(), "La consulta se ha finalizado con éxito", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "Lo sentimos, no tiene permiso para finalizar esta consulta", Toast.LENGTH_SHORT).show();
@@ -98,7 +98,6 @@ public class DetalleConsultaActivity extends AppCompatActivity {
                 // yo trate de hacer que actualice con @Query y el idConsulta, pero en el server
                 // se ejecuta el PUT solo que no cambia la consulta, si o si hay que hacerlo con
                 // el id que es la PK, pero no se como obtenerlo porque eso lo hace el handler
-                Toast.makeText(getApplicationContext(), "La consulta se ha finalizado con éxito", Toast.LENGTH_SHORT).show();
                 Intent i1 = new Intent(getApplicationContext(), ListaConsultasActivity.class);
                 i1.putExtra("profesion", profesion);
                 startActivity(i1);

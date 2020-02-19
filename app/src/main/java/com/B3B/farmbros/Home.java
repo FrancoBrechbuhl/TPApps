@@ -4,9 +4,6 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,7 +29,6 @@ import com.google.android.material.navigation.NavigationView;
  */
 
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
     private Button btnCierreSesion;
     private TextView txtIdentificadorUsuario;
     private String profesion;
@@ -97,7 +93,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         //TODO: no se porque cuando se crea una consulta, si se quiere cerrar sesion se vuelve
         // a la pantalla de nueva consulta y despues a la de home de nuevo para poder salir
-        // suposicion: debe ser algo del handler
+        // es porque esta activity se inicia con un startActivityForResult, y cuando se invoca
+        // al finish() vuelve a la ultima activity que llamó, en el caso anterior vuelve a
+        // nuevaConsulta
         btnCierreSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -158,19 +156,17 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 return true;
             case R.id.menuItemForoDeConsultas:
                 i1 = new Intent (this, ListaConsultasActivity.class);
-                //controlar porque esta opcion puede estar en los dos menúes
-                if(profesion.equals("productor")) {
-                    i1.putExtra("profesion", "productor");
-                }
-                else{
-                    i1.putExtra("profesion", "ingeniero");
-                }
+                i1.putExtra("profesion", profesion);
                 startActivity(i1);
                 return true;
             case R.id.menuItemVerConsultasRealizadas:
                 i1 = new Intent (this, ConsultasRealizadasActivity.class);
                 startActivity(i1);
                 return true;
+            case R.id.menuItemVerConsultasAtendidas:
+                i1 = new Intent(getApplicationContext(), ConsultasAtendidasActivity.class);
+                i1.putExtra("profesion", profesion);
+                startActivity(i1);
             case R.id.menuItemChats:
                 i1 = new Intent (this, ListaContactosActivity.class);
                 startActivity(i1);
@@ -185,17 +181,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
                 }
                 return true;
-            case R.id.menuItemVerConsultasAtendidas:
-                //controlar porque esta opcion puede estar en los dos menúes
-                if(profesion.equals("productor")) {
-                    /*
-                    intent de consultas asociadas a ingeniero
-                    */
-                    return true;
-                }
-                else{
-                    return true;
-                }
             case android.R.id.home:
                 onBackPressed();
                 return true;

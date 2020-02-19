@@ -46,7 +46,7 @@
 30-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fad0b042f3e5d429fec29693f1215916\jetified-play-services-maps-16.1.0\AndroidManifest.xml:28:9-32
 31
 32    <application
-32-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:19:5-87:19
+32-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:19:5-89:19
 33        android:allowBackup="true"
 33-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:20:9-35
 34        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -172,47 +172,53 @@
 101-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:84:13-47
 102        <activity
 102-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:85:9-86:49
-103            android:name="com.B3B.farmbros.ListaContactosActivity"
-103-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:85:19-57
+103            android:name="com.B3B.farmbros.ConsultasAtendidasActivity"
+103-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:85:19-61
 104            android:parentActivityName="com.B3B.farmbros.Home" />
 104-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:86:13-47
 105        <activity
-105-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:23:9-27:75
-106            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-106-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:24:13-93
-107            android:excludeFromRecents="true"
-107-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:25:13-46
-108            android:exported="false"
-108-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:26:13-37
-109            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-109-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:27:13-72
-110        <!--
-111            Service handling Google Sign-In user revocation. For apps that do not integrate with
-112            Google Sign-In, this service will never be started.
-113        -->
-114        <service
-114-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:33:9-36:110
-115            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
-115-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:34:13-89
-116            android:exported="true"
-116-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:35:13-36
-117            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" /> <!-- Needs to be explicitly declared on P+ -->
-117-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:36:13-107
-118        <uses-library
-118-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fad0b042f3e5d429fec29693f1215916\jetified-play-services-maps-16.1.0\AndroidManifest.xml:33:9-35:40
-119            android:name="org.apache.http.legacy"
-119-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fad0b042f3e5d429fec29693f1215916\jetified-play-services-maps-16.1.0\AndroidManifest.xml:34:13-50
-120            android:required="false" />
-120-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fad0b042f3e5d429fec29693f1215916\jetified-play-services-maps-16.1.0\AndroidManifest.xml:35:13-37
-121
-122        <activity
-122-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\291563c6708268cf4683b088770f2b39\play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
-123            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-123-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\291563c6708268cf4683b088770f2b39\play-services-base-17.0.0\AndroidManifest.xml:24:13-79
-124            android:exported="false"
-124-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\291563c6708268cf4683b088770f2b39\play-services-base-17.0.0\AndroidManifest.xml:25:13-37
-125            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-125-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\291563c6708268cf4683b088770f2b39\play-services-base-17.0.0\AndroidManifest.xml:26:13-72
-126    </application>
-127
-128</manifest>
+105-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:87:9-88:49
+106            android:name="com.B3B.farmbros.ListaContactosActivity"
+106-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:87:19-57
+107            android:parentActivityName="com.B3B.farmbros.Home" />
+107-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:88:13-47
+108        <activity
+108-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:23:9-27:75
+109            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+109-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:24:13-93
+110            android:excludeFromRecents="true"
+110-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:25:13-46
+111            android:exported="false"
+111-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:26:13-37
+112            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+112-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:27:13-72
+113        <!--
+114            Service handling Google Sign-In user revocation. For apps that do not integrate with
+115            Google Sign-In, this service will never be started.
+116        -->
+117        <service
+117-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:33:9-36:110
+118            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+118-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:34:13-89
+119            android:exported="true"
+119-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:35:13-36
+120            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" /> <!-- Needs to be explicitly declared on P+ -->
+120-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:36:13-107
+121        <uses-library
+121-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fad0b042f3e5d429fec29693f1215916\jetified-play-services-maps-16.1.0\AndroidManifest.xml:33:9-35:40
+122            android:name="org.apache.http.legacy"
+122-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fad0b042f3e5d429fec29693f1215916\jetified-play-services-maps-16.1.0\AndroidManifest.xml:34:13-50
+123            android:required="false" />
+123-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fad0b042f3e5d429fec29693f1215916\jetified-play-services-maps-16.1.0\AndroidManifest.xml:35:13-37
+124
+125        <activity
+125-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\291563c6708268cf4683b088770f2b39\play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+126            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+126-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\291563c6708268cf4683b088770f2b39\play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+127            android:exported="false"
+127-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\291563c6708268cf4683b088770f2b39\play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+128            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+128-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\291563c6708268cf4683b088770f2b39\play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+129    </application>
+130
+131</manifest>
