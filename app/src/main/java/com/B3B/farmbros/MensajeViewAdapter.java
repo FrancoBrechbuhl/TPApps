@@ -80,4 +80,7 @@ public class MensajeViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         }
     }
 
+    public void actualizarMensajes(List<Mensaje> mensajeList){
+        this.listaMensajes = mensajeList;
+    }
 }

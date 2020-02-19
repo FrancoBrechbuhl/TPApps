@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.B3B.farmbros.domain.Ingeniero;
-import com.B3B.farmbros.retrofit.MensajeRepository;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
@@ -46,9 +45,8 @@ public class ContactoViewAdapter extends RecyclerView.Adapter<ContactoViewHolder
                 GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(contexto);
                 String emailProductor = account.getEmail();
                 String emailContacto = contacto.getEmail();
-                MensajeRepository.getInstance().listarMensajesPorEmisoryReceptor(emailProductor, emailContacto);
-                MensajeRepository.getInstance().listarMensajesPorReceptoryEmisor(emailContacto, emailProductor);
                 Intent i1 = new Intent(contexto, ChatsActivity.class);
+                i1.putExtra("profesion","productor");
                 listaContactosActivity.startActivity(i1);
             }
         });
@@ -58,4 +56,5 @@ public class ContactoViewAdapter extends RecyclerView.Adapter<ContactoViewHolder
     public int getItemCount() {
         return listaContactos.size();
     }
+
 }

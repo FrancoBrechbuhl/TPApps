@@ -15,9 +15,6 @@ public interface MensajeRest {
     Call<Mensaje> crearMensaje(@Body Mensaje m);
 
     @GET("mensajes/")
-    Call<List<Mensaje>> listarTodosPorUsuarioTextoyHora();
-
-    @GET("mensajes/")
     Call<List<Mensaje>> buscarMensajesPorEmisoryReceptor(@Query("emailRemitente") String remitente, @Query("emailReceptor") String receptor);
 
     @GET("mensajes/")

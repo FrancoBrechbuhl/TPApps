@@ -4,12 +4,16 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -18,6 +22,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.B3B.farmbros.retrofit.IngenieroRepository;
+import com.B3B.farmbros.retrofit.MensajeRepository;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.navigation.NavigationView;
 
 /*
@@ -71,6 +79,10 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             menuItem.setVisible(false);
             menuItem = menu.findItem(R.id.menuItemChats);
             menuItem.setVisible(false);
+        }
+        else{
+            GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
+            MensajeRepository.getInstance().listarMensajesPorReceptor(account.getEmail());
         }
 
         mNavigationView.setNavigationItemSelectedListener(this);

@@ -27,7 +27,6 @@ public class ListaContactosActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
 
     public static List<Ingeniero> contactos = new ArrayList<>();
-    public static List<Mensaje> mensajes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +39,8 @@ public class ListaContactosActivity extends AppCompatActivity {
         getSupportActionBar().setLogo(R.drawable.ic_flower);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
-        MensajeRepository.getInstance().listarMensajesPorReceptor(account.getEmail(), handlerListarMensajes);
-
+        //se obtienen los mensajes que se hayan enviado al productor logueado
+        List<Mensaje> mensajes = MensajeRepository.getInstance().getListaMensajes();
         List<String> correosContactos = new ArrayList<>();
 
         //se obtienen los correos de los contactos que hayan hablado con el productor
@@ -67,28 +65,15 @@ public class ListaContactosActivity extends AppCompatActivity {
         mAdapterContactos.notifyDataSetChanged();
     }
 
-    Handler handlerListarMensajes = new Handler(Looper.myLooper()){
-        @Override
-        public void handleMessage(Message msg) {
-            Log.d("HANDLER","Vuelve al handler"+msg.arg1);
-            switch (msg.arg1){
-                case MensajeRepository._GET:
-                    mensajes.addAll(MensajeRepository.getInstance().getListaMensajes());
-                    break;
-                case MensajeRepository._ERROR:
-                    Log.d("HANDLER","Llego con error");
-                    Toast.makeText(getApplicationContext(),"@string/error_BD",Toast.LENGTH_SHORT).show();
-            }
-        }
-    };
-
     Handler handlerListarIngenieros = new Handler(Looper.myLooper()){
         @Override
         public void handleMessage(Message msg) {
             Log.d("HANDLER","Vuelve al handler"+msg.arg1);
             switch (msg.arg1){
                 case IngenieroRepository._GET:
+                    contactos.clear();
                     contactos.add(IngenieroRepository.getInstance().getIngeniero());
+                    mAdapterContactos.notifyDataSetChanged();
                     break;
                 case MensajeRepository._ERROR:
                     Log.d("HANDLER","Llego con error");

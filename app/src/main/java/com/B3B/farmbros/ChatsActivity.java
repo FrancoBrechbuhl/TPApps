@@ -1,10 +1,14 @@
 package com.B3B.farmbros;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,10 +28,13 @@ public class ChatsActivity extends AppCompatActivity {
     private RecyclerView recyclerViewMensajes;
     private RecyclerView.Adapter adapterMensajes;
     private RecyclerView.LayoutManager mLayoutManager;
+    private static List<Mensaje> mensajes = new ArrayList<>();
     private TextView textoMensaje;
     private Button btnEnviar;
     private String emailEmisor;
     private String emailReceptor;
+
+    public static final int _FINISH = 100;
 
     @Override
     protected void onCreate(Bundle saveInstanceState){
@@ -42,30 +49,21 @@ public class ChatsActivity extends AppCompatActivity {
         getSupportActionBar().setLogo(R.drawable.ic_flower);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        List<Mensaje> mensajes = new ArrayList<Mensaje>();
-
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
 
         String profesion = getIntent().getExtras().getString("profesion");
         if(profesion.equals("productor")){
-            //viene desde ListaContactosActivity
+            //es productor y viene desde ListaContactosActivity
             emailEmisor = account.getEmail();
             emailReceptor = getIntent().getExtras().getString("email productor");
         }
         else {
-            //viene desde DetalleConsultaActivity
+            //es ingeniero y viene desde DetalleConsultaActivity
             emailEmisor = account.getEmail();
             emailReceptor = getIntent().getExtras().getString("email productor");
         }
 
-        List<Mensaje> listaAux = MensajeRepository.getInstance().getListaMensajes();
-        List<Mensaje> lista = ordenarMensajes(listaAux);
-
-        Log.d("Size: ", String.valueOf(lista.size()));
-        for(Mensaje m : lista){
-            Log.d("texto mensaje: ", m.getDatos());
-        }
-        mensajes.addAll(lista);
+        buscarMensajes(emailEmisor, emailReceptor);
 
         recyclerViewMensajes = findViewById(R.id.recyclerChats);
         recyclerViewMensajes.setHasFixedSize(true);
@@ -86,8 +84,7 @@ public class ChatsActivity extends AppCompatActivity {
                 mensaje.setRemitente(emailEmisor);
                 mensaje.setReceptor(emailReceptor);
                 textoMensaje.setText("");
-
-                MensajeRepository.getInstance().crearMensaje(mensaje);
+                MensajeRepository.getInstance().crearMensaje(mensaje, handlerListarMensajes);
                 adapterMensajes.notifyDataSetChanged();
             }
         });
@@ -96,8 +93,12 @@ public class ChatsActivity extends AppCompatActivity {
     private List<Mensaje> ordenarMensajes(List<Mensaje> mensajesDesordenados){
         List<Mensaje> mensajesOrdenados = new ArrayList<>();
         int longitud = mensajesDesordenados.size();
-        Log.d("Longitud", String.valueOf(longitud));
         Mensaje[] mensajes = new Mensaje[longitud];
+
+        Log.d("Size: ", String.valueOf(mensajesDesordenados.size()));
+        for(Mensaje m : mensajesDesordenados){
+            Log.d("texto mensaje desordenado: ", m.getDatos());
+        }
 
         for (int j = 0; j < longitud; j++){
             mensajes[j] = mensajesDesordenados.get(j);
@@ -110,5 +111,60 @@ public class ChatsActivity extends AppCompatActivity {
         }
 
         return mensajesOrdenados;
+    }
+
+    Handler handlerListarMensajes = new Handler(Looper.myLooper()){
+        @Override
+        public void handleMessage(Message msg) {
+            Log.d("HANDLER","Vuelve al handler"+msg.arg1);
+            switch (msg.arg1){
+                case MensajeRepository._POST:
+                    mensajes.clear();
+                    mensajes.addAll(MensajeRepository.getInstance().getListaMensajes());
+                    adapterMensajes.notifyDataSetChanged();
+                    break;
+                case _FINISH:
+                    Log.d("HANDLER","Termino el thread secundario");
+                    mensajes.clear();
+                    mensajes.addAll(MensajeRepository.getInstance().getListaMensajes());
+                    ((MensajeViewAdapter) adapterMensajes).actualizarMensajes(mensajes);
+                    adapterMensajes.notifyDataSetChanged();
+                    break;
+                case MensajeRepository._ERROR:
+                    Log.d("HANDLER","Llego con error");
+                    Toast.makeText(getApplicationContext(),"@string/error_BD",Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
+
+    public void buscarMensajes(final String emailEmisor, final String emailReceptor){
+        final Message msg = new Message();
+        Runnable r = new Runnable() {
+            @Override
+            public void run() {
+                List<Mensaje> mensajesDesordenados;
+                mensajesDesordenados = new ArrayList<>();
+                mensajesDesordenados.addAll(MensajeRepository.getInstance().listarMensajesEmisor(emailEmisor, emailReceptor));
+                mensajesDesordenados.addAll(MensajeRepository.getInstance().listarMensajesReceptor(emailEmisor, emailReceptor));
+                mensajes = ordenarMensajes(mensajesDesordenados);
+                Log.d("Size: ", String.valueOf(mensajes.size()));
+                for(Mensaje m : mensajes){
+                    Log.d("texto mensaje ordenado: ", m.getDatos());
+                }
+                msg.arg1 = _FINISH;
+                handlerListarMensajes.sendMessageAtFrontOfQueue(msg);
+            }
+        };
+        Thread t = new Thread(r);
+        t.start();
+
+        Runnable r1 = new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        };
+        Thread t1 = new Thread(r1);
+        t1.start();
     }
 }

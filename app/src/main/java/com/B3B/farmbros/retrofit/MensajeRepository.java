@@ -1,12 +1,16 @@
 package com.B3B.farmbros.retrofit;
 
+import android.database.Observable;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
 import com.B3B.farmbros.domain.Mensaje;
+import com.B3B.farmbros.util.SortMessageByTimeStamp;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -16,6 +20,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MensajeRepository {
+    /*
+    Retornos de llamadas en el handler
+     */
     public static final int _POST = 300;
     public static final int _GET = 301;
     public static final int _UPDATE = 302;
@@ -52,80 +59,60 @@ public class MensajeRepository {
         this.mensajeRest = this.rf.create(MensajeRest.class);
     }
 
-    public void crearMensaje(Mensaje m){
+    public void crearMensaje(Mensaje m, final Handler h){
         Call<Mensaje> llamada = this.mensajeRest.crearMensaje(m);
         llamada.enqueue(new Callback<Mensaje>() {
             @Override
             public void onResponse(Call<Mensaje> call, Response<Mensaje> response) {
                 if(response.isSuccessful()){
                     listaMensajes.add(response.body());
+                    Message m = new Message();
+                    m.arg1 = _POST;
+                    h.sendMessage(m);
                     Log.d("Request to Retrofit","Successful");
                 }
             }
 
             @Override
             public void onFailure(Call<Mensaje> call, Throwable t) {
+                Message m = new Message();
+                m.arg1 = _ERROR;
+                h.sendMessage(m);
                 Log.d("Request to Retrofit","Fail");
             }
         });
     }
 
-    public void listarMensajes(){
-        Call<List<Mensaje>> llamada = this.mensajeRest.listarTodosPorUsuarioTextoyHora();
-        llamada.enqueue(new Callback<List<Mensaje>>() {
-            @Override
-            public void onResponse(Call<List<Mensaje>> call, Response<List<Mensaje>> response) {
-                if(response.isSuccessful()){
-                    listaMensajes.clear();
-                    listaMensajes.addAll(response.body());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Mensaje>> call, Throwable t) {
-                Log.d("Request to Retrofit","Fail");
-            }
-        });
-    }
-
-    public void listarMensajesPorEmisoryReceptor(String emisor, String receptor){
+    public List<Mensaje> listarMensajesEmisor(String emisor, String receptor){
         Call<List<Mensaje>> llamada = this.mensajeRest.buscarMensajesPorEmisoryReceptor(emisor, receptor);
-        llamada.enqueue(new Callback<List<Mensaje>>() {
-            @Override
-            public void onResponse(Call<List<Mensaje>> call, Response<List<Mensaje>> response) {
-                if(response.isSuccessful()){
-                    listaMensajes.clear();
-                    listaMensajes.addAll(response.body());
-                    Log.d("Request to Retrofit", "Successful");
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Mensaje>> call, Throwable t) {
-                Log.d("Request to Retrofit","Fail");
-            }
-        });
+        Response<List<Mensaje>> response = null;
+        try{
+            response = llamada.execute();
+        }
+        catch (IOException ex){
+            Log.d("Request to Retrofit", "Exception");
+            ex.printStackTrace();
+        }
+        listaMensajes.clear();
+        listaMensajes.addAll(response.body());
+        return response.body();
     }
 
-    public void listarMensajesPorReceptoryEmisor(String receptor, String emisor){
+    public List<Mensaje> listarMensajesReceptor(String emisor, String receptor){
         Call<List<Mensaje>> llamada = this.mensajeRest.buscarMensajesPorEmisoryReceptor(receptor, emisor);
-        llamada.enqueue(new Callback<List<Mensaje>>() {
-            @Override
-            public void onResponse(Call<List<Mensaje>> call, Response<List<Mensaje>> response) {
-                if(response.isSuccessful()){
-                    listaMensajes.addAll(response.body());
-                    Log.d("Request to Retrofit", "Successful");
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Mensaje>> call, Throwable t) {
-                Log.d("Request to Retrofit","Fail");
-            }
-        });
+        Response<List<Mensaje>> response = null;
+        try{
+            response = llamada.execute();
+        }
+        catch (IOException ex){
+            Log.d("Request to Retrofit", "Exception");
+            ex.printStackTrace();
+        }
+        listaMensajes.addAll(response.body());
+        return response.body();
     }
 
-    public void listarMensajesPorReceptor(String emailProductor, final Handler h){
+    public void listarMensajesPorReceptor(String emailProductor){
         Call<List<Mensaje>> llamada = this.mensajeRest.listarTodosPorReceptor(emailProductor);
         llamada.enqueue(new Callback<List<Mensaje>>() {
             @Override
@@ -133,9 +120,6 @@ public class MensajeRepository {
                 if(response.isSuccessful()){
                     listaMensajes.clear();
                     listaMensajes.addAll(response.body());
-                    Message m = new Message();
-                    m.arg1 = _GET;
-                    h.sendMessage(m);
                     Log.d("Request to Retrofit", "Successful");
                 }
             }
@@ -143,14 +127,30 @@ public class MensajeRepository {
             @Override
             public void onFailure(Call<List<Mensaje>> call, Throwable t) {
                 Log.d("Request to Retrofit","Fail");
-                Message m = new Message();
-                m.arg1 = _ERROR;
-                h.sendMessage(m);
             }
         });
     }
 
     public List<Mensaje> getListaMensajes() {
         return listaMensajes;
+    }
+
+    private List<Mensaje> ordenarMensajes(List<Mensaje> mensajesDesordenados){
+        List<Mensaje> mensajesOrdenados = new ArrayList<>();
+        int longitud = mensajesDesordenados.size();
+        Log.d("Longitud", String.valueOf(longitud));
+        Mensaje[] mensajes = new Mensaje[longitud];
+
+        for (int j = 0; j < longitud; j++){
+            mensajes[j] = mensajesDesordenados.get(j);
+        }
+
+        Arrays.sort(mensajes, new SortMessageByTimeStamp());
+
+        for(int i = 0; i < mensajes.length; i++){
+            mensajesOrdenados.add(mensajes[i]);
+        }
+
+        return mensajesOrdenados;
     }
 }

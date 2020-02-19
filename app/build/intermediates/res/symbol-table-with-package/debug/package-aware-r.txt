@@ -1225,6 +1225,7 @@ id btnEmviarMsgDetCons
 id btnEnviarMensaje
 id btnFinalizarConsultaDetCons
 id btnInicioSesion
+id btnVerConversacion
 id btnVerDetallesListaCons
 id buttonPanel
 id cancel_action
@@ -1345,6 +1346,7 @@ id progress_horizontal
 id radio
 id recyclerChats
 id recyclerListaConsultas
+id recyclerListaContactos
 id right
 id right_icon
 id right_side
@@ -1431,12 +1433,14 @@ id transition_scene_layoutid_cache
 id transition_transform
 id txtBienvenida1
 id txtBienvenida2
+id txtEmailContacto
 id txtFieldConsulta
 id txtHoraMensajeEnviado
 id txtHoraMensajeRecibido
 id txtIdentificadorUsuario
 id txtMensajeEnviado
 id txtMensajeRecibido
+id txtNombreContacto
 id txtNuevaConsulta
 id unchecked
 id uniform
@@ -1510,6 +1514,7 @@ layout activity_crear_cuenta
 layout activity_detalle_consulta
 layout activity_home_drawer
 layout activity_lista_consultas
+layout activity_lista_contactos
 layout activity_main
 layout activity_maps
 layout custom_dialog
@@ -1528,6 +1533,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout fila_consulta
+layout fila_contacto
 layout fila_mensajes_enviados
 layout fila_mensajes_recibidos
 layout mtrl_layout_snackbar
@@ -1662,6 +1668,7 @@ string txt_productor
 string txt_ubicacion
 string ver_consultas_atendidas
 string ver_consultas_realizadas
+string ver_conversacion
 style ActionBarTheme
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

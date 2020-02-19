@@ -57,13 +57,10 @@ public class DetalleConsultaActivity extends AppCompatActivity {
             String emailProductor = getIntent().getExtras().getString("email productor");
             GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
             String emailEmisor = account.getEmail();
-            MensajeRepository.getInstance().listarMensajesPorEmisoryReceptor(emailEmisor, emailProductor);
-            MensajeRepository.getInstance().listarMensajesPorReceptoryEmisor(emailProductor, emailEmisor);
         }
 
         nombreProductor.setText(this.getIntent().getExtras().getString("nombre productor"));
         consulta.setText(this.getIntent().getExtras().getString("consulta"));
-        //TODO: revisar que aca da null pointer cuando se vuelve de los chats
         if (!this.getIntent().getExtras().getString("foto consulta").equals("")){
             byte[] decoded = Base64.decode(this.getIntent().getExtras().getString("foto consulta"),Base64.DEFAULT);
             Bitmap imagen = BitmapFactory.decodeByteArray(decoded,0,decoded.length);
@@ -77,8 +74,6 @@ public class DetalleConsultaActivity extends AppCompatActivity {
                 String nombreProductor = getIntent().getExtras().getString("nombre productor");
                 GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
                 String emailEmisor = account.getEmail();
-                MensajeRepository.getInstance().listarMensajesPorEmisoryReceptor(emailEmisor, emailProductor);
-                MensajeRepository.getInstance().listarMensajesPorReceptoryEmisor(emailProductor, emailEmisor);
                 Intent i1 = new Intent(getApplicationContext(), ChatsActivity.class);
                 i1.putExtra("nombre productor", nombreProductor);
                 i1.putExtra("email productor", emailProductor);
