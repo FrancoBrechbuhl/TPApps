@@ -1,11 +1,13 @@
 package com.B3B.farmbros;
 
-import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MensajeEnviadoViewHolder extends RecyclerView.ViewHolder {
     private TextView textoMensaje;
@@ -22,6 +24,7 @@ public class MensajeEnviadoViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void setHoraMensaje(long hora){
-        horaMensaje.setText(DateUtils.formatElapsedTime(hora));
+        String date = new SimpleDateFormat("dd/MM/yyyy 'at' HH:mm:ss").format(new Date(hora));
+        horaMensaje.setText(date);
     }
 }

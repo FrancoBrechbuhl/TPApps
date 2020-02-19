@@ -55,7 +55,7 @@ public class ChatsActivity extends AppCompatActivity {
         if(profesion.equals("productor")){
             //es productor y viene desde ListaContactosActivity
             emailEmisor = account.getEmail();
-            emailReceptor = getIntent().getExtras().getString("email productor");
+            emailReceptor = getIntent().getExtras().getString("email ingeniero");
         }
         else {
             //es ingeniero y viene desde DetalleConsultaActivity

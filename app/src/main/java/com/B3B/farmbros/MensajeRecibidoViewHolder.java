@@ -1,11 +1,13 @@
 package com.B3B.farmbros;
 
-import android.text.format.DateUtils;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MensajeRecibidoViewHolder extends RecyclerView.ViewHolder {
     private TextView textoMensaje;
@@ -13,15 +15,16 @@ public class MensajeRecibidoViewHolder extends RecyclerView.ViewHolder {
 
     public MensajeRecibidoViewHolder(@NonNull View itemView){
         super(itemView);
-        textoMensaje = (TextView) itemView.findViewById(R.id.txtMensajeRecibido);
-        horaMensaje = (TextView) itemView.findViewById(R.id.txtHoraMensajeRecibido);
+        textoMensaje = itemView.findViewById(R.id.txtMensajeRecibido);
+        horaMensaje = itemView.findViewById(R.id.txtHoraMensajeRecibido);
     }
 
     public void setTextoMensaje(String texto){
         textoMensaje.setText(texto);
     }
 
-    public void setHoraMensaje(Long hora){
-        horaMensaje.setText(DateUtils.formatElapsedTime(hora));
+    public void setHoraMensaje(long hora){
+        String date = new SimpleDateFormat("dd/MM/yyyy 'at' HH:mm:ss").format(new Date(hora));
+        horaMensaje.setText(date);
     }
 }

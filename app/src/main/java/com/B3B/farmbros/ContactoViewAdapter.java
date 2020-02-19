@@ -10,8 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.B3B.farmbros.domain.Ingeniero;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 import java.util.List;
 
@@ -42,11 +40,10 @@ public class ContactoViewAdapter extends RecyclerView.Adapter<ContactoViewHolder
         holder.btnVerConversacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(contexto);
-                String emailProductor = account.getEmail();
                 String emailContacto = contacto.getEmail();
                 Intent i1 = new Intent(contexto, ChatsActivity.class);
                 i1.putExtra("profesion","productor");
+                i1.putExtra("email ingeniero", emailContacto);
                 listaContactosActivity.startActivity(i1);
             }
         });
