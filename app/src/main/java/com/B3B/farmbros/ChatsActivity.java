@@ -97,7 +97,7 @@ public class ChatsActivity extends AppCompatActivity {
 
         Log.d("Size: ", String.valueOf(mensajesDesordenados.size()));
         for(Mensaje m : mensajesDesordenados){
-            Log.d("texto mensaje desordenado: ", m.getDatos());
+            Log.d("texto mensaje desordenado ", m.getDatos());
         }
 
         for (int j = 0; j < longitud; j++){
@@ -125,8 +125,6 @@ public class ChatsActivity extends AppCompatActivity {
                     break;
                 case _FINISH:
                     Log.d("HANDLER","Termino el thread secundario");
-                    mensajes.clear();
-                    mensajes.addAll(MensajeRepository.getInstance().getListaMensajes());
                     ((MensajeViewAdapter) adapterMensajes).actualizarMensajes(mensajes);
                     adapterMensajes.notifyDataSetChanged();
                     break;
@@ -149,7 +147,7 @@ public class ChatsActivity extends AppCompatActivity {
                 mensajes = ordenarMensajes(mensajesDesordenados);
                 Log.d("Size: ", String.valueOf(mensajes.size()));
                 for(Mensaje m : mensajes){
-                    Log.d("texto mensaje ordenado: ", m.getDatos());
+                    Log.d("texto mensaje ordenado ", m.getDatos());
                 }
                 msg.arg1 = _FINISH;
                 handlerListarMensajes.sendMessageAtFrontOfQueue(msg);
