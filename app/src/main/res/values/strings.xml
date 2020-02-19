@@ -57,4 +57,11 @@
     <string name="btn_enviar_mensaje_DetCons">Enviar mensaje a productor</string>
     <string name="btn_finalizar_consulta">Finalizar Consulta</string>
     <string name="error_BD">Error de Base de Datos</string>
+
+    <!-- Notificacion consulta creada -->
+    <string name="nombreNotificacionConsulta">FarmBros</string>
+    <string name="detalleNotificacionOferta1">Consulta </string>
+    <string name="detalleNotificacionOferta2"> creada con éxito</string>
+    <string name="nombreCanal">Consultas</string>
+    <string name="descripcionCanal">Canal utilizado para notificaciones de consultas creadas</string>
 </resources>

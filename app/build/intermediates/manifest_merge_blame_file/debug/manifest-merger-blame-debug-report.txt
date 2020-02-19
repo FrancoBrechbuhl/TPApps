@@ -6,9 +6,9 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="26"
-8-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml
+8-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml
+9-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml
 10
 11    <!--
 12         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -16,185 +16,184 @@
 14         location permissions for the 'MyLocation' functionality.
 15    -->
 16    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-16-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:10:5-79
-16-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:10:22-76
+16-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:10:5-79
+16-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:10:22-76
 17
 18    <uses-feature
-18-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:12:5-14:35
+18-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:12:5-14:35
 19        android:name="android.hardware.camera2"
-19-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:13:9-48
+19-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:13:9-48
 20        android:required="true" />
-20-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:14:9-32
+20-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:14:9-32
 21
 22    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-22-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:16:5-81
-22-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:16:22-78
+22-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:16:5-81
+22-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:16:22-78
 23    <uses-permission android:name="android.permission.INTERNET" />
-23-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:17:5-67
-23-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:17:22-64
+23-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:17:5-67
+23-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:17:22-64
 24
 25    <!-- Include required permissions for Google Maps API to run. -->
 26    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-26-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fad0b042f3e5d429fec29693f1215916\jetified-play-services-maps-16.1.0\AndroidManifest.xml:23:5-79
-26-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fad0b042f3e5d429fec29693f1215916\jetified-play-services-maps-16.1.0\AndroidManifest.xml:23:22-76
+26-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\2780e90c0d37b1be269b5c0bb7ccc5f1\jetified-play-services-maps-16.1.0\AndroidManifest.xml:23:5-79
+26-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\2780e90c0d37b1be269b5c0bb7ccc5f1\jetified-play-services-maps-16.1.0\AndroidManifest.xml:23:22-76
 27
 28    <uses-feature
-28-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fad0b042f3e5d429fec29693f1215916\jetified-play-services-maps-16.1.0\AndroidManifest.xml:26:5-28:35
+28-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\2780e90c0d37b1be269b5c0bb7ccc5f1\jetified-play-services-maps-16.1.0\AndroidManifest.xml:26:5-28:35
 29        android:glEsVersion="0x00020000"
-29-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fad0b042f3e5d429fec29693f1215916\jetified-play-services-maps-16.1.0\AndroidManifest.xml:27:9-41
+29-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\2780e90c0d37b1be269b5c0bb7ccc5f1\jetified-play-services-maps-16.1.0\AndroidManifest.xml:27:9-41
 30        android:required="true" />
-30-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fad0b042f3e5d429fec29693f1215916\jetified-play-services-maps-16.1.0\AndroidManifest.xml:28:9-32
+30-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\2780e90c0d37b1be269b5c0bb7ccc5f1\jetified-play-services-maps-16.1.0\AndroidManifest.xml:28:9-32
 31
 32    <application
-32-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:19:5-78:19
+32-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:19:5-78:19
 33        android:allowBackup="true"
-33-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:20:9-35
+33-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:20:9-35
 34        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-34-->[androidx.core:core:1.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\c527b78844be871c44103f6f45a963fb\core-1.1.0\AndroidManifest.xml:24:18-86
+34-->[androidx.core:core:1.1.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\c527b78844be871c44103f6f45a963fb\core-1.1.0\AndroidManifest.xml:24:18-86
 35        android:debuggable="true"
 36        android:icon="@mipmap/ic_launcher"
-36-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:21:9-43
+36-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:21:9-43
 37        android:label="@string/app_name"
-37-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:22:9-41
+37-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:22:9-41
 38        android:roundIcon="@mipmap/ic_launcher_round"
-38-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:23:9-54
+38-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:23:9-54
 39        android:supportsRtl="true"
-39-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:24:9-35
-40        android:testOnly="true"
-41        android:theme="@style/ActionBarTheme"
-41-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:25:9-46
-42        android:usesCleartextTraffic="true" >
-42-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:26:9-44
-43
-44        <!--
-45             The API key for Google Maps-based APIs is defined as a string resource.
-46             (See the file "res/values/google_maps_api.xml").
-47             Note that the API key is linked to the encryption key used to sign the APK.
-48             You need a different API key for each encryption key, including the release key that is used to
-49             sign the APK for publishing.
-50             You can define the keys for the debug and release targets in src/debug/ and src/release/.
-51        -->
-52        <meta-data
-52-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:36:9-38:69
-53            android:name="com.google.android.gms.version"
-53-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:37:13-58
-54            android:value="@integer/google_play_services_version" />
-54-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:38:13-66
-55        <meta-data
-55-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:40:9-42:55
-56            android:name="com.google.android.geo.API_KEY"
-56-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:41:13-58
-57            android:value="@string/google_maps_key" />
-57-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:42:13-52
-58
-59        <activity
-59-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:44:9-46:68
-60            android:name="com.B3B.farmbros.MapsActivity"
-60-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:45:13-41
-61            android:label="@string/title_activity_maps"
-61-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:46:13-56
-62            android:parentActivityName="com.B3B.farmbros.NuevaConsulta" />
-62-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:45:42-85
-63
-64        <provider
-64-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:48:9-56:20
-65            android:name="androidx.core.content.FileProvider"
-65-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:49:13-62
-66            android:authorities="com.B3B.farmbros.android.fileprovider"
-66-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:50:13-72
-67            android:exported="false"
-67-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:51:13-37
-68            android:grantUriPermissions="true" >
-68-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:52:13-47
-69            <meta-data
-69-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:53:13-55:63
-70                android:name="android.support.FILE_PROVIDER_PATHS"
-70-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:54:17-67
-71                android:resource="@xml/file_path" />
-71-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:55:17-50
-72        </provider>
-73
-74        <activity android:name="com.B3B.farmbros.MainActivity" >
-74-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:58:9-64:20
-74-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:58:19-47
-75            <intent-filter>
-75-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:59:13-63:29
-76                <action android:name="android.intent.action.MAIN" />
-76-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:60:17-69
-76-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:60:25-66
-77
-78                <category android:name="android.intent.category.LAUNCHER" />
-78-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:62:17-77
-78-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:62:27-74
-79            </intent-filter>
-80        </activity>
-81        <activity
-81-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:65:9-67:58
-82            android:name="com.B3B.farmbros.Home"
-82-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:66:13-33
-83            android:parentActivityName="com.B3B.farmbros.MainActivity" />
-83-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:67:13-55
-84        <activity
-84-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:68:9-70:58
-85            android:name="com.B3B.farmbros.CrearCuentaActivity"
-85-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:69:13-48
-86            android:parentActivityName="com.B3B.farmbros.MainActivity" />
-86-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:70:13-55
-87        <activity
-87-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:71:9-73:50
-88            android:name="com.B3B.farmbros.NuevaConsulta"
-88-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:72:13-42
-89            android:parentActivityName="com.B3B.farmbros.Home" />
-89-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:73:13-47
-90        <activity
-90-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:74:9-75:49
-91            android:name="com.B3B.farmbros.ListaConsultasActivity"
-91-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:74:19-57
-92            android:parentActivityName="com.B3B.farmbros.Home" />
-92-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:75:13-47
-93        <activity
-93-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:76:9-77:67
-94            android:name="com.B3B.farmbros.DetalleConsultaActivity"
-94-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:76:19-58
-95            android:parentActivityName="com.B3B.farmbros.ListaConsultasActivity" />
-95-->C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:77:13-65
-96        <activity
-96-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:23:9-27:75
-97            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-97-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:24:13-93
-98            android:excludeFromRecents="true"
-98-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:25:13-46
-99            android:exported="false"
-99-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:26:13-37
-100            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-100-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:27:13-72
-101        <!--
-102            Service handling Google Sign-In user revocation. For apps that do not integrate with
-103            Google Sign-In, this service will never be started.
-104        -->
-105        <service
-105-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:33:9-36:110
-106            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
-106-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:34:13-89
-107            android:exported="true"
-107-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:35:13-36
-108            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" /> <!-- Needs to be explicitly declared on P+ -->
-108-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:36:13-107
-109        <uses-library
-109-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fad0b042f3e5d429fec29693f1215916\jetified-play-services-maps-16.1.0\AndroidManifest.xml:33:9-35:40
-110            android:name="org.apache.http.legacy"
-110-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fad0b042f3e5d429fec29693f1215916\jetified-play-services-maps-16.1.0\AndroidManifest.xml:34:13-50
-111            android:required="false" />
-111-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fad0b042f3e5d429fec29693f1215916\jetified-play-services-maps-16.1.0\AndroidManifest.xml:35:13-37
-112
-113        <activity
-113-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\291563c6708268cf4683b088770f2b39\play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
-114            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-114-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\291563c6708268cf4683b088770f2b39\play-services-base-17.0.0\AndroidManifest.xml:24:13-79
-115            android:exported="false"
-115-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\291563c6708268cf4683b088770f2b39\play-services-base-17.0.0\AndroidManifest.xml:25:13-37
-116            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-116-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\291563c6708268cf4683b088770f2b39\play-services-base-17.0.0\AndroidManifest.xml:26:13-72
-117    </application>
-118
-119</manifest>
+39-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:24:9-35
+40        android:theme="@style/ActionBarTheme"
+40-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:25:9-46
+41        android:usesCleartextTraffic="true" >
+41-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:26:9-44
+42
+43        <!--
+44             The API key for Google Maps-based APIs is defined as a string resource.
+45             (See the file "res/values/google_maps_api.xml").
+46             Note that the API key is linked to the encryption key used to sign the APK.
+47             You need a different API key for each encryption key, including the release key that is used to
+48             sign the APK for publishing.
+49             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+50        -->
+51        <meta-data
+51-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:36:9-38:69
+52            android:name="com.google.android.gms.version"
+52-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:37:13-58
+53            android:value="@integer/google_play_services_version" />
+53-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:38:13-66
+54        <meta-data
+54-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:40:9-42:55
+55            android:name="com.google.android.geo.API_KEY"
+55-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:41:13-58
+56            android:value="@string/google_maps_key" />
+56-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:42:13-52
+57
+58        <activity
+58-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:44:9-46:68
+59            android:name="com.B3B.farmbros.MapsActivity"
+59-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:45:13-41
+60            android:label="@string/title_activity_maps"
+60-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:46:13-56
+61            android:parentActivityName="com.B3B.farmbros.NuevaConsulta" />
+61-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:45:42-85
+62
+63        <provider
+63-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:48:9-56:20
+64            android:name="androidx.core.content.FileProvider"
+64-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:49:13-62
+65            android:authorities="com.B3B.farmbros.android.fileprovider"
+65-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:50:13-72
+66            android:exported="false"
+66-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:51:13-37
+67            android:grantUriPermissions="true" >
+67-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:52:13-47
+68            <meta-data
+68-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:53:13-55:63
+69                android:name="android.support.FILE_PROVIDER_PATHS"
+69-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:54:17-67
+70                android:resource="@xml/file_path" />
+70-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:55:17-50
+71        </provider>
+72
+73        <activity android:name="com.B3B.farmbros.MainActivity" >
+73-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:58:9-64:20
+73-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:58:19-47
+74            <intent-filter>
+74-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:59:13-63:29
+75                <action android:name="android.intent.action.MAIN" />
+75-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:60:17-69
+75-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:60:25-66
+76
+77                <category android:name="android.intent.category.LAUNCHER" />
+77-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:62:17-77
+77-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:62:27-74
+78            </intent-filter>
+79        </activity>
+80        <activity
+80-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:65:9-67:58
+81            android:name="com.B3B.farmbros.Home"
+81-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:66:13-33
+82            android:parentActivityName="com.B3B.farmbros.MainActivity" />
+82-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:67:13-55
+83        <activity
+83-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:68:9-70:58
+84            android:name="com.B3B.farmbros.CrearCuentaActivity"
+84-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:69:13-48
+85            android:parentActivityName="com.B3B.farmbros.MainActivity" />
+85-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:70:13-55
+86        <activity
+86-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:71:9-73:50
+87            android:name="com.B3B.farmbros.NuevaConsulta"
+87-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:72:13-42
+88            android:parentActivityName="com.B3B.farmbros.Home" />
+88-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:73:13-47
+89        <activity
+89-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:74:9-75:49
+90            android:name="com.B3B.farmbros.ListaConsultasActivity"
+90-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:74:19-57
+91            android:parentActivityName="com.B3B.farmbros.Home" />
+91-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:75:13-47
+92        <activity
+92-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:76:9-77:67
+93            android:name="com.B3B.farmbros.DetalleConsultaActivity"
+93-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:76:19-58
+94            android:parentActivityName="com.B3B.farmbros.ListaConsultasActivity" />
+94-->C:\Users\Anibal\Documents\GitHub\TPApps\app\src\main\AndroidManifest.xml:77:13-65
+95        <activity
+95-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:23:9-27:75
+96            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+96-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:24:13-93
+97            android:excludeFromRecents="true"
+97-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:25:13-46
+98            android:exported="false"
+98-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:26:13-37
+99            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+99-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:27:13-72
+100        <!--
+101            Service handling Google Sign-In user revocation. For apps that do not integrate with
+102            Google Sign-In, this service will never be started.
+103        -->
+104        <service
+104-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:33:9-36:110
+105            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+105-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:34:13-89
+106            android:exported="true"
+106-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:35:13-36
+107            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" /> <!-- Needs to be explicitly declared on P+ -->
+107-->[com.google.android.gms:play-services-auth:17.0.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\f3cd088eede6db1b65bf9a5737bc46f5\play-services-auth-17.0.0\AndroidManifest.xml:36:13-107
+108        <uses-library
+108-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\2780e90c0d37b1be269b5c0bb7ccc5f1\jetified-play-services-maps-16.1.0\AndroidManifest.xml:33:9-35:40
+109            android:name="org.apache.http.legacy"
+109-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\2780e90c0d37b1be269b5c0bb7ccc5f1\jetified-play-services-maps-16.1.0\AndroidManifest.xml:34:13-50
+110            android:required="false" />
+110-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\2780e90c0d37b1be269b5c0bb7ccc5f1\jetified-play-services-maps-16.1.0\AndroidManifest.xml:35:13-37
+111
+112        <activity
+112-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\291563c6708268cf4683b088770f2b39\play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+113            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+113-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\291563c6708268cf4683b088770f2b39\play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+114            android:exported="false"
+114-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\291563c6708268cf4683b088770f2b39\play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+115            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+115-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Anibal\.gradle\caches\transforms-2\files-2.1\291563c6708268cf4683b088770f2b39\play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+116    </application>
+117
+118</manifest>

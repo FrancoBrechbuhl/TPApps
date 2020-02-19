@@ -1,7 +1,9 @@
 package com.B3B.farmbros;
 
+import android.content.BroadcastReceiver;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -50,6 +52,8 @@ public class NuevaConsulta extends AppCompatActivity {
     static final int REQUEST_IMAGE_SAVE = 1;
     static String pathFoto;
     private final int CODE_ACTIVITY_MAPS = 9;
+
+    public static BroadcastReceiver br;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -183,11 +187,19 @@ public class NuevaConsulta extends AppCompatActivity {
             switch (msg.arg1){
                 case ConsultaRepository._POST:
                  //TODO notificacion
+                    Toast.makeText(getApplicationContext(), "La consulta está siendo creada", Toast.LENGTH_SHORT).show();
+                    br = new ConsultaBroadcastReciever();
+                    IntentFilter filtro = new IntentFilter();
+                    filtro.addAction(ConsultaBroadcastReciever.CONSULTA);
+                    getApplication().getApplicationContext().registerReceiver(br, filtro);
+
+                    Intent servicio = new Intent(getApplicationContext(), ConsultaIntentService.class);
+                    //servicio.putExtra("Posicion", position);
+                    //servicio.putExtra("NombrePlato", plato.getNombre());
+                    startService(servicio);
                     /*
                     codigo de notificacion exitosa
                      */
-                    Toast.makeText(getApplicationContext(), "La consulta se ha registrado con éxito", Toast.LENGTH_SHORT).show();
-
                     break;
                 case ConsultaRepository._ERROR:
                     Log.d("HANDLER","Llego con error");
