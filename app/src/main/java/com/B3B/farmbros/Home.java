@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -22,7 +21,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.B3B.farmbros.retrofit.IngenieroRepository;
 import com.B3B.farmbros.retrofit.MensajeRepository;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -69,6 +67,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         mDrawerToggle.syncState();
 
         //aca se cambian las opciones del drawer, por defecto se ponen las de productor y se cambian si el usuario es ingeniero
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
         profesion = getIntent().getExtras().getString("profesion");
         Log.d("Profesion: ", profesion);
         if(profesion.equals("ingeniero")){
@@ -81,7 +80,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             menuItem.setVisible(false);
         }
         else{
-            GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
             MensajeRepository.getInstance().listarMensajesPorReceptor(account.getEmail());
         }
 
@@ -94,9 +92,12 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_options);
 
-        String userName = getIntent().getExtras().getString("userName");
+        String userName = account.getDisplayName();
         txtIdentificadorUsuario.setText("Usted se ha identificado como "+ userName);
 
+        //TODO: no se porque cuando se crea una consulta, si se quiere cerrar sesion se vuelve
+        // a la pantalla de nueva consulta y despues a la de home de nuevo para poder salir
+        // suposicion: debe ser algo del handler
         btnCierreSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -153,10 +154,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         switch (menuItem.getItemId()){
             case R.id.menuItemNuevaConsulta:
                 i1 = new Intent (this, NuevaConsulta.class);
-                String userName = getIntent().getExtras().getString("userName");
-                String email = getIntent().getExtras().getString("email");
-                i1.putExtra("userName", userName);
-                i1.putExtra("email", email);
                 startActivity(i1);
                 return true;
             case R.id.menuItemForoDeConsultas:

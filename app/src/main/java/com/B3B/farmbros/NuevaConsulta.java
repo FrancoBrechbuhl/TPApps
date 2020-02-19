@@ -26,6 +26,8 @@ import com.B3B.farmbros.domain.Consulta;
 import com.B3B.farmbros.domain.EstadoConsulta;
 import com.B3B.farmbros.domain.Productor;
 import com.B3B.farmbros.retrofit.ConsultaRepository;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -148,8 +150,11 @@ public class NuevaConsulta extends AppCompatActivity {
             int idConsulta = r.nextInt(10000) + 1; //TODO: generar bien los id
             Productor productor = new Productor();
 
-            productor.setNombre(getIntent().getExtras().getString("userName"));
-            productor.setEmail(getIntent().getExtras().getString("email"));
+            GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
+            String userName = account.getDisplayName();
+            String emailProductor = account.getEmail();
+            productor.setNombre(userName);
+            productor.setEmail(emailProductor);
             Consulta consulta = new Consulta();
             consulta.setIdConsulta(idConsulta);
             consulta.setTextoConsulta(txtConsulta.getText().toString());
@@ -163,10 +168,8 @@ public class NuevaConsulta extends AppCompatActivity {
 
             ConsultaRepository.getInstance().crearConsulta(consulta,handlerCrearConsultas);
 
-            String userName = getIntent().getExtras().getString("userName");
             String profesion = "productor";
             Intent i1 = new Intent(getApplicationContext(), Home.class);
-            i1.putExtra("userName", userName);
             i1.putExtra("profesion", profesion);
             startActivity(i1);
         }
@@ -188,7 +191,6 @@ public class NuevaConsulta extends AppCompatActivity {
             switch (msg.arg1){
                 case ConsultaRepository._POST:
                  //TODO notificacion
-                    //TODO: revisar porque hay consultas que se crean sin email del productor
                     /*
                     codigo de notificacion exitosa
                      */

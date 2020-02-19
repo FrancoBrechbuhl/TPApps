@@ -134,7 +134,9 @@ public class ConsultaRepository {
                 if(response.isSuccessful()){
                     listaConsultas.clear();
                     listaConsultas.addAll(response.body());
-                    consulta = listaConsultas.get(0);
+                    if(!listaConsultas.isEmpty()) {
+                        consulta = listaConsultas.get(0);
+                    }
                     Log.d("Request to Retrofit","Successful");
                 }
                 else{
