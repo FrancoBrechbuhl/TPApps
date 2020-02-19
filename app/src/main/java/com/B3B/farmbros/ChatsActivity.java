@@ -14,7 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.B3B.farmbros.domain.Consulta;
+import com.B3B.farmbros.domain.Ingeniero;
 import com.B3B.farmbros.domain.Mensaje;
+import com.B3B.farmbros.retrofit.ConsultaRepository;
+import com.B3B.farmbros.retrofit.IngenieroRepository;
 import com.B3B.farmbros.retrofit.MensajeRepository;
 import com.B3B.farmbros.util.SortMessageByTimeStamp;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -34,7 +38,7 @@ public class ChatsActivity extends AppCompatActivity {
     private String emailEmisor;
     private String emailReceptor;
 
-    public static final int _FINISH = 100;
+    public static final int _FINISH = 60;
 
     @Override
     protected void onCreate(Bundle saveInstanceState){
@@ -51,9 +55,9 @@ public class ChatsActivity extends AppCompatActivity {
 
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
 
-        String profesion = getIntent().getExtras().getString("profesion");
+        final String profesion = getIntent().getExtras().getString("profesion");
         if(profesion.equals("productor")){
-            //es productor y viene desde ListaContactosActivity
+            //es productor y viene desde ContactoViewAdapter
             emailEmisor = account.getEmail();
             emailReceptor = getIntent().getExtras().getString("email ingeniero");
         }
@@ -85,7 +89,11 @@ public class ChatsActivity extends AppCompatActivity {
                 mensaje.setReceptor(emailReceptor);
                 textoMensaje.setText("");
                 MensajeRepository.getInstance().crearMensaje(mensaje, handlerListarMensajes);
-                adapterMensajes.notifyDataSetChanged();
+                //TODO: revisar que cuando se envia un mensaje se desordena la lista
+                if(profesion.equals("ingeniero")){
+                    IngenieroRepository.getInstance().buscarIngeniero(emailEmisor, handlerListarMensajes);
+                }
+
             }
         });
     }
@@ -119,8 +127,7 @@ public class ChatsActivity extends AppCompatActivity {
             Log.d("HANDLER","Vuelve al handler"+msg.arg1);
             switch (msg.arg1){
                 case MensajeRepository._POST:
-                    mensajes.clear();
-                    mensajes.addAll(MensajeRepository.getInstance().getListaMensajes());
+                    mensajes.add(MensajeRepository.getInstance().getMensaje());
                     adapterMensajes.notifyDataSetChanged();
                     break;
                 case _FINISH:
@@ -128,9 +135,22 @@ public class ChatsActivity extends AppCompatActivity {
                     ((MensajeViewAdapter) adapterMensajes).actualizarMensajes(mensajes);
                     adapterMensajes.notifyDataSetChanged();
                     break;
+                case IngenieroRepository._GET:
+                    Log.d("HANDLER","Se busco al ingeniero");
+                    Consulta consulta = ConsultaRepository.getInstance().getConsulta();
+                    Ingeniero ingeniero = IngenieroRepository.getInstance().getIngeniero();
+                    consulta.setEncargadoConsulta(ingeniero);
+                    ConsultaRepository.getInstance().actualizarConsulta(consulta);
+                    Log.d("HANDLER","Se registro al encargado de la consulta");
+                    break;
                 case MensajeRepository._ERROR:
                     Log.d("HANDLER","Llego con error");
                     Toast.makeText(getApplicationContext(),"@string/error_BD",Toast.LENGTH_SHORT).show();
+                    break;
+                case IngenieroRepository._ERROR:
+                    Log.d("HANDLER","Retorno error");
+                    Toast.makeText(getApplicationContext(),"@string/error_BD",Toast.LENGTH_SHORT).show();
+                    break;
             }
         }
     };

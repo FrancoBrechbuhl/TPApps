@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,9 +17,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.B3B.farmbros.domain.Consulta;
 import com.B3B.farmbros.domain.EstadoConsulta;
 import com.B3B.farmbros.retrofit.ConsultaRepository;
-import com.B3B.farmbros.retrofit.MensajeRepository;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 public class DetalleConsultaActivity extends AppCompatActivity {
 
@@ -54,9 +50,8 @@ public class DetalleConsultaActivity extends AppCompatActivity {
             envioMensaje.setVisibility(View.INVISIBLE);
         }
         else{
-            String emailProductor = getIntent().getExtras().getString("email productor");
-            GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
-            String emailEmisor = account.getEmail();
+            int idConsulta = getIntent().getExtras().getInt("idConsulta");
+            ConsultaRepository.getInstance().buscarConsultaPorIdConsulta(idConsulta);
         }
 
         nombreProductor.setText(this.getIntent().getExtras().getString("nombre productor"));
@@ -72,8 +67,6 @@ public class DetalleConsultaActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String emailProductor = getIntent().getExtras().getString("email productor");
                 String nombreProductor = getIntent().getExtras().getString("nombre productor");
-                GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
-                String emailEmisor = account.getEmail();
                 Intent i1 = new Intent(getApplicationContext(), ChatsActivity.class);
                 i1.putExtra("nombre productor", nombreProductor);
                 i1.putExtra("email productor", emailProductor);

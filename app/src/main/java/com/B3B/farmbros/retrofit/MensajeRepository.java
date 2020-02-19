@@ -65,16 +65,21 @@ public class MensajeRepository {
             @Override
             public void onResponse(Call<Mensaje> call, Response<Mensaje> response) {
                 if(response.isSuccessful()){
+                    mensaje = response.body();
                     listaMensajes.add(response.body());
                     Message m = new Message();
                     m.arg1 = _POST;
-                    h.sendMessage(m);
+                    h.sendMessageAtFrontOfQueue(m);
                     Log.d("Request to Retrofit","Successful");
+                }
+                else {
+                    mensaje = null;
                 }
             }
 
             @Override
             public void onFailure(Call<Mensaje> call, Throwable t) {
+                mensaje = null;
                 Message m = new Message();
                 m.arg1 = _ERROR;
                 h.sendMessage(m);
@@ -135,22 +140,7 @@ public class MensajeRepository {
         return listaMensajes;
     }
 
-    private List<Mensaje> ordenarMensajes(List<Mensaje> mensajesDesordenados){
-        List<Mensaje> mensajesOrdenados = new ArrayList<>();
-        int longitud = mensajesDesordenados.size();
-        Log.d("Longitud", String.valueOf(longitud));
-        Mensaje[] mensajes = new Mensaje[longitud];
-
-        for (int j = 0; j < longitud; j++){
-            mensajes[j] = mensajesDesordenados.get(j);
-        }
-
-        Arrays.sort(mensajes, new SortMessageByTimeStamp());
-
-        for(int i = 0; i < mensajes.length; i++){
-            mensajesOrdenados.add(mensajes[i]);
-        }
-
-        return mensajesOrdenados;
+    public Mensaje getMensaje(){
+        return mensaje;
     }
 }
