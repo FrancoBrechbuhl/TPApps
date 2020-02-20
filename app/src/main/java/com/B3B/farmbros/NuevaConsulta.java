@@ -149,7 +149,6 @@ public class NuevaConsulta extends AppCompatActivity {
 
             //se guarda la consulta en el Api REST
             Random r = new Random();
-            int idConsulta = r.nextInt(10000) + 1;
             Productor productor = new Productor();
 
             GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
@@ -158,7 +157,6 @@ public class NuevaConsulta extends AppCompatActivity {
             productor.setNombre(userName);
             productor.setEmail(emailProductor);
             Consulta consulta = new Consulta();
-            consulta.setIdConsulta(idConsulta);
             consulta.setTextoConsulta(txtConsulta.getText().toString());
             consulta.setFechaConsulta(LocalDateTime.now());
             consulta.setLatConsulta(data.getExtras().getDouble("latitud"));

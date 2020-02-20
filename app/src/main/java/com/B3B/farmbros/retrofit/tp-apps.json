@@ -1,64 +1,57 @@
 {
   "consultas": [
     {
-      "LatConsulta": -31.642468493676187,
-      "LngConsulta": -60.57280428707599,
-      "asuntoConsulta": "Semillas ",
+      "LatConsulta": -31.610917327897127,
+      "LngConsulta": -60.676344260573394,
+      "asuntoConsulta": "Semillas",
       "estado": "ABIERTA",
       "fechaConsulta": {},
-      "idConsulta": 8208,
+      "id": 1,
       "remitenteConsulta": {
         "email": "francob19051997@gmail.com",
         "nombre": "Franco Brechbuhl"
       },
-      "textoConsulta": "Que variedad de soja de segunda sembrar entre el 15 y 20 de diciembre?",
-      "id": 1
+      "textoConsulta": "Que variedad de soja de segunda sembrar entre el 15 y 20 de diciembre?"
     },
     {
-      "LatConsulta": -31.633705275004175,
-      "LngConsulta": -60.5515481159091,
-      "asuntoConsulta": "Fertilizante",
+      "LatConsulta": -31.68977531521775,
+      "LngConsulta": -60.59474676847458,
+      "asuntoConsulta": "Fertilizantes",
       "estado": "ABIERTA",
       "fechaConsulta": {},
-      "idConsulta": 8732,
+      "id": 2,
       "remitenteConsulta": {
         "email": "francob19051997@gmail.com",
         "nombre": "Franco Brechbuhl"
       },
-      "textoConsulta": "Que fertilizante usar para sembrar maiz?",
-      "id": 2
+      "textoConsulta": "Que fertilizante usar para sembrar maiz?"
     },
     {
-      "LatConsulta": -31.713711606608317,
-      "LngConsulta": -60.58926098048686,
+      "LatConsulta": -31.663496848757276,
+      "LngConsulta": -60.57486154139042,
       "asuntoConsulta": "Fitosanitarios",
       "estado": "ABIERTA",
       "fechaConsulta": {},
-      "idConsulta": 6002,
+      "id": 3,
       "remitenteConsulta": {
         "email": "francob19051997@gmail.com",
         "nombre": "Franco Brechbuhl"
       },
-      "textoConsulta": "Que productos usar para controlar malezas resistentes?",
-      "id": 3
+      "textoConsulta": "Que productos usar para controlar malezas resistentes?"
     },
     {
-      "LatConsulta": -31.622604202986825,
-      "LngConsulta": -60.59543240815401,
+      "LatConsulta": -31.626110007883952,
+      "LngConsulta": -60.58103263378143,
       "asuntoConsulta": "Siembra",
-      "estado": "ABIERTA",
+      "estado": "FINALIZADA",
       "fechaConsulta": {},
-      "idConsulta": 9907,
+      "fotoConsultaBase64": "",
+      "id": 4,
       "remitenteConsulta": {
         "email": "francob19051997@gmail.com",
         "nombre": "Franco Brechbuhl"
       },
-      "encargadoConsulta": {
-        "email": "fybrechbuhl@gmail.com",
-        "nombre": "Franco Brechbuhl"
-      },
-      "textoConsulta": "Que densidad de siembra se recomienda para sorgo sembrado a 35cm?",
-      "id": 4
+      "textoConsulta": "Que densidad de siembra se recomienda para sorgo a sembrar a 35cm?"
     }
   ],
   "productores": [

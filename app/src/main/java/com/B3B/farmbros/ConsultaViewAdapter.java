@@ -2,6 +2,7 @@ package com.B3B.farmbros;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,10 +68,10 @@ public class ConsultaViewAdapter extends RecyclerView.Adapter<ConsultaViewHolder
                 detalle.putExtra("nombre productor",consulta.getRemitenteConsulta().getNombre());
                 detalle.putExtra("email productor", consulta.getRemitenteConsulta().getEmail());
                 detalle.putExtra("consulta",consulta.getTextoConsulta());
+                detalle.putExtra("idConsulta", consulta.getId());
                 detalle.putExtra("profesion", profesion);
                 if (consulta.getFotoConsultaBase64()!=null)
                     detalle.putExtra("foto consulta",consulta.getFotoConsultaBase64());
-                ConsultaRepository.getInstance().buscarConsultaPorIdConsulta(consulta.getIdConsulta());
                 if(actividad == ACTIVITY_LISTA_CONSULTAS) {
                     listaConsultasActivity.startActivity(detalle);
                 }

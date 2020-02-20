@@ -4,9 +4,10 @@ import java.time.LocalDateTime;
 
 public class Consulta {
 
-    private int idConsulta;
+    private int id;
     private String textoConsulta;
     private String asuntoConsulta;
+    //TODO: ver guardado de fecha en el Api Rest
     private LocalDateTime fechaConsulta;
     private String fotoConsultaBase64;
     private double LatConsulta;
@@ -20,12 +21,12 @@ public class Consulta {
         fotoConsultaBase64="";
     }
 
-    public int getIdConsulta() {
-        return idConsulta;
+    public int getId() {
+        return id;
     }
 
-    public void setIdConsulta(int idConsulta) {
-        this.idConsulta = idConsulta;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTextoConsulta() {

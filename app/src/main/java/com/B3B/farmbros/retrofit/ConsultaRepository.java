@@ -105,50 +105,34 @@ public class ConsultaRepository {
         });
     }
 
-    public void buscarConsultaPorID(final int id){
-        Call<Consulta> llamada = this.consultaRest.buscarConsultaPorID(id);
+    public void buscarConsultaPorIdConsulta(final int id, final Handler h){
+        Call<Consulta> llamada = this.consultaRest.buscarConsultaPorIdConsulta(id);
         llamada.enqueue(new Callback<Consulta>() {
             @Override
             public void onResponse(Call<Consulta> call, Response<Consulta> response) {
                 if(response.isSuccessful()){
                     consulta = response.body();
                     Log.d("Request to Retrofit","Successful");
+                    Message m = new Message();
+                    m.arg1 = _GET;
+                    h.sendMessage(m);
                 }
                 else{
                     consulta = null;
                     Log.d("Request to Retrofit","Null");
+                    Message m = new Message();
+                    m.arg1 = _ERROR;
+                    h.sendMessage(m);
                 }
             }
 
             @Override
             public void onFailure(Call<Consulta> call, Throwable t) {
+                consulta = null;
                 Log.d("Request to Retrofit","Fail");
-            }
-        });
-    }
-
-    public void buscarConsultaPorIdConsulta(final int id){
-        Call<List<Consulta>> llamada = this.consultaRest.buscarConsultaPorIdConsulta(id);
-        llamada.enqueue(new Callback<List<Consulta>>() {
-            @Override
-            public void onResponse(Call<List<Consulta>> call, Response<List<Consulta>> response) {
-                if(response.isSuccessful()){
-                    listaConsultas.clear();
-                    listaConsultas.addAll(response.body());
-                    if(!listaConsultas.isEmpty()) {
-                        consulta = listaConsultas.get(0);
-                    }
-                    Log.d("Request to Retrofit","Successful");
-                }
-                else{
-                    consulta = null;
-                    Log.d("Request to Retrofit","Null");
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Consulta>> call, Throwable t) {
-                Log.d("Request to Retrofit","Fail");
+                Message m = new Message();
+                m.arg1 = _ERROR;
+                h.sendMessage(m);
             }
         });
     }
@@ -230,7 +214,7 @@ public class ConsultaRepository {
     }
 
     public void borrarConsulta (final Consulta consulta){
-        Call<Void> llamada = this.consultaRest.eliminarConsulta(consulta.getIdConsulta());
+        Call<Void> llamada = this.consultaRest.eliminarConsulta(consulta.getId());
         llamada.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
@@ -248,7 +232,7 @@ public class ConsultaRepository {
     }
 
     public void actualizarConsulta(final Consulta consulta){
-        Call<Consulta> llamada = this.consultaRest.actualizarConsulta(consulta.getIdConsulta(), consulta);
+        Call<Consulta> llamada = this.consultaRest.actualizarConsulta(consulta.getId(), consulta);
         llamada.enqueue(new Callback<Consulta>() {
             @Override
             public void onResponse(Call<Consulta> call, Response<Consulta> response) {

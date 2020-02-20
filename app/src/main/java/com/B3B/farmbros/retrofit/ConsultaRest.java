@@ -21,10 +21,13 @@ public interface ConsultaRest {
     Call<List<Consulta>> listarTodas();
 
     @GET("consultas/{id}")
-    Call<Consulta> buscarConsultaPorID(@Path("id") Integer id);
+    Call<Consulta> buscarConsultaPorIdConsulta(@Path("id") Integer id);
 
+    /*
     @GET("consultas/")
     Call<List<Consulta>> buscarConsultaPorIdConsulta(@Query("idConsulta") Integer id);
+
+     */
 
     @GET("consultas/")
     Call<List<Consulta>> buscarConsultaPorProductor(@Query("remitenteConsulta.email") String remitente);
@@ -32,8 +35,8 @@ public interface ConsultaRest {
     @GET("consultas/")
     Call<List<Consulta>> buscarConsultaPorIngeniero(@Query("encargadoConsulta.email") String encargado);
 
-    @PUT("consultas/")
-    Call<Consulta> actualizarConsulta(@Query("idConsulta") Integer id, @Body Consulta consulta);
+    @PUT("consultas/{id}")
+    Call<Consulta> actualizarConsulta(@Path("id") Integer id, @Body Consulta consulta);
 
     @DELETE("consultas/{ID}")
     Call<Void> eliminarConsulta(@Path("ID") Integer id);

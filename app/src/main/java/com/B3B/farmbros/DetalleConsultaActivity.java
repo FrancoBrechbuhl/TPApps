@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -52,10 +55,9 @@ public class DetalleConsultaActivity extends AppCompatActivity {
         if(profesion.equals("productor")){
             envioMensaje.setVisibility(View.INVISIBLE);
         }
-        else{
-            int idConsulta = getIntent().getExtras().getInt("idConsulta");
-            ConsultaRepository.getInstance().buscarConsultaPorIdConsulta(idConsulta);
-        }
+
+        int idConsulta = getIntent().getExtras().getInt("idConsulta");
+        ConsultaRepository.getInstance().buscarConsultaPorIdConsulta(idConsulta, handlerDetalleConsulta);
 
         nameProductor.setText(this.getIntent().getExtras().getString("nombre productor"));
         consulta.setText(this.getIntent().getExtras().getString("consulta"));
@@ -86,24 +88,40 @@ public class DetalleConsultaActivity extends AppCompatActivity {
                 remitente de la misma
                  */
 
-                if(profesion.equals("ingeniero") || consultaDetallada.getRemitenteConsulta().getEmail().equals(emailProductor)) {
-                    consultaDetallada.setEstado(EstadoConsulta.FINALIZADA);
-                    ConsultaRepository.getInstance().actualizarConsulta(consultaDetallada);
-                    Toast.makeText(getApplicationContext(), "La consulta se ha finalizado con éxito", Toast.LENGTH_SHORT).show();
-                    //TODO: si es el productor calificar al ingeniero
+                if(consultaDetallada != null) {
+                    if (profesion.equals("ingeniero") || consultaDetallada.getRemitenteConsulta().getEmail().equals(emailProductor)) {
+                        consultaDetallada.setEstado(EstadoConsulta.FINALIZADA);
+                        ConsultaRepository.getInstance().actualizarConsulta(consultaDetallada);
+                        Toast.makeText(getApplicationContext(), "La consulta se ha finalizado con éxito", Toast.LENGTH_SHORT).show();
+                        //TODO: si es el productor calificar al ingeniero
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Lo sentimos, no tiene permiso para finalizar esta consulta", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), "Lo sentimos, no tiene permiso para finalizar esta consulta", Toast.LENGTH_SHORT).show();
+                    Log.d("Consulta", "Null");
+                    Toast.makeText(getApplicationContext(),"Error al cargar la base de datos",Toast.LENGTH_SHORT).show();
                 }
 
-                //TODO: Corregir, no se hace el update porque la consulta tiene id y idConsulta
-                // yo trate de hacer que actualice con @Query y el idConsulta, pero en el server
-                // se ejecuta el PUT solo que no cambia la consulta, si o si hay que hacerlo con
-                // el id que es la PK, pero no se como obtenerlo porque eso lo hace el handler
                 Intent i1 = new Intent(getApplicationContext(), ListaConsultasActivity.class);
                 i1.putExtra("profesion", profesion);
                 startActivity(i1);
             }
         });
     }
+
+    Handler handlerDetalleConsulta = new Handler(Looper.myLooper()){
+        @Override
+        public void handleMessage(Message msg) {
+            Log.d("HANDLER","Vuelve al handler"+msg.arg1);
+            switch (msg.arg1){
+                case ConsultaRepository._GET:
+                    consultaDetallada = ConsultaRepository.getInstance().getConsulta();
+                    Log.d("HANDLER","Retorno con exito");
+                    break;
+                case ConsultaRepository._ERROR:
+                    Log.d("HANDLER","Llego con error");
+            }
+        }
+    };
 }
