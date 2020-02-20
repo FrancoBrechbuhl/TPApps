@@ -201,4 +201,7 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
+    //TODO: poner el metodo onBackPressed() para preguntar si salir de la app
+
 }

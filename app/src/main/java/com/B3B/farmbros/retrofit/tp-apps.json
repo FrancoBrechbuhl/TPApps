@@ -17,8 +17,14 @@
       "LatConsulta": -31.68977531521775,
       "LngConsulta": -60.59474676847458,
       "asuntoConsulta": "Fertilizantes",
-      "estado": "ABIERTA",
+      "encargadoConsulta": {
+        "calificacion": 0,
+        "email": "fybrechbuhl@gmail.com",
+        "nombre": "Franco Brechbuhl"
+      },
+      "estado": "FINALIZADA",
       "fechaConsulta": {},
+      "fotoConsultaBase64": "",
       "id": 2,
       "remitenteConsulta": {
         "email": "francob19051997@gmail.com",
@@ -74,5 +80,13 @@
       "id": 1
     }
   ],
-  "mensajes": []
+  "mensajes": [
+    {
+      "datos": "Hola Franco, lo indicado es usar fosfato diamonico en la siembra y en v5 aplicar urea granulada",
+      "emailReceptor": "francob19051997@gmail.com",
+      "emailRemitente": "fybrechbuhl@gmail.com",
+      "horaCreacion": 1582229964618,
+      "id": 1
+    }
+  ]
 }

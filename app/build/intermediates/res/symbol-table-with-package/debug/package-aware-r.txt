@@ -1344,6 +1344,7 @@ id pin
 id progress_circular
 id progress_horizontal
 id radio
+id ratingBarCalificacionIngeniero
 id recyclerChats
 id recyclerListaConsultas
 id recyclerListaContactos
@@ -1532,6 +1533,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout dialog_calificacion_ingeniero
 layout fila_consulta
 layout fila_contacto
 layout fila_mensajes_enviados

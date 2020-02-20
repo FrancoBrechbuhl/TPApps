@@ -1,6 +1,5 @@
 package com.B3B.farmbros;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,7 +18,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.B3B.farmbros.retrofit.MensajeRepository;
-import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.navigation.NavigationView;
@@ -171,14 +169,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 startActivity(i1);
                 return true;
             case R.id.menuItemMiPerfil:
-                //controlar porque esta opcion puede estar en los dos menúes
-                if(profesion.equals("productor")) {
-                    //i1 = new Intent (this,Perfil.class);
-                    //startActivity(i1);
-                }
-                else{
-
-                }
+                //Do something
                 return true;
             case android.R.id.home:
                 onBackPressed();

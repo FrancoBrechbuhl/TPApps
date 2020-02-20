@@ -1,5 +1,6 @@
 package com.B3B.farmbros;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,14 +9,17 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.util.Base64;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.B3B.farmbros.domain.Consulta;
@@ -29,6 +33,7 @@ public class DetalleConsultaActivity extends AppCompatActivity {
     private ImageView imagenConsulta;
     private Button envioMensaje;
     private Button cierreConsulta;
+    private RatingBar calificacionIngeniero;
     private Consulta consultaDetallada;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +51,7 @@ public class DetalleConsultaActivity extends AppCompatActivity {
         imagenConsulta = (ImageView) findViewById(R.id.imgDetCons);
         envioMensaje = (Button) findViewById(R.id.btnEmviarMsgDetCons);
         cierreConsulta = (Button) findViewById(R.id.btnFinalizarConsultaDetCons);
+        calificacionIngeniero = findViewById(R.id.ratingBarCalificacionIngeniero);
 
         final String profesion = getIntent().getExtras().getString("profesion");
         final String emailProductor = getIntent().getExtras().getString("email productor");
@@ -93,7 +99,26 @@ public class DetalleConsultaActivity extends AppCompatActivity {
                         consultaDetallada.setEstado(EstadoConsulta.FINALIZADA);
                         ConsultaRepository.getInstance().actualizarConsulta(consultaDetallada);
                         Toast.makeText(getApplicationContext(), "La consulta se ha finalizado con éxito", Toast.LENGTH_SHORT).show();
-                        //TODO: si es el productor calificar al ingeniero
+                        if(profesion.equals("productor") && (consultaDetallada.getEncargadoConsulta() != null)){
+                            String nombreIngeniero = consultaDetallada.getEncargadoConsulta().getNombre();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(DetalleConsultaActivity.this);
+                            LayoutInflater inflater = getLayoutInflater();
+                            View v = inflater.inflate(R.layout.dialog_calificacion_ingeniero, null);
+                            //TODO: ver si alguno puede arreglar la rating bar, a mi no me reconoce
+                            // los atributos el archivo XML
+                            builder.setTitle("Que le ha parecido la experiencia con "+nombreIngeniero)
+                                    .setView(v)
+                                    .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            Intent i1 = new Intent(getApplicationContext(), ListaConsultasActivity.class);
+                                            i1.putExtra("profesion", profesion);
+                                            startActivity(i1);
+                                        }
+                                    });
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
+                        }
                     } else {
                         Toast.makeText(getApplicationContext(), "Lo sentimos, no tiene permiso para finalizar esta consulta", Toast.LENGTH_SHORT).show();
                     }
@@ -101,11 +126,10 @@ public class DetalleConsultaActivity extends AppCompatActivity {
                 else {
                     Log.d("Consulta", "Null");
                     Toast.makeText(getApplicationContext(),"Error al cargar la base de datos",Toast.LENGTH_SHORT).show();
+                    Intent i1 = new Intent(getApplicationContext(), ListaConsultasActivity.class);
+                    i1.putExtra("profesion", profesion);
+                    startActivity(i1);
                 }
-
-                Intent i1 = new Intent(getApplicationContext(), ListaConsultasActivity.class);
-                i1.putExtra("profesion", profesion);
-                startActivity(i1);
             }
         });
     }
