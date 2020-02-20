@@ -19,6 +19,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.B3B.farmbros.retrofit.MensajeRepository;
+import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.navigation.NavigationView;
@@ -35,6 +36,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private NavigationView mNavigationView;
+
+    private static final int CODE_ACTIVITY_HOME = 7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,11 +94,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         String userName = account.getDisplayName();
         txtIdentificadorUsuario.setText("Usted se ha identificado como "+ userName);
 
-        //TODO: cuando se crea una consulta, si se quiere cerrar sesion se vuelve
-        // a la pantalla de nueva consulta y despues a la de home de nuevo para poder salir.
-        // Es porque esta activity se inicia con un startActivityForResult, y cuando se invoca
-        // al finish() vuelve a la ultima activity que llamó, en el caso anterior vuelve a
-        // nuevaConsulta
         btnCierreSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,8 +103,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //si se cierra sesión, se retorna a la actividad que llamó (mainActivity)
-                                setResult(Activity.RESULT_OK);
-                                finish();
+                                MainActivity.cerrarSesion();
+                                Intent i1 = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(i1);
                             }
                         })
                         .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {

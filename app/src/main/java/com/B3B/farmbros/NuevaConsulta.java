@@ -49,9 +49,9 @@ public class NuevaConsulta extends AppCompatActivity {
     private EditText txtConsulta;
     private EditText txtAsunto;
     private String fotoEnBase64;
+    static String pathFoto;
     static ImageView fotoConsulta;
     static final int REQUEST_IMAGE_SAVE = 1;
-    static String pathFoto;
     private final int CODE_ACTIVITY_MAPS = 9;
 
     @Override
@@ -174,6 +174,7 @@ public class NuevaConsulta extends AppCompatActivity {
             Intent i1 = new Intent(getApplicationContext(), Home.class);
             i1.putExtra("profesion", profesion);
             startActivity(i1);
+            finish();
         }
     }
 
@@ -201,7 +202,7 @@ public class NuevaConsulta extends AppCompatActivity {
                     break;
                 case ConsultaRepository._ERROR:
                     Log.d("HANDLER","Llego con error");
-                    Toast.makeText(getApplicationContext(),"@string/error_BD",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Error al acargar la base de datos",Toast.LENGTH_SHORT).show();
             }
         }
     };

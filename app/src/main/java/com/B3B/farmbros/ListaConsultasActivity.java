@@ -23,7 +23,7 @@ public class ListaConsultasActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     private String profesion;
 
-    public static ArrayList<Consulta> _CONSULTAS= new ArrayList<>();
+    public static ArrayList<Consulta> _CONSULTAS = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

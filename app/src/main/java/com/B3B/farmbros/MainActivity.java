@@ -3,7 +3,6 @@ package com.B3B.farmbros;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,13 +30,16 @@ import com.google.android.gms.tasks.Task;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int CODE_SIGNIN_GOOGLE = 999;
-    private static final int CODE_ACTIVITY_HOME = 7;
-
+    /*
+        No se recomienda que el cliente de Google sea de clase, pero de otra forma se complicaba
+        cerrar la sesion desde otra actividad.
+     */
+    private static GoogleSignInClient googleSignInClient;
     private SignInButton btnInicioSesion;
-    private GoogleSignInClient googleSignInClient;
     private GoogleSignInAccount account;
     private String profesion;
+
+    private static final int CODE_SIGNIN_GOOGLE = 999;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,9 +96,6 @@ public class MainActivity extends AppCompatActivity {
                 Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
                 handleSignInResult(task);
                 break;
-            case CODE_ACTIVITY_HOME:
-                googleSignInClient.signOut();
-                break;
         }
     }
 
@@ -145,12 +144,16 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    public static void cerrarSesion(){
+        googleSignInClient.signOut();
+    }
+
     private void goToHome(String profesion){
         Intent home = new Intent(getApplicationContext(), Home.class);
         home.putExtra("userName", account.getDisplayName());
         home.putExtra("email", account.getEmail());
         home.putExtra("profesion", profesion);
-        startActivityForResult(home, CODE_ACTIVITY_HOME);
+        startActivity(home);
     }
 
     private void crearCuenta(){

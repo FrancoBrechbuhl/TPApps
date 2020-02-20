@@ -73,6 +73,7 @@ public class ConsultasAtendidasActivity extends AppCompatActivity {
                 case ConsultaRepository._GET:
                     _CONSULTAS.clear();
                     _CONSULTAS.addAll(ConsultaRepository.getInstance().getListaConsultas());
+                    //TODO: aca no se porque pero no carga la lista cuando termina la consulta
                     mAdapterConsultas.notifyDataSetChanged();
                     break;
                 case ConsultaRepository._ERROR:
