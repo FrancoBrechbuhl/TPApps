@@ -5,6 +5,8 @@
     <string name="inicio_sesion">Iniciar sesión</string>
     <string name="cierre_sesion">Cerrar sesión</string>
     <string name="indicador_consulta">Ingrese aquí su consulta</string>
+    <string name="titulo_spinner_consulta">Seleccione un asunto</string>
+    <string name="asunto_consulta">Asunto</string>
     <string name="tomar_foto">Añadir foto</string>
     <string name="consulta">Consultar</string>
     <string name="nombre_usuario">Nombre de usuario</string>

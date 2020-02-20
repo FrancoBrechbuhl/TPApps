@@ -58,6 +58,19 @@
         "nombre": "Franco Brechbuhl"
       },
       "textoConsulta": "Que densidad de siembra se recomienda para sorgo a sembrar a 35cm?"
+    },
+    {
+      "LatConsulta": -31.595722168081767,
+      "LngConsulta": -60.64274523407221,
+      "asuntoConsulta": "Movimiento de suelos",
+      "estado": "ABIERTA",
+      "fechaConsulta": {},
+      "id": 5,
+      "remitenteConsulta": {
+        "email": "francob19051997@gmail.com",
+        "nombre": "Franco Brechbuhl"
+      },
+      "textoConsulta": "Es recomendable mover la tierra para siembra de maiz o no?"
     }
   ],
   "productores": [

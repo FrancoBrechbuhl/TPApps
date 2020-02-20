@@ -11,12 +11,35 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/nueva_consulta"
-        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtAsuntoConsulta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/asunto_consulta"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/spinnerAsuntoConsulta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtNuevaConsulta"
+        app:layout_constraintBottom_toTopOf="@id/txtFieldConsulta"/>
+
+    <Spinner
+        android:id="@+id/spinnerAsuntoConsulta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/grey"
+        android:spinnerMode="dialog"
+        android:prompt="@string/titulo_spinner_consulta"
+        app:layout_constraintBottom_toTopOf="@+id/txtFieldConsulta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/txtAsuntoConsulta"
+        app:layout_constraintTop_toBottomOf="@+id/txtNuevaConsulta"/>
 
     <EditText
         android:id="@+id/txtFieldConsulta"
@@ -61,18 +84,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/editAsuntoConsulta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/fondo_claro"
-        android:ems="10"
-        android:hint="@string/txt_asunto"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/txtFieldConsulta"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNuevaConsulta" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

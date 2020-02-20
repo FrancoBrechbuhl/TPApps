@@ -13,9 +13,12 @@ import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -47,10 +50,13 @@ public class NuevaConsulta extends AppCompatActivity {
     private Button btnTomarFoto;
     private Button btnConsultar;
     private EditText txtConsulta;
-    private EditText txtAsunto;
+    private Spinner spinnerAsunto;
     private String fotoEnBase64;
+    private String asuntoConsulta;
     static String pathFoto;
     static ImageView fotoConsulta;
+    private ArrayAdapter<CharSequence> adapterAsunto;
+
     static final int REQUEST_IMAGE_SAVE = 1;
     private final int CODE_ACTIVITY_MAPS = 9;
 
@@ -61,7 +67,7 @@ public class NuevaConsulta extends AppCompatActivity {
         btnTomarFoto = findViewById(R.id.btnAgregarFoto);
         btnConsultar = findViewById(R.id.btnConsultar);
         txtConsulta = findViewById(R.id.txtFieldConsulta);
-        txtAsunto = findViewById(R.id.editAsuntoConsulta);
+        spinnerAsunto = findViewById(R.id.spinnerAsuntoConsulta);
         fotoConsulta = findViewById(R.id.imageConsulta);
         fotoConsulta.setVisibility(View.INVISIBLE);
 
@@ -72,6 +78,22 @@ public class NuevaConsulta extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.ic_flower);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+        adapterAsunto = ArrayAdapter.createFromResource(getApplicationContext(), R.array.asuntos, android.R.layout.simple_spinner_item);
+        adapterAsunto.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerAsunto.setAdapter(adapterAsunto);
+
+        spinnerAsunto.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                asuntoConsulta = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                asuntoConsulta = "Otros";
+            }
+        });
 
         btnTomarFoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,7 +186,7 @@ public class NuevaConsulta extends AppCompatActivity {
             consulta.setRemitenteConsulta(productor);
             consulta.setEstado(EstadoConsulta.ABIERTA);
             consulta.setFotoConsultaBase64(fotoEnBase64);
-            consulta.setAsuntoConsulta(txtAsunto.getText().toString());
+            consulta.setAsuntoConsulta(asuntoConsulta);
 
             ConsultaRepository.getInstance().crearConsulta(consulta,handlerCrearConsultas);
 

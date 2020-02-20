@@ -37,6 +37,7 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array asuntos
 array profesiones
 attr actionBarDivider
 attr actionBarItemBackground
@@ -1258,7 +1259,6 @@ id dimensions
 id direct
 id disableHome
 id drawer_layout
-id editAsuntoConsulta
 id editAsuntoListaCons
 id editConsultaDetCons
 id editProductorListaCons
@@ -1383,6 +1383,7 @@ id snackbar_text
 id snap
 id snapMargins
 id spacer
+id spinnerAsuntoConsulta
 id split_action_bar
 id spread
 id spread_inside
@@ -1432,6 +1433,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id txtAsuntoConsulta
 id txtBienvenida1
 id txtBienvenida2
 id txtEmailContacto
@@ -1592,6 +1594,7 @@ string abc_toolbar_collapse_description
 string action_settings
 string app_name
 string appbar_scrolling_view_behavior
+string asunto_consulta
 string bottom_sheet_behavior
 string btn_crear_ingeniero
 string btn_crear_productor
@@ -1663,6 +1666,7 @@ string status_bar_notification_info_overflow
 string texto_bienvenida
 string title_activity_home_drawer
 string title_activity_maps
+string titulo_spinner_consulta
 string tomar_foto
 string txt_asunto
 string txt_elegir_cuenta

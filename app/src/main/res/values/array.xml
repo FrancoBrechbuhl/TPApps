@@ -4,4 +4,14 @@
         <item>Productor</item>
         <item>Ingeniero agrónomo</item>
     </string-array>
+
+    <string-array name="asuntos">
+        <item>Semillas</item>
+        <item>Fertilizantes</item>
+        <item>Fitosanitarios</item>
+        <item>Siembra</item>
+        <item>Movimiento de suelos</item>
+        <item>Asegurado de cultivos</item>
+        <item>Otros</item>
+    </string-array>
 </resources>
