@@ -17,6 +17,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ConsultasAtendidasActivity extends AppCompatActivity {
     /*
@@ -27,7 +28,7 @@ public class ConsultasAtendidasActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapterConsultas;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    public static ArrayList<Consulta> _CONSULTAS = new ArrayList<>();
+    public static List<Consulta> _CONSULTAS = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,6 @@ public class ConsultasAtendidasActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerViewConsultas.setLayoutManager(mLayoutManager);
 
-        //TODO: hacer tambien para productor
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
         String profesion = getIntent().getExtras().getString("profesion");
 
@@ -60,7 +60,7 @@ public class ConsultasAtendidasActivity extends AppCompatActivity {
             ConsultaRepository.getInstance().listarConsultasResueltasPorProductor(emailProductor, handlerListarConsultas);
         }
 
-        mAdapterConsultas = new ConsultaViewAdapter(_CONSULTAS, getApplicationContext(), null, null, this, "productor");
+        mAdapterConsultas = new ConsultaViewAdapter(_CONSULTAS, getApplicationContext(), null, null, this, profesion);
         mRecyclerViewConsultas.setAdapter(mAdapterConsultas);
         mAdapterConsultas.notifyDataSetChanged();
     }
@@ -77,7 +77,8 @@ public class ConsultasAtendidasActivity extends AppCompatActivity {
                     break;
                 case ConsultaRepository._ERROR:
                     Log.d("HANDLER","Llego con error");
-                    Toast.makeText(getApplicationContext(),"@string/error_BD",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Error al cargar la base de datos",Toast.LENGTH_SHORT).show();
+                    break;
             }
         }
     };

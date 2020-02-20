@@ -65,6 +65,8 @@ public class NuevaConsulta extends AppCompatActivity {
         fotoConsulta = findViewById(R.id.imageConsulta);
         fotoConsulta.setVisibility(View.INVISIBLE);
 
+        //TODO: agregar un spinner para asuntos predefinidos (que no los ingrege via texto)
+
         //código para mostrar el logo en la action bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

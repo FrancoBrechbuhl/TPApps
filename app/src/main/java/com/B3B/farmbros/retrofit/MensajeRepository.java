@@ -93,6 +93,7 @@ public class MensajeRepository {
         Response<List<Mensaje>> response = null;
         try{
             response = llamada.execute();
+            Log.d("Request to Retrofit","Successful");
         }
         catch (IOException ex){
             Log.d("Request to Retrofit", "Exception");
@@ -108,6 +109,7 @@ public class MensajeRepository {
         Response<List<Mensaje>> response = null;
         try{
             response = llamada.execute();
+            Log.d("Request to Retrofit","Successful");
         }
         catch (IOException ex){
             Log.d("Request to Retrofit", "Exception");

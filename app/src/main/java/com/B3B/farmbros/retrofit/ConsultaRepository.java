@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.B3B.farmbros.domain.Consulta;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -126,7 +127,7 @@ public class ConsultaRepository {
         });
     }
 
-    public Consulta buscarConsultaPorIdConsulta(final int id){
+    public void buscarConsultaPorIdConsulta(final int id){
         Call<List<Consulta>> llamada = this.consultaRest.buscarConsultaPorIdConsulta(id);
         llamada.enqueue(new Callback<List<Consulta>>() {
             @Override
@@ -150,7 +151,6 @@ public class ConsultaRepository {
                 Log.d("Request to Retrofit","Fail");
             }
         });
-        return listaConsultas.get(0);
     }
 
     public void listarConsultasPorProductor(String emailProductor, final Handler h){
@@ -215,7 +215,7 @@ public class ConsultaRepository {
                     }
                     Message m = new Message();
                     m.arg1 = _GET;
-                    h.sendMessageAtFrontOfQueue(m);
+                    h.sendMessage(m);
                 }
             }
 

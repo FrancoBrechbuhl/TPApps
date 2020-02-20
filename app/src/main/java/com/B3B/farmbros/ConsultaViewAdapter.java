@@ -79,6 +79,7 @@ public class ConsultaViewAdapter extends RecyclerView.Adapter<ConsultaViewHolder
                 }
                 else if(actividad == ACTIVITY_CONSULTAS_ATENDIDAS){
                     consultasAtendidasActivity.startActivity(detalle);
+
                 }
             }
         });

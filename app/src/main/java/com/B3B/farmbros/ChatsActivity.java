@@ -159,8 +159,7 @@ public class ChatsActivity extends AppCompatActivity {
         Runnable r = new Runnable() {
             @Override
             public void run() {
-                List<Mensaje> mensajesDesordenados;
-                mensajesDesordenados = new ArrayList<>();
+                List<Mensaje> mensajesDesordenados = new ArrayList<>();
                 mensajesDesordenados.addAll(MensajeRepository.getInstance().listarMensajesEmisor(emailEmisor, emailReceptor));
                 mensajesDesordenados.addAll(MensajeRepository.getInstance().listarMensajesReceptor(emailEmisor, emailReceptor));
                 mensajes = ordenarMensajes(mensajesDesordenados);
@@ -174,14 +173,5 @@ public class ChatsActivity extends AppCompatActivity {
         };
         Thread t = new Thread(r);
         t.start();
-
-        Runnable r1 = new Runnable() {
-            @Override
-            public void run() {
-
-            }
-        };
-        Thread t1 = new Thread(r1);
-        t1.start();
     }
 }

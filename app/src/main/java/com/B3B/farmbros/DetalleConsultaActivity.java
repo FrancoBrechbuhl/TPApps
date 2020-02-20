@@ -80,6 +80,7 @@ public class DetalleConsultaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 consultaDetallada = ConsultaRepository.getInstance().getConsulta();
+
                 /*
                 se controla que la consulta sea cerrada por un ingeniero o por el
                 remitente de la misma
@@ -89,6 +90,7 @@ public class DetalleConsultaActivity extends AppCompatActivity {
                     consultaDetallada.setEstado(EstadoConsulta.FINALIZADA);
                     ConsultaRepository.getInstance().actualizarConsulta(consultaDetallada);
                     Toast.makeText(getApplicationContext(), "La consulta se ha finalizado con éxito", Toast.LENGTH_SHORT).show();
+                    //TODO: si es el productor calificar al ingeniero
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "Lo sentimos, no tiene permiso para finalizar esta consulta", Toast.LENGTH_SHORT).show();

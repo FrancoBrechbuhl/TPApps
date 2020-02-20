@@ -1,6 +1,10 @@
 package com.B3B.farmbros;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -33,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private SignInButton btnInicioSesion;
     private GoogleSignInClient googleSignInClient;
     private GoogleSignInAccount account;
-
+    private String profesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,11 +153,49 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(home, CODE_ACTIVITY_HOME);
     }
 
-    //TODO: mejorar la interfaz de nueva cuenta
     private void crearCuenta(){
+        /*
         Intent crearCuenta = new Intent(getApplicationContext(),CrearCuentaActivity.class);
         crearCuenta.putExtra("nombre",account.getDisplayName());
         crearCuenta.putExtra("email",account.getEmail());
         startActivity(crearCuenta);
+
+         */
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Elija su profesión para continuar")
+                .setSingleChoiceItems(R.array.profesiones, 0, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if(i == 0){
+                            profesion = "productor";
+                        }
+                        else {
+                            profesion = "ingeniero";
+                        }
+                    }
+                })
+                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String nombre = account.getDisplayName();
+                        String email = account.getEmail();
+                        if(profesion.equals("productor")){
+                            Productor productor = new Productor();
+                            productor.setNombre(nombre);
+                            productor.setEmail(email);
+                            ProductorRepository.getInstance().crearProductor(productor);
+                            goToHome(profesion);
+                        }
+                        else{
+                            Ingeniero ingeniero = new Ingeniero();
+                            ingeniero.setNombre(nombre);
+                            ingeniero.setEmail(email);
+                            IngenieroRepository.getInstance().crearIngeniero(ingeniero);
+                            goToHome(profesion);
+                        }
+                    }
+                });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

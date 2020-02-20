@@ -25,7 +25,7 @@ public class ConsultasRealizadasActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapterConsultas;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    public static ArrayList<Consulta> _CONSULTAS= new ArrayList<>();
+    public static ArrayList<Consulta> _CONSULTAS = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +65,7 @@ public class ConsultasRealizadasActivity extends AppCompatActivity {
                     break;
                 case ConsultaRepository._ERROR:
                     Log.d("HANDLER","Llego con error");
-                    Toast.makeText(getApplicationContext(),"@string/error_BD",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Error al cargar la base de datos",Toast.LENGTH_SHORT).show();
             }
         }
     };

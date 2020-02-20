@@ -91,9 +91,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         String userName = account.getDisplayName();
         txtIdentificadorUsuario.setText("Usted se ha identificado como "+ userName);
 
-        //TODO: no se porque cuando se crea una consulta, si se quiere cerrar sesion se vuelve
-        // a la pantalla de nueva consulta y despues a la de home de nuevo para poder salir
-        // es porque esta activity se inicia con un startActivityForResult, y cuando se invoca
+        //TODO: cuando se crea una consulta, si se quiere cerrar sesion se vuelve
+        // a la pantalla de nueva consulta y despues a la de home de nuevo para poder salir.
+        // Es porque esta activity se inicia con un startActivityForResult, y cuando se invoca
         // al finish() vuelve a la ultima activity que llamó, en el caso anterior vuelve a
         // nuevaConsulta
         btnCierreSesion.setOnClickListener(new View.OnClickListener() {
