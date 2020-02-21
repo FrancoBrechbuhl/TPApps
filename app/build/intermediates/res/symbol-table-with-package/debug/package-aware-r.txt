@@ -701,6 +701,7 @@ color fondo
 color fondo_claro
 color foreground_material_dark
 color foreground_material_light
+color golden
 color grey
 color highlighted_text_material_dark
 color highlighted_text_material_light
@@ -1888,6 +1889,7 @@ style Platform_V21_AppCompat_Light
 style Platform_V25_AppCompat
 style Platform_V25_AppCompat_Light
 style Platform_Widget_AppCompat_Spinner
+style RatingBar
 style RtlOverlay_DialogWindowTitle_AppCompat
 style RtlOverlay_Widget_AppCompat_ActionBar_TitleItem
 style RtlOverlay_Widget_AppCompat_DialogTitle_Icon

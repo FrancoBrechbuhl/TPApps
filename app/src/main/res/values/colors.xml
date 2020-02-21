@@ -10,4 +10,5 @@
     <color name="white">#ffffff</color>
     <color name="color_linea_chats">#dfdfdf</color>
     <color name="light_blue">#00b0ff</color>
+    <color name="golden">#ffdf00</color>
 </resources>

@@ -24,7 +24,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.B3B.farmbros.domain.Consulta;
 import com.B3B.farmbros.domain.EstadoConsulta;
+import com.B3B.farmbros.domain.Ingeniero;
 import com.B3B.farmbros.retrofit.ConsultaRepository;
+import com.B3B.farmbros.retrofit.IngenieroRepository;
 
 public class DetalleConsultaActivity extends AppCompatActivity {
 
@@ -33,7 +35,7 @@ public class DetalleConsultaActivity extends AppCompatActivity {
     private ImageView imagenConsulta;
     private Button envioMensaje;
     private Button cierreConsulta;
-    private RatingBar calificacionIngeniero;
+    private RatingBar ratingBarcalificacion;
     private Consulta consultaDetallada;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +48,12 @@ public class DetalleConsultaActivity extends AppCompatActivity {
         getSupportActionBar().setLogo(R.drawable.ic_flower);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        nameProductor = (TextView) findViewById(R.id.textNombreDetCons);
-        consulta = (EditText) findViewById(R.id.editConsultaDetCons);
-        imagenConsulta = (ImageView) findViewById(R.id.imgDetCons);
-        envioMensaje = (Button) findViewById(R.id.btnEmviarMsgDetCons);
-        cierreConsulta = (Button) findViewById(R.id.btnFinalizarConsultaDetCons);
-        calificacionIngeniero = findViewById(R.id.ratingBarCalificacionIngeniero);
+        nameProductor = findViewById(R.id.textNombreDetCons);
+        consulta = findViewById(R.id.editConsultaDetCons);
+        imagenConsulta = findViewById(R.id.imgDetCons);
+        envioMensaje = findViewById(R.id.btnEmviarMsgDetCons);
+        cierreConsulta = findViewById(R.id.btnFinalizarConsultaDetCons);
+        ratingBarcalificacion = findViewById(R.id.ratingBarCalificacionIngeniero);
 
         final String profesion = getIntent().getExtras().getString("profesion");
         final String emailProductor = getIntent().getExtras().getString("email productor");
@@ -87,8 +89,6 @@ public class DetalleConsultaActivity extends AppCompatActivity {
         cierreConsulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                consultaDetallada = ConsultaRepository.getInstance().getConsulta();
-
                 /*
                 se controla que la consulta sea cerrada por un ingeniero o por el
                 remitente de la misma
@@ -104,13 +104,21 @@ public class DetalleConsultaActivity extends AppCompatActivity {
                             AlertDialog.Builder builder = new AlertDialog.Builder(DetalleConsultaActivity.this);
                             LayoutInflater inflater = getLayoutInflater();
                             View v = inflater.inflate(R.layout.dialog_calificacion_ingeniero, null);
-                            //TODO: ver si alguno puede arreglar la rating bar, a mi no me reconoce
-                            // los atributos el archivo XML
                             builder.setTitle("Que le ha parecido la experiencia con "+nombreIngeniero)
                                     .setView(v)
                                     .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialogInterface, int i) {
+                                            //TODO: actualizar la calificacion del ingeniero
+                                            Ingeniero ingeniero = consultaDetallada.getEncargadoConsulta();
+                                            //TODO: la rating bar da null pointer y no se porque
+                                            // ya arriba le quise declarar un listener y tambien me
+                                            // dio null pointer
+
+                                            Integer calificacionIngeniero = (int)(ratingBarcalificacion.getRating()*10);
+                                            Log.d("Calificacion ", String.valueOf(calificacionIngeniero));
+                                            ingeniero.setCalificacion(calificacionIngeniero);
+                                            IngenieroRepository.getInstance().actualizarIngeniero(ingeniero);
                                             Intent i1 = new Intent(getApplicationContext(), ListaConsultasActivity.class);
                                             i1.putExtra("profesion", profesion);
                                             startActivity(i1);
@@ -141,6 +149,10 @@ public class DetalleConsultaActivity extends AppCompatActivity {
             switch (msg.arg1){
                 case ConsultaRepository._GET:
                     consultaDetallada = ConsultaRepository.getInstance().getConsulta();
+                    if(consultaDetallada.getEstado().equals(EstadoConsulta.FINALIZADA)){
+                        //si la consulta ya fue cerrada no se permite cerrarla de nuevo
+                        cierreConsulta.setVisibility(View.INVISIBLE);
+                    }
                     Log.d("HANDLER","Retorno con exito");
                     break;
                 case ConsultaRepository._ERROR:

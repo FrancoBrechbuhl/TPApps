@@ -17,6 +17,7 @@ public class MensajeRecibidoViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         textoMensaje = itemView.findViewById(R.id.txtMensajeRecibido);
         horaMensaje = itemView.findViewById(R.id.txtHoraMensajeRecibido);
+        //TODO: controlar el ancho de los mensajes para que no ocupen toda la pantalla
     }
 
     public void setTextoMensaje(String texto){

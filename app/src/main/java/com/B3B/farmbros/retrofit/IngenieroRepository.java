@@ -103,6 +103,23 @@ public class IngenieroRepository {
         });
     }
 
+    public void actualizarIngeniero(Ingeniero ingeniero){
+        Call<Ingeniero> llamada = this.ingenieroRest.actualizarIngeniero(ingeniero.getId(), ingeniero);
+        llamada.enqueue(new Callback<Ingeniero>() {
+            @Override
+            public void onResponse(Call<Ingeniero> call, Response<Ingeniero> response) {
+                if(response.isSuccessful()){
+                    Log.d("Request to Retrofit","Successful");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Ingeniero> call, Throwable t) {
+                Log.d("Request to Retrofit","Fail");
+            }
+        });
+    }
+
     public Ingeniero getIngeniero() {
         return ingeniero;
     }

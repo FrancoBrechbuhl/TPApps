@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.B3B.farmbros.domain.Consulta;
+import com.B3B.farmbros.domain.EstadoConsulta;
 import com.B3B.farmbros.domain.Ingeniero;
 import com.B3B.farmbros.domain.Mensaje;
 import com.B3B.farmbros.retrofit.ConsultaRepository;
@@ -136,19 +137,27 @@ public class ChatsActivity extends AppCompatActivity {
                     break;
                 case IngenieroRepository._GET:
                     Log.d("HANDLER","Se busco al ingeniero");
+                    //se indica que el ingeniero esta a cargo de esta consulta y la misma
+                    //se marca en procesamiento
                     Consulta consulta = ConsultaRepository.getInstance().getConsulta();
                     Ingeniero ingeniero = IngenieroRepository.getInstance().getIngeniero();
-                    consulta.setEncargadoConsulta(ingeniero);
+                    //solo se registra como encargado a un ingeniero si no hay otro ya encargado
+                    if(consulta.getEncargadoConsulta() == null) {
+                        consulta.setEncargadoConsulta(ingeniero);
+                    }
+                    if(consulta.getEstado().equals(EstadoConsulta.ABIERTA)){
+                        consulta.setEstado(EstadoConsulta.EN_TRATAMIENTO);
+                    }
                     ConsultaRepository.getInstance().actualizarConsulta(consulta);
                     Log.d("HANDLER","Se registro al encargado de la consulta");
                     break;
                 case MensajeRepository._ERROR:
                     Log.d("HANDLER","Llego con error");
-                    Toast.makeText(getApplicationContext(),"@string/error_BD",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Error al cargar la base de datos",Toast.LENGTH_SHORT).show();
                     break;
                 case IngenieroRepository._ERROR:
                     Log.d("HANDLER","Retorno error");
-                    Toast.makeText(getApplicationContext(),"@string/error_BD",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Error al cargar la base de datos",Toast.LENGTH_SHORT).show();
                     break;
             }
         }

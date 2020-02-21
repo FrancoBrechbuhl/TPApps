@@ -20,6 +20,7 @@
       "encargadoConsulta": {
         "calificacion": 0,
         "email": "fybrechbuhl@gmail.com",
+        "id": 1,
         "nombre": "Franco Brechbuhl"
       },
       "estado": "FINALIZADA",
@@ -95,11 +96,18 @@
   ],
   "mensajes": [
     {
-      "datos": "Hola Franco, lo indicado es usar fosfato diamonico en la siembra y en v5 aplicar urea granulada",
+      "datos": "Lo usual es usar fosfato diamonico en la siembra y luego en v5 aplicar urea granulada",
       "emailReceptor": "francob19051997@gmail.com",
       "emailRemitente": "fybrechbuhl@gmail.com",
-      "horaCreacion": 1582229964618,
+      "horaCreacion": 1582256366006,
       "id": 1
+    },
+    {
+      "datos": "Genial, gracias por la atencion",
+      "emailReceptor": "fybrechbuhl@gmail.com",
+      "emailRemitente": "francob19051997@gmail.com",
+      "horaCreacion": 1582256469621,
+      "id": 2
     }
   ]
 }
