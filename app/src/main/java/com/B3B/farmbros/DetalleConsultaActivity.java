@@ -35,7 +35,7 @@ public class DetalleConsultaActivity extends AppCompatActivity {
     private ImageView imagenConsulta;
     private Button envioMensaje;
     private Button cierreConsulta;
-    private RatingBar ratingBarcalificacion;
+    private RatingBar ratingBarCalificacion;
     private Consulta consultaDetallada;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,6 @@ public class DetalleConsultaActivity extends AppCompatActivity {
         imagenConsulta = findViewById(R.id.imgDetCons);
         envioMensaje = findViewById(R.id.btnEmviarMsgDetCons);
         cierreConsulta = findViewById(R.id.btnFinalizarConsultaDetCons);
-        ratingBarcalificacion = findViewById(R.id.ratingBarCalificacionIngeniero);
 
         final String profesion = getIntent().getExtras().getString("profesion");
         final String emailProductor = getIntent().getExtras().getString("email productor");
@@ -104,18 +103,14 @@ public class DetalleConsultaActivity extends AppCompatActivity {
                             AlertDialog.Builder builder = new AlertDialog.Builder(DetalleConsultaActivity.this);
                             LayoutInflater inflater = getLayoutInflater();
                             View v = inflater.inflate(R.layout.dialog_calificacion_ingeniero, null);
+                            ratingBarCalificacion = v.findViewById(R.id.ratingBarCalificacionIngeniero);
                             builder.setTitle("Que le ha parecido la experiencia con "+nombreIngeniero)
                                     .setView(v)
                                     .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialogInterface, int i) {
-                                            //TODO: actualizar la calificacion del ingeniero
                                             Ingeniero ingeniero = consultaDetallada.getEncargadoConsulta();
-                                            //TODO: la rating bar da null pointer y no se porque
-                                            // ya arriba le quise declarar un listener y tambien me
-                                            // dio null pointer
-
-                                            Integer calificacionIngeniero = (int)(ratingBarcalificacion.getRating()*10);
+                                            Integer calificacionIngeniero = (int)(ratingBarCalificacion.getRating()*10);
                                             Log.d("Calificacion ", String.valueOf(calificacionIngeniero));
                                             ingeniero.setCalificacion(calificacionIngeniero);
                                             IngenieroRepository.getInstance().actualizarIngeniero(ingeniero);

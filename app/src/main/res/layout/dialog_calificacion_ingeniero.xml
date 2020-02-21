@@ -13,6 +13,7 @@
         android:background="@color/white"
         android:numStars="5"
         android:rating="3"
+        android:stepSize="1"
         android:theme="@style/RatingBar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
