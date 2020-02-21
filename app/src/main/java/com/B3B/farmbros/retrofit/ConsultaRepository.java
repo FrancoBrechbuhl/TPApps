@@ -6,7 +6,6 @@ import android.util.Log;
 
 import com.B3B.farmbros.domain.Consulta;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 

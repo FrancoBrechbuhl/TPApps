@@ -25,6 +25,7 @@ public class ListaContactosActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
 
     public static List<Ingeniero> contactos = new ArrayList<>();
+    private List<String> correosContactos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,7 @@ public class ListaContactosActivity extends AppCompatActivity {
 
         //se obtienen los mensajes que se hayan enviado al productor logueado
         List<Mensaje> mensajes = MensajeRepository.getInstance().getListaMensajes();
-        List<String> correosContactos = new ArrayList<>();
+        correosContactos = new ArrayList<>();
 
         //se obtienen los correos de los contactos que hayan hablado con el productor
         for (Mensaje m : mensajes){
@@ -48,10 +49,15 @@ public class ListaContactosActivity extends AppCompatActivity {
             }
         }
 
+        /*
         //se buscan los ingenieros asociados a los emails correspondientes
         for (String email : correosContactos){
             IngenieroRepository.getInstance().buscarIngeniero(email, handlerListarIngenieros);
         }
+
+         */
+
+        IngenieroRepository.getInstance().listarIngenieros(handlerListarIngenieros);
 
         mRecyclerViewContactos = findViewById(R.id.recyclerListaContactos);
         mRecyclerViewContactos.setHasFixedSize(true);
@@ -69,8 +75,17 @@ public class ListaContactosActivity extends AppCompatActivity {
             Log.d("HANDLER","Vuelve al handler"+msg.arg1);
             switch (msg.arg1){
                 case IngenieroRepository._GET:
-                    contactos.clear();
+                    /*
                     contactos.add(IngenieroRepository.getInstance().getIngeniero());
+                    mAdapterContactos.notifyDataSetChanged();
+
+                     */
+                    List<Ingeniero> todosIngenieros = IngenieroRepository.getInstance().getListaIngenieros();
+                    for(Ingeniero ingeniero : todosIngenieros){
+                        if(correosContactos.contains(ingeniero.getEmail())){
+                            contactos.add(ingeniero);
+                        }
+                    }
                     mAdapterContactos.notifyDataSetChanged();
                     break;
                 case MensajeRepository._ERROR:

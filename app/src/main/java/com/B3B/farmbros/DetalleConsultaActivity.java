@@ -95,9 +95,6 @@ public class DetalleConsultaActivity extends AppCompatActivity {
 
                 if(consultaDetallada != null) {
                     if (profesion.equals("ingeniero") || consultaDetallada.getRemitenteConsulta().getEmail().equals(emailProductor)) {
-                        consultaDetallada.setEstado(EstadoConsulta.FINALIZADA);
-                        ConsultaRepository.getInstance().actualizarConsulta(consultaDetallada);
-                        Toast.makeText(getApplicationContext(), "La consulta se ha finalizado con éxito", Toast.LENGTH_SHORT).show();
                         if(profesion.equals("productor") && (consultaDetallada.getEncargadoConsulta() != null)){
                             String nombreIngeniero = consultaDetallada.getEncargadoConsulta().getNombre();
                             AlertDialog.Builder builder = new AlertDialog.Builder(DetalleConsultaActivity.this);
@@ -113,6 +110,7 @@ public class DetalleConsultaActivity extends AppCompatActivity {
                                             Integer calificacionIngeniero = (int)(ratingBarCalificacion.getRating()*10);
                                             Log.d("Calificacion ", String.valueOf(calificacionIngeniero));
                                             ingeniero.setCalificacion(calificacionIngeniero);
+                                            consultaDetallada.setEncargadoConsulta(ingeniero);
                                             IngenieroRepository.getInstance().actualizarIngeniero(ingeniero);
                                             Intent i1 = new Intent(getApplicationContext(), ListaConsultasActivity.class);
                                             i1.putExtra("profesion", profesion);
@@ -122,6 +120,8 @@ public class DetalleConsultaActivity extends AppCompatActivity {
                             AlertDialog dialog = builder.create();
                             dialog.show();
                         }
+                        consultaDetallada.setEstado(EstadoConsulta.FINALIZADA);
+                        ConsultaRepository.getInstance().actualizarConsulta(consultaDetallada);
                     } else {
                         Toast.makeText(getApplicationContext(), "Lo sentimos, no tiene permiso para finalizar esta consulta", Toast.LENGTH_SHORT).show();
                     }

@@ -18,6 +18,9 @@ public interface IngenieroRest {
     Call<Ingeniero> crearIngeniero(@Body Ingeniero ingeniero);
 
     @GET("ingenieros/")
+    Call<List<Ingeniero>> listarIngenieros();
+
+    @GET("ingenieros/")
     Call<List<Ingeniero>> buscarIngeniero(@Query("email") String email);
 
     @PUT("ingenieros/{id}")

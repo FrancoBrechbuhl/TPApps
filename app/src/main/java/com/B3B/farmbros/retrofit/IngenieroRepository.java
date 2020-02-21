@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.B3B.farmbros.domain.Ingeniero;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -31,6 +32,7 @@ public class IngenieroRepository {
     public static final int _ERROR = 109;
 
     private Ingeniero ingeniero;
+    private List<Ingeniero> listaIngenieros;
 
     //Retrofit
 
@@ -45,6 +47,7 @@ public class IngenieroRepository {
         if (_INSTANCE == null) {
             _INSTANCE = new IngenieroRepository();
             _INSTANCE.configurarRetrofit();
+            _INSTANCE.listaIngenieros = new ArrayList<>();
         }
         return _INSTANCE;
     }
@@ -120,7 +123,36 @@ public class IngenieroRepository {
         });
     }
 
+    public void listarIngenieros(final Handler h){
+        Call<List<Ingeniero>> llamada = this.ingenieroRest.listarIngenieros();
+        llamada.enqueue(new Callback<List<Ingeniero>>() {
+            @Override
+            public void onResponse(Call<List<Ingeniero>> call, Response<List<Ingeniero>> response) {
+                if(response.isSuccessful()){
+                    Log.d("Request to Retrofit","Successful");
+                    listaIngenieros.clear();
+                    listaIngenieros.addAll(response.body());
+                    Message m = new Message();
+                    m.arg1 = _GET;
+                    h.sendMessage(m);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Ingeniero>> call, Throwable t) {
+                Log.d("Request to Retrofit:","Fail");
+                Message m = new Message();
+                m.arg1 = _ERROR;
+                h.sendMessage(m);
+            }
+        });
+    }
+
     public Ingeniero getIngeniero() {
         return ingeniero;
+    }
+
+    public List<Ingeniero> getListaIngenieros(){
+        return listaIngenieros;
     }
 }
