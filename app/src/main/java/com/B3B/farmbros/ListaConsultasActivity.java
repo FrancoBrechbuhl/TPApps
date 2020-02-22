@@ -18,7 +18,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.B3B.farmbros.domain.Consulta;
 import com.B3B.farmbros.retrofit.ConsultaRepository;
+import com.B3B.farmbros.util.SortConsultaByTimeStampAscendent;
+import com.B3B.farmbros.util.SortConsultaByTimeStampDescendent;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ListaConsultasActivity extends AppCompatActivity {
 
@@ -64,29 +68,53 @@ public class ListaConsultasActivity extends AppCompatActivity {
         spinnerAsunto.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                asuntoSeleccionado = adapterView.getItemAtPosition(i).toString();
                 //TODO: hacer metodo en repository para buscar por asunto
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                asuntoSeleccionado = "Todos";
+
             }
         });
 
         spinnerOrdenamiento.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                ordenSeleccionado = adapterView.getItemAtPosition(i).toString();
-                //TODO: hacer metodo en repository para ordenar
+                String eleccion = adapterView.getItemAtPosition(i).toString();
+                if(!_CONSULTAS.isEmpty()){
+                    int longitud = _CONSULTAS.size();
+                    Consulta[] consultasDesordenadas = new Consulta[longitud];
+                    for(int a = 0; a < longitud; a++){
+                        consultasDesordenadas[a] = _CONSULTAS.get(a);
+                    }
+                    _CONSULTAS.clear();
+                    if(eleccion.equals("Mas recientes")){
+                        Arrays.sort(consultasDesordenadas, new SortConsultaByTimeStampAscendent());
+                        for (int j = 0; j < longitud; j++) {
+                            _CONSULTAS.add(consultasDesordenadas[j]);
+                        }
+                        mAdapter.notifyDataSetChanged();
+                    }
+                    else if(eleccion.equals("Mas antiguas")){
+                        Arrays.sort(consultasDesordenadas, new SortConsultaByTimeStampDescendent());
+                        for (int j = 0; j < longitud; j++) {
+                            _CONSULTAS.add(consultasDesordenadas[j]);
+                        }
+                        mAdapter.notifyDataSetChanged();
+                    }
+                    else {
+                        ConsultaRepository.getInstance().listarConsultas(handlerListarConsultas);
+                    }
+                }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                ordenSeleccionado = "Ninguno";
+
             }
         });
 
+        //Se buscan las consultas en el repository sin orden y con todos los asuntos
         ConsultaRepository.getInstance().listarConsultas(handlerListarConsultas);
 
         profesion = getIntent().getExtras().getString("profesion");

@@ -1,16 +1,13 @@
 package com.B3B.farmbros.retrofit;
 
-import android.database.Observable;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
 import com.B3B.farmbros.domain.Mensaje;
-import com.B3B.farmbros.util.SortMessageByTimeStamp;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
