@@ -38,6 +38,8 @@ animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
 array asuntos
+array asuntos_para_spinner
+array ordenes
 array profesiones
 attr actionBarDivider
 attr actionBarItemBackground
@@ -678,6 +680,7 @@ color common_google_signin_btn_text_light_disabled
 color common_google_signin_btn_text_light_focused
 color common_google_signin_btn_text_light_pressed
 color common_google_signin_btn_tint
+color dark_grey
 color design_bottom_navigation_shadow_color
 color design_default_color_primary
 color design_default_color_primary_dark
@@ -1387,6 +1390,8 @@ id snap
 id snapMargins
 id spacer
 id spinnerAsuntoConsulta
+id spinnerAsuntos
+id spinnerOrdenamiento
 id split_action_bar
 id spread
 id spread_inside
@@ -1436,6 +1441,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id txtAsunto
 id txtAsuntoConsulta
 id txtBienvenida1
 id txtBienvenida2
@@ -1451,6 +1457,7 @@ id txtMensajeEnviado
 id txtMensajeRecibido
 id txtNombreContacto
 id txtNuevaConsulta
+id txtOrdenamiento
 id unchecked
 id uniform
 id unlabeled
@@ -1659,6 +1666,7 @@ string navigation_drawer_close
 string navigation_drawer_open
 string nombre_usuario
 string nueva_consulta
+string ordenar_por
 string password_toggle_content_description
 string password_usuario
 string path_password_eye

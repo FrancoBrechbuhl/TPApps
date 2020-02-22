@@ -28,10 +28,10 @@ public final class R {
     public static final class color {
         private color() {}
 
-        public static final int notification_action_color_filter = 0x7f06007b;
-        public static final int notification_icon_bg_color = 0x7f06007c;
-        public static final int ripple_material_light = 0x7f060088;
-        public static final int secondary_text_default_material_light = 0x7f06008a;
+        public static final int notification_action_color_filter = 0x7f06007c;
+        public static final int notification_icon_bg_color = 0x7f06007d;
+        public static final int ripple_material_light = 0x7f060089;
+        public static final int secondary_text_default_material_light = 0x7f06008b;
     }
     public static final class dimen {
         private dimen() {}
@@ -134,18 +134,18 @@ public final class R {
         public static final int notification_main_column_container = 0x7f0900ba;
         public static final int right_icon = 0x7f0900cd;
         public static final int right_side = 0x7f0900ce;
-        public static final int tag_accessibility_actions = 0x7f0900fd;
-        public static final int tag_accessibility_clickable_spans = 0x7f0900fe;
-        public static final int tag_accessibility_heading = 0x7f0900ff;
-        public static final int tag_accessibility_pane_title = 0x7f090100;
-        public static final int tag_screen_reader_focusable = 0x7f090101;
-        public static final int tag_transition_group = 0x7f090102;
-        public static final int tag_unhandled_key_event_manager = 0x7f090103;
-        public static final int tag_unhandled_key_listeners = 0x7f090104;
-        public static final int text = 0x7f090106;
-        public static final int text2 = 0x7f090107;
-        public static final int time = 0x7f090115;
-        public static final int title = 0x7f090116;
+        public static final int tag_accessibility_actions = 0x7f0900ff;
+        public static final int tag_accessibility_clickable_spans = 0x7f090100;
+        public static final int tag_accessibility_heading = 0x7f090101;
+        public static final int tag_accessibility_pane_title = 0x7f090102;
+        public static final int tag_screen_reader_focusable = 0x7f090103;
+        public static final int tag_transition_group = 0x7f090104;
+        public static final int tag_unhandled_key_event_manager = 0x7f090105;
+        public static final int tag_unhandled_key_listeners = 0x7f090106;
+        public static final int text = 0x7f090108;
+        public static final int text2 = 0x7f090109;
+        public static final int time = 0x7f090117;
+        public static final int title = 0x7f090118;
     }
     public static final class integer {
         private integer() {}
@@ -166,7 +166,7 @@ public final class R {
     public static final class string {
         private string() {}
 
-        public static final int status_bar_notification_info_overflow = 0x7f0f0062;
+        public static final int status_bar_notification_info_overflow = 0x7f0f0063;
     }
     public static final class style {
         private style() {}

@@ -9,6 +9,7 @@
     <string name="asunto_consulta">Asunto</string>
     <string name="tomar_foto">Añadir foto</string>
     <string name="consulta">Consultar</string>
+    <string name="ordenar_por">Ordenar por</string>
     <string name="nombre_usuario">Nombre de usuario</string>
     <string name="password_usuario">Contraseña</string>
     <string name="productor">Productor</string>

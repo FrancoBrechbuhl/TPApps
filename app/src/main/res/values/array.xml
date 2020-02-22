@@ -14,4 +14,21 @@
         <item>Asegurado de cultivos</item>
         <item>Otros</item>
     </string-array>
+
+    <string-array name="asuntos_para_spinner">
+        <item>Todos</item>
+        <item>Semillas</item>
+        <item>Fertilizantes</item>
+        <item>Fitosanitarios</item>
+        <item>Siembra</item>
+        <item>Movimiento de suelos</item>
+        <item>Asegurado de cultivos</item>
+        <item>Otros</item>
+    </string-array>
+
+    <string-array name="ordenes">
+        <item>Ninguno</item>
+        <item>Mas recientes</item>
+        <item>Mas antiguas</item>
+    </string-array>
 </resources>
