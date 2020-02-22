@@ -17,8 +17,15 @@
       "LatConsulta": -31.65006271030799,
       "LngConsulta": -60.86148139089346,
       "asuntoConsulta": "Fertilizantes",
-      "estado": "ABIERTA",
+      "encargadoConsulta": {
+        "calificacion": 40,
+        "email": "fybrechbuhl@gmail.com",
+        "id": 1,
+        "nombre": "Franco Brechbuhl"
+      },
+      "estado": "FINALIZADA",
       "fechaConsulta": 1582314531299,
+      "fotoConsultaBase64": "",
       "id": 2,
       "remitenteConsulta": {
         "email": "francob19051997@gmail.com",
@@ -80,7 +87,7 @@
   ],
   "ingenieros": [
     {
-      "calificacion": 40,
+      "calificacion": 50,
       "email": "fybrechbuhl@gmail.com",
       "id": 1,
       "nombre": "Franco Brechbuhl"
@@ -88,17 +95,17 @@
   ],
   "mensajes": [
     {
-      "datos": "Lo usual es usar fosfato diamonico en la siembra y luego en v5 aplicar urea granulada",
+      "datos": "Hola Franco, lo usual es usar fosfato diamonico en la siembra y en v5 aplicar urea granulada",
       "emailReceptor": "francob19051997@gmail.com",
       "emailRemitente": "fybrechbuhl@gmail.com",
-      "horaCreacion": 1582256366006,
+      "horaCreacion": 1582376700416,
       "id": 1
     },
     {
       "datos": "Genial, gracias por la atencion",
       "emailReceptor": "fybrechbuhl@gmail.com",
       "emailRemitente": "francob19051997@gmail.com",
-      "horaCreacion": 1582256469621,
+      "horaCreacion": 1582376748917,
       "id": 2
     }
   ]

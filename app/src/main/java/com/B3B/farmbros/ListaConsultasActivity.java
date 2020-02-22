@@ -21,8 +21,10 @@ import com.B3B.farmbros.retrofit.ConsultaRepository;
 import com.B3B.farmbros.util.SortConsultaByTimeStampAscendent;
 import com.B3B.farmbros.util.SortConsultaByTimeStampDescendent;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ListaConsultasActivity extends AppCompatActivity {
 
@@ -37,7 +39,7 @@ public class ListaConsultasActivity extends AppCompatActivity {
     private String asuntoSeleccionado;
     private String ordenSeleccionado;
 
-    public static ArrayList<Consulta> _CONSULTAS = new ArrayList<>();
+    public static List<Consulta> _CONSULTAS = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +70,15 @@ public class ListaConsultasActivity extends AppCompatActivity {
         spinnerAsunto.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                //TODO: hacer metodo en repository para buscar por asunto
+                //TODO: tener en cuenta el orden tambien aca
+                //Se buscan las consultas segun el asunto seleccionado
+                asuntoSeleccionado = adapterView.getItemAtPosition(i).toString();
+                if(asuntoSeleccionado.equals("Todos")){
+                    ConsultaRepository.getInstance().listarConsultas(handlerListarConsultas);
+                }
+                else {
+                    ConsultaRepository.getInstance().listarConsultasPorAsunto(asuntoSeleccionado, handlerListarConsultas);
+                }
             }
 
             @Override
@@ -80,26 +90,16 @@ public class ListaConsultasActivity extends AppCompatActivity {
         spinnerOrdenamiento.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                String eleccion = adapterView.getItemAtPosition(i).toString();
+                //Se ordenan las consultas segun el criterio seleccionado
+                ordenSeleccionado = adapterView.getItemAtPosition(i).toString();
                 if(!_CONSULTAS.isEmpty()){
-                    int longitud = _CONSULTAS.size();
-                    Consulta[] consultasDesordenadas = new Consulta[longitud];
-                    for(int a = 0; a < longitud; a++){
-                        consultasDesordenadas[a] = _CONSULTAS.get(a);
-                    }
-                    _CONSULTAS.clear();
-                    if(eleccion.equals("Mas recientes")){
-                        Arrays.sort(consultasDesordenadas, new SortConsultaByTimeStampAscendent());
-                        for (int j = 0; j < longitud; j++) {
-                            _CONSULTAS.add(consultasDesordenadas[j]);
-                        }
+                    List<Consulta> consultasSinOrden = _CONSULTAS;
+                    if(ordenSeleccionado.equals("Mas recientes")){
+                        ordenarConsultasRecientes(consultasSinOrden);
                         mAdapter.notifyDataSetChanged();
                     }
-                    else if(eleccion.equals("Mas antiguas")){
-                        Arrays.sort(consultasDesordenadas, new SortConsultaByTimeStampDescendent());
-                        for (int j = 0; j < longitud; j++) {
-                            _CONSULTAS.add(consultasDesordenadas[j]);
-                        }
+                    else if(ordenSeleccionado.equals("Mas antiguas")){
+                        ordenarConsultasAntiguas(consultasSinOrden);
                         mAdapter.notifyDataSetChanged();
                     }
                     else {
@@ -132,7 +132,15 @@ public class ListaConsultasActivity extends AppCompatActivity {
                 case ConsultaRepository._GET:
                     _CONSULTAS.clear();
                     _CONSULTAS.addAll(ConsultaRepository.getInstance().getListaConsultas());
+                    List<Consulta> consultasSinOrden = _CONSULTAS;
+                    if(ordenSeleccionado.equals("Mas recientes")){
+                        ordenarConsultasRecientes(consultasSinOrden);
+                    }
+                    else if(ordenSeleccionado.equals("Mas antiguas")){
+                        ordenarConsultasAntiguas(consultasSinOrden);
+                    }
                     mAdapter.notifyDataSetChanged();
+
                     break;
                 case ConsultaRepository._ERROR:
                     Log.d("HANDLER","Llego con error");
@@ -140,6 +148,38 @@ public class ListaConsultasActivity extends AppCompatActivity {
             }
         }
     };
+
+    private void ordenarConsultasRecientes(List<Consulta> consultasDesordenadas){
+        int longitud = consultasDesordenadas.size();
+        Consulta[] consultasArray = new Consulta[longitud];
+
+        for(int a = 0; a < longitud; a++){
+            consultasArray[a] = consultasDesordenadas.get(a);
+        }
+
+        Arrays.sort(consultasArray, new SortConsultaByTimeStampAscendent());
+
+        _CONSULTAS.clear();
+        for (int j = 0; j < longitud; j++) {
+            _CONSULTAS.add(consultasArray[j]);
+        }
+    }
+
+    private void ordenarConsultasAntiguas(List<Consulta> consultasDesordenadas){
+        int longitud = consultasDesordenadas.size();
+        Consulta[] consultasArray = new Consulta[longitud];
+
+        for(int a = 0; a < longitud; a++){
+            consultasArray[a] = consultasDesordenadas.get(a);
+        }
+
+        Arrays.sort(consultasArray, new SortConsultaByTimeStampDescendent());
+
+        _CONSULTAS.clear();
+        for (int j = 0; j < longitud; j++) {
+            _CONSULTAS.add(consultasArray[j]);
+        }
+    }
 
     @Override
     public void onBackPressed(){

@@ -137,7 +137,7 @@ public class ConsultaRepository {
     }
 
     public void listarConsultasPorProductor(String emailProductor, final Handler h){
-        Call<List<Consulta>> llamada = this.consultaRest.buscarConsultaPorProductor(emailProductor);
+        Call<List<Consulta>> llamada = this.consultaRest.buscarConsultasPorProductor(emailProductor);
         llamada.enqueue(new Callback<List<Consulta>>() {
             @Override
             public void onResponse(Call<List<Consulta>> call, Response<List<Consulta>> response) {
@@ -161,7 +161,7 @@ public class ConsultaRepository {
     }
 
     public void listarConsultasPorIngeniero(String emailIngeniero, final Handler h){
-        Call<List<Consulta>> llamada = this.consultaRest.buscarConsultaPorIngeniero(emailIngeniero);
+        Call<List<Consulta>> llamada = this.consultaRest.buscarConsultasPorIngeniero(emailIngeniero);
         llamada.enqueue(new Callback<List<Consulta>>() {
             @Override
             public void onResponse(Call<List<Consulta>> call, Response<List<Consulta>> response) {
@@ -185,7 +185,7 @@ public class ConsultaRepository {
     }
 
     public void listarConsultasResueltasPorProductor(String emailProductor, final Handler h){
-        Call<List<Consulta>> llamada = this.consultaRest.buscarConsultaPorProductor(emailProductor);
+        Call<List<Consulta>> llamada = this.consultaRest.buscarConsultasPorProductor(emailProductor);
         llamada.enqueue(new Callback<List<Consulta>>() {
             @Override
             public void onResponse(Call<List<Consulta>> call, Response<List<Consulta>> response) {
@@ -196,6 +196,30 @@ public class ConsultaRepository {
                             listaConsultas.add(consulta);
                         }
                     }
+                    Message m = new Message();
+                    m.arg1 = _GET;
+                    h.sendMessage(m);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Consulta>> call, Throwable t) {
+                Log.d("Request to Retrofit","Fail");
+                Message m = new Message();
+                m.arg1 = _ERROR;
+                h.sendMessage(m);
+            }
+        });
+    }
+
+    public void listarConsultasPorAsunto(String asunto, final Handler h){
+        Call<List<Consulta>> llamada = this.consultaRest.buscarConsultasPorAsunto(asunto);
+        llamada.enqueue(new Callback<List<Consulta>>() {
+            @Override
+            public void onResponse(Call<List<Consulta>> call, Response<List<Consulta>> response) {
+                if(response.isSuccessful()){
+                    listaConsultas.clear();
+                    listaConsultas.addAll(response.body());
                     Message m = new Message();
                     m.arg1 = _GET;
                     h.sendMessage(m);
