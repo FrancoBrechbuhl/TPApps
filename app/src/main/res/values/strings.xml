@@ -52,7 +52,10 @@
     <string name="btn_ver_detalles">Ver detalles</string>
     <string name="txt_productor">Productor:</string>
     <string name="txt_ubicacion">Ubicacion:</string>
+    <string name="txt_lat">Lat:</string>
+    <string name="txt_long">Long:</string>
     <string name="txt_asunto">Asunto de consulta:</string>
+    <string name="txt_fecha">Fecha:</string>
 
     <!-- Detalle consulta -->
     <string name="detalle_DetCons">Detalle de consulta de: </string>

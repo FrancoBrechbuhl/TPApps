@@ -1,11 +1,11 @@
 {
   "consultas": [
     {
-      "LatConsulta": -31.610917327897127,
-      "LngConsulta": -60.676344260573394,
+      "LatConsulta": -31.564739643345728,
+      "LngConsulta": -60.79291205853224,
       "asuntoConsulta": "Semillas",
       "estado": "ABIERTA",
-      "fechaConsulta": {},
+      "fechaConsulta": 1582314491593,
       "id": 1,
       "remitenteConsulta": {
         "email": "francob19051997@gmail.com",
@@ -14,18 +14,11 @@
       "textoConsulta": "Que variedad de soja de segunda sembrar entre el 15 y 20 de diciembre?"
     },
     {
-      "LatConsulta": -31.68977531521775,
-      "LngConsulta": -60.59474676847458,
+      "LatConsulta": -31.65006271030799,
+      "LngConsulta": -60.86148139089346,
       "asuntoConsulta": "Fertilizantes",
-      "encargadoConsulta": {
-        "calificacion": 0,
-        "email": "fybrechbuhl@gmail.com",
-        "id": 1,
-        "nombre": "Franco Brechbuhl"
-      },
-      "estado": "FINALIZADA",
-      "fechaConsulta": {},
-      "fotoConsultaBase64": "",
+      "estado": "ABIERTA",
+      "fechaConsulta": 1582314531299,
       "id": 2,
       "remitenteConsulta": {
         "email": "francob19051997@gmail.com",
@@ -34,11 +27,11 @@
       "textoConsulta": "Que fertilizante usar para sembrar maiz?"
     },
     {
-      "LatConsulta": -31.663496848757276,
-      "LngConsulta": -60.57486154139042,
+      "LatConsulta": -31.428357861198176,
+      "LngConsulta": -60.99242314696313,
       "asuntoConsulta": "Fitosanitarios",
       "estado": "ABIERTA",
-      "fechaConsulta": {},
+      "fechaConsulta": 1582314590254,
       "id": 3,
       "remitenteConsulta": {
         "email": "francob19051997@gmail.com",
@@ -47,31 +40,30 @@
       "textoConsulta": "Que productos usar para controlar malezas resistentes?"
     },
     {
-      "LatConsulta": -31.626110007883952,
-      "LngConsulta": -60.58103263378143,
+      "LatConsulta": -31.48516700816928,
+      "LngConsulta": -60.975084006786346,
       "asuntoConsulta": "Siembra",
-      "estado": "FINALIZADA",
-      "fechaConsulta": {},
-      "fotoConsultaBase64": "",
+      "estado": "ABIERTA",
+      "fechaConsulta": 1582314636488,
       "id": 4,
       "remitenteConsulta": {
         "email": "francob19051997@gmail.com",
         "nombre": "Franco Brechbuhl"
       },
-      "textoConsulta": "Que densidad de siembra se recomienda para sorgo a sembrar a 35cm?"
+      "textoConsulta": "Que densidad de siembra se recomienda para sorgo a sembrar a 35 cm?"
     },
     {
-      "LatConsulta": -31.595722168081767,
-      "LngConsulta": -60.64274523407221,
+      "LatConsulta": -31.485266792532748,
+      "LngConsulta": -60.99187329411506,
       "asuntoConsulta": "Movimiento de suelos",
       "estado": "ABIERTA",
-      "fechaConsulta": {},
+      "fechaConsulta": 1582314685981,
       "id": 5,
       "remitenteConsulta": {
         "email": "francob19051997@gmail.com",
         "nombre": "Franco Brechbuhl"
       },
-      "textoConsulta": "Es recomendable mover la tierra para siembra de maiz o no?"
+      "textoConsulta": "Es recomendable mover la tierra para la siembra de alfalfa?"
     }
   ],
   "productores": [

@@ -1262,8 +1262,10 @@ id disableHome
 id drawer_layout
 id editAsuntoListaCons
 id editConsultaDetCons
+id editFechaConsulta
+id editLatListaCons
+id editLongListaCons
 id editProductorListaCons
-id editUbicacionListaCons
 id edit_chat
 id edit_query
 id end
@@ -1438,10 +1440,13 @@ id txtAsuntoConsulta
 id txtBienvenida1
 id txtBienvenida2
 id txtEmailContacto
+id txtFechaConsulta
 id txtFieldConsulta
 id txtHoraMensajeEnviado
 id txtHoraMensajeRecibido
 id txtIdentificadorUsuario
+id txtLatListaCons
+id txtLongListaCons
 id txtMensajeEnviado
 id txtMensajeRecibido
 id txtNombreContacto
@@ -1671,6 +1676,9 @@ string titulo_spinner_consulta
 string tomar_foto
 string txt_asunto
 string txt_elegir_cuenta
+string txt_fecha
+string txt_lat
+string txt_long
 string txt_productor
 string txt_ubicacion
 string ver_consultas_atendidas

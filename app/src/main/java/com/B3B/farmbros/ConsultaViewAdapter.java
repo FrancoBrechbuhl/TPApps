@@ -60,7 +60,9 @@ public class ConsultaViewAdapter extends RecyclerView.Adapter<ConsultaViewHolder
         final Consulta consulta = listaConsultas.get(position);
         holder.setAsunto(consulta.getAsuntoConsulta());
         holder.setProductor(consulta.getRemitenteConsulta().getNombre());
-        holder.setUbicacion(String.valueOf(consulta.getLatConsulta()) + " " + String.valueOf(consulta.getLngConsulta()));
+        holder.setUbicacionLat(String.valueOf(consulta.getLatConsulta()));
+        holder.setUbicacionLong(String.valueOf(consulta.getLngConsulta()));
+        holder.setFecha(consulta.getFechaConsulta());
         holder.btnDetalles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

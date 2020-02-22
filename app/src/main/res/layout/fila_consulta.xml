@@ -17,74 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/btnVerDetallesListaCons"
-                android:layout_width="306dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/btn_ver_detalles"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editProductorListaCons" />
-
-            <TextView
-                android:id="@+id/editUbicacionListaCons"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textViewUbicacionListaCons"
-                app:layout_constraintTop_toBottomOf="@+id/editAsuntoListaCons" />
-
-            <TextView
-                android:id="@+id/editProductorListaCons"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.564"
-                app:layout_constraintStart_toEndOf="@+id/textViewProductorListaCons"
-                app:layout_constraintTop_toBottomOf="@+id/editUbicacionListaCons" />
-
-            <TextView
-                android:id="@+id/editAsuntoListaCons"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textAsuntoListaCons"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textViewProductorListaCons"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="32dp"
-                android:text="@string/txt_productor"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewUbicacionListaCons" />
-
-            <TextView
-                android:id="@+id/textViewUbicacionListaCons"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="32dp"
-                android:text="@string/txt_ubicacion"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textAsuntoListaCons" />
-
             <TextView
                 android:id="@+id/textAsuntoListaCons"
                 android:layout_width="wrap_content"
@@ -95,6 +27,121 @@
                 app:layout_constraintBottom_toBottomOf="@+id/editAsuntoListaCons"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/editAsuntoListaCons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textAsuntoListaCons"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewUbicacionListaCons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/txt_ubicacion"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textAsuntoListaCons" />
+
+            <TextView
+                android:id="@+id/txtLatListaCons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_marginStart="80dp"
+                android:text="@string/txt_lat"
+                app:layout_constraintEnd_toStartOf="@id/editLatListaCons"
+                app:layout_constraintStart_toEndOf="@+id/textViewUbicacionListaCons"
+                app:layout_constraintTop_toBottomOf="@+id/editAsuntoListaCons" />
+
+            <TextView
+                android:id="@+id/txtLongListaCons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginStart="80dp"
+                android:text="@string/txt_long"
+                app:layout_constraintEnd_toStartOf="@id/editLongListaCons"
+                app:layout_constraintStart_toEndOf="@+id/textViewUbicacionListaCons"
+                app:layout_constraintTop_toBottomOf="@+id/txtLatListaCons" />
+
+            <TextView
+                android:id="@+id/editLatListaCons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:text="Name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txtLatListaCons"
+                app:layout_constraintTop_toBottomOf="@+id/editAsuntoListaCons" />
+
+            <TextView
+                android:id="@+id/editLongListaCons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="Name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txtLongListaCons"
+                app:layout_constraintTop_toBottomOf="@+id/editLatListaCons" />
+
+            <TextView
+                android:id="@+id/textViewProductorListaCons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/txt_productor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewUbicacionListaCons" />
+
+            <TextView
+                android:id="@+id/editProductorListaCons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:text="Name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textViewProductorListaCons"
+                app:layout_constraintTop_toBottomOf="@+id/textViewUbicacionListaCons" />
+
+            <TextView
+                android:id="@+id/txtFechaConsulta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewProductorListaCons"/>
+
+            <TextView
+                android:id="@+id/editFechaConsulta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtFechaConsulta"
+                app:layout_constraintTop_toBottomOf="@id/editProductorListaCons"/>
+
+            <Button
+                android:id="@+id/btnVerDetallesListaCons"
+                android:layout_width="306dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/btn_ver_detalles"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtFechaConsulta" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

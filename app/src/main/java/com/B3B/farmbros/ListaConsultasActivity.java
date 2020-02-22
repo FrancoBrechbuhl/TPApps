@@ -41,6 +41,8 @@ public class ListaConsultasActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+        //TODO: poner spinner para filtrar por asunto o por fecha recientes
+
         ConsultaRepository.getInstance().listarConsultas(handlerListarConsultas);
 
         profesion = getIntent().getExtras().getString("profesion");
@@ -62,7 +64,7 @@ public class ListaConsultasActivity extends AppCompatActivity {
                     break;
                 case ConsultaRepository._ERROR:
                     Log.d("HANDLER","Llego con error");
-                    Toast.makeText(getApplicationContext(),"@string/error_BD",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Error al cargar la base de datos",Toast.LENGTH_SHORT).show();
             }
         }
     };

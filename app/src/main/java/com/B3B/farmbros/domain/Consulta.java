@@ -1,14 +1,11 @@
 package com.B3B.farmbros.domain;
 
-import java.time.LocalDateTime;
-
 public class Consulta {
 
     private int id;
     private String textoConsulta;
     private String asuntoConsulta;
-    //TODO: ver guardado de fecha en el Api Rest
-    private LocalDateTime fechaConsulta;
+    private long fechaConsulta;
     private String fotoConsultaBase64;
     private double LatConsulta;
     private double LngConsulta;
@@ -37,11 +34,11 @@ public class Consulta {
         this.textoConsulta = textoConsulta;
     }
 
-    public LocalDateTime getFechaConsulta() {
+    public long getFechaConsulta() {
         return fechaConsulta;
     }
 
-    public void setFechaConsulta(LocalDateTime fechaConsulta) {
+    public void setFechaConsulta(long fechaConsulta) {
         this.fechaConsulta = fechaConsulta;
     }
 

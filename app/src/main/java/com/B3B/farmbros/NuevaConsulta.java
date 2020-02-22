@@ -37,7 +37,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Random;
 
@@ -178,7 +177,7 @@ public class NuevaConsulta extends AppCompatActivity {
             productor.setEmail(emailProductor);
             Consulta consulta = new Consulta();
             consulta.setTextoConsulta(txtConsulta.getText().toString());
-            consulta.setFechaConsulta(LocalDateTime.now());
+            consulta.setFechaConsulta(System.currentTimeMillis());
             consulta.setLatConsulta(data.getExtras().getDouble("latitud"));
             consulta.setLngConsulta(data.getExtras().getDouble("longitud"));
             consulta.setRemitenteConsulta(productor);
