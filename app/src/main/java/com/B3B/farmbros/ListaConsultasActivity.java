@@ -70,7 +70,6 @@ public class ListaConsultasActivity extends AppCompatActivity {
         spinnerAsunto.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                //TODO: tener en cuenta el orden tambien aca
                 //Se buscan las consultas segun el asunto seleccionado
                 asuntoSeleccionado = adapterView.getItemAtPosition(i).toString();
                 if(asuntoSeleccionado.equals("Todos")){
