@@ -27,6 +27,9 @@ public interface ConsultaRest {
     Call<List<Consulta>> buscarConsultasPorProductor(@Query("remitenteConsulta.email") String remitente);
 
     @GET("consultas/")
+    Call<List<Consulta>> buscarConsultasPorProductoryAsunto(@Query("remitenteConsulta.email") String remitente, @Query("asuntoConsulta") String asunto);
+
+    @GET("consultas/")
     Call<List<Consulta>> buscarConsultasPorIngeniero(@Query("encargadoConsulta.email") String encargado);
 
     @GET("consultas/")

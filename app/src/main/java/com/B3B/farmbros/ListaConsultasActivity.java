@@ -21,7 +21,6 @@ import com.B3B.farmbros.retrofit.ConsultaRepository;
 import com.B3B.farmbros.util.SortConsultaByTimeStampAscendent;
 import com.B3B.farmbros.util.SortConsultaByTimeStampDescendent;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -139,7 +138,6 @@ public class ListaConsultasActivity extends AppCompatActivity {
                         ordenarConsultasAntiguas(consultasSinOrden);
                     }
                     mAdapter.notifyDataSetChanged();
-
                     break;
                 case ConsultaRepository._ERROR:
                     Log.d("HANDLER","Llego con error");
