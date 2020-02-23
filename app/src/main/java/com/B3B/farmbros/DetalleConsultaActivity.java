@@ -35,8 +35,10 @@ public class DetalleConsultaActivity extends AppCompatActivity {
     private ImageView imagenConsulta;
     private Button envioMensaje;
     private Button cierreConsulta;
+    private String profesion;
     private RatingBar ratingBarCalificacion;
     private Consulta consultaDetallada;
+    private float calificacionIngeniero;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +56,7 @@ public class DetalleConsultaActivity extends AppCompatActivity {
         envioMensaje = findViewById(R.id.btnEmviarMsgDetCons);
         cierreConsulta = findViewById(R.id.btnFinalizarConsultaDetCons);
 
-        final String profesion = getIntent().getExtras().getString("profesion");
+        profesion = getIntent().getExtras().getString("profesion");
         final String emailProductor = getIntent().getExtras().getString("email productor");
         final String nombreProductor = getIntent().getExtras().getString("nombre productor");
 
@@ -95,30 +97,10 @@ public class DetalleConsultaActivity extends AppCompatActivity {
 
                 if(consultaDetallada != null) {
                     if (profesion.equals("ingeniero") || consultaDetallada.getRemitenteConsulta().getEmail().equals(emailProductor)) {
+                        //Si el productor cierra la consulta y esta tenia un encargado, se lo califica
                         if(profesion.equals("productor") && (consultaDetallada.getEncargadoConsulta() != null)){
-                            String nombreIngeniero = consultaDetallada.getEncargadoConsulta().getNombre();
-                            AlertDialog.Builder builder = new AlertDialog.Builder(DetalleConsultaActivity.this);
-                            LayoutInflater inflater = getLayoutInflater();
-                            View v = inflater.inflate(R.layout.dialog_calificacion_ingeniero, null);
-                            ratingBarCalificacion = v.findViewById(R.id.ratingBarCalificacionIngeniero);
-                            builder.setTitle("Que le ha parecido la experiencia con "+nombreIngeniero)
-                                    .setView(v)
-                                    .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            Ingeniero ingeniero = consultaDetallada.getEncargadoConsulta();
-                                            Integer calificacionIngeniero = (int)(ratingBarCalificacion.getRating()*10);
-                                            Log.d("Calificacion ", String.valueOf(calificacionIngeniero));
-                                            ingeniero.setCalificacion(calificacionIngeniero);
-                                            consultaDetallada.setEncargadoConsulta(ingeniero);
-                                            IngenieroRepository.getInstance().actualizarIngeniero(ingeniero);
-                                            Intent i1 = new Intent(getApplicationContext(), ListaConsultasActivity.class);
-                                            i1.putExtra("profesion", profesion);
-                                            startActivity(i1);
-                                        }
-                                    });
-                            AlertDialog dialog = builder.create();
-                            dialog.show();
+                            String emailIngeniero = consultaDetallada.getEncargadoConsulta().getEmail();
+                            IngenieroRepository.getInstance().buscarIngeniero(emailIngeniero, handlerDetalleConsulta);
                         }
                         consultaDetallada.setEstado(EstadoConsulta.FINALIZADA);
                         ConsultaRepository.getInstance().actualizarConsulta(consultaDetallada);
@@ -127,7 +109,6 @@ public class DetalleConsultaActivity extends AppCompatActivity {
                     }
                 }
                 else {
-                    Log.d("Consulta", "Null");
                     Toast.makeText(getApplicationContext(),"Error al cargar la base de datos",Toast.LENGTH_SHORT).show();
                     Intent i1 = new Intent(getApplicationContext(), ListaConsultasActivity.class);
                     i1.putExtra("profesion", profesion);
@@ -150,8 +131,40 @@ public class DetalleConsultaActivity extends AppCompatActivity {
                     }
                     Log.d("HANDLER","Retorno con exito");
                     break;
+                case IngenieroRepository._GET:
+                    Ingeniero ingeniero = IngenieroRepository.getInstance().getIngeniero();
+                    String nombreIngeniero = ingeniero.getNombre();
+                    calificacionIngeniero = ingeniero.getCalificacion();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(DetalleConsultaActivity.this);
+                    LayoutInflater inflater = getLayoutInflater();
+                    View v = inflater.inflate(R.layout.dialog_calificacion_ingeniero, null);
+                    ratingBarCalificacion = v.findViewById(R.id.ratingBarCalificacionIngeniero);
+                    builder.setTitle("Que le ha parecido la experiencia con "+nombreIngeniero)
+                            .setView(v)
+                            .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    Ingeniero ingeniero = consultaDetallada.getEncargadoConsulta();
+                                    if(ingeniero.getCalificacion() == 0) {
+                                        calificacionIngeniero = ratingBarCalificacion.getRating();
+                                    }
+                                    else {
+                                        //Se calcula un "promedio" un poco diferente
+                                        calificacionIngeniero = (ratingBarCalificacion.getRating() + calificacionIngeniero) / 2;
+                                    }
+                                    ingeniero.setCalificacion(calificacionIngeniero);
+                                    IngenieroRepository.getInstance().actualizarIngeniero(ingeniero);
+                                    Intent i1 = new Intent(getApplicationContext(), ListaConsultasActivity.class);
+                                    i1.putExtra("profesion", profesion);
+                                    startActivity(i1);
+                                }
+                            });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                    break;
                 case ConsultaRepository._ERROR:
                     Log.d("HANDLER","Llego con error");
+                    break;
             }
         }
     };

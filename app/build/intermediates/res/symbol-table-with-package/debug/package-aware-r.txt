@@ -1224,8 +1224,6 @@ id bottom
 id btnAgregarFoto
 id btnCierreSesion
 id btnConsultar
-id btnCrearIngeniero
-id btnCrearProductor
 id btnEmviarMsgDetCons
 id btnEnviarMensaje
 id btnFinalizarConsultaDetCons
@@ -1422,7 +1420,6 @@ id textNombreDetCons
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
-id textView
 id textViewProductorListaCons
 id textViewUbicacionListaCons
 id text_input_password_toggle
@@ -1526,7 +1523,6 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_chats
 layout activity_consulta
-layout activity_crear_cuenta
 layout activity_detalle_consulta
 layout activity_home_drawer
 layout activity_lista_consultas

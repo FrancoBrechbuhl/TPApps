@@ -123,7 +123,24 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             mDrawerLayout.closeDrawer(GravityCompat.START);
         }
         else {
-            //no hacer nada porque para volver atras debe pulsar cerrar sesión
+            //Se pregunta si se quiere salir de la app
+            AlertDialog.Builder builder = new AlertDialog.Builder(Home.this);
+            builder.setMessage("Esta seguro que desea abandonar FarmBros?")
+                    .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            moveTaskToBack(true);
+                            finish();
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+            AlertDialog dialog = builder.create();
+            dialog.show();
         }
     }
 

@@ -112,7 +112,6 @@ public class ConsultasAtendidasActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 //Se ordenan las consultas segun el criterio seleccionado
                 ordenSeleccionado = adapterView.getItemAtPosition(i).toString();
-                //TODO: cambiar para productor e ingeniero
                 if(!_CONSULTAS.isEmpty()){
                     List<Consulta> consultasSinOrden = _CONSULTAS;
                     if(ordenSeleccionado.equals("Mas recientes")){

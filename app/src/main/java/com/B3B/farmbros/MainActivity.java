@@ -157,13 +157,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void crearCuenta(){
-        /*
-        Intent crearCuenta = new Intent(getApplicationContext(),CrearCuentaActivity.class);
-        crearCuenta.putExtra("nombre",account.getDisplayName());
-        crearCuenta.putExtra("email",account.getEmail());
-        startActivity(crearCuenta);
-
-         */
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle("Elija su profesión para continuar")
                 .setSingleChoiceItems(R.array.profesiones, 0, new DialogInterface.OnClickListener() {
@@ -209,6 +202,7 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        moveTaskToBack(true);
                         finish();
                     }
                 })

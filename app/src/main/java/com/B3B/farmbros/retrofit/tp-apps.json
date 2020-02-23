@@ -18,7 +18,7 @@
       "LngConsulta": -60.86148139089346,
       "asuntoConsulta": "Fertilizantes",
       "encargadoConsulta": {
-        "calificacion": 40,
+        "calificacion": 0,
         "email": "fybrechbuhl@gmail.com",
         "id": 1,
         "nombre": "Franco Brechbuhl"
@@ -63,8 +63,15 @@
       "LatConsulta": -31.485266792532748,
       "LngConsulta": -60.99187329411506,
       "asuntoConsulta": "Movimiento de suelos",
-      "estado": "ABIERTA",
+      "encargadoConsulta": {
+        "calificacion": 4,
+        "email": "fybrechbuhl@gmail.com",
+        "id": 1,
+        "nombre": "Franco Brechbuhl"
+      },
+      "estado": "FINALIZADA",
       "fechaConsulta": 1582314685981,
+      "fotoConsultaBase64": "",
       "id": 5,
       "remitenteConsulta": {
         "email": "francob19051997@gmail.com",
@@ -87,7 +94,7 @@
   ],
   "ingenieros": [
     {
-      "calificacion": 50,
+      "calificacion": 4.5,
       "email": "fybrechbuhl@gmail.com",
       "id": 1,
       "nombre": "Franco Brechbuhl"
@@ -107,6 +114,20 @@
       "emailRemitente": "francob19051997@gmail.com",
       "horaCreacion": 1582376748917,
       "id": 2
+    },
+    {
+      "datos": "Hola de nuevo franco, para alfalfa es siempre beneficioso labrar la tierra ya que se eliminan muchas malezas indeseadas.",
+      "emailReceptor": "francob19051997@gmail.com",
+      "emailRemitente": "fybrechbuhl@gmail.com",
+      "horaCreacion": 1582468251811,
+      "id": 3
+    },
+    {
+      "datos": "Perfecto, muchas gracias",
+      "emailReceptor": "fybrechbuhl@gmail.com",
+      "emailRemitente": "francob19051997@gmail.com",
+      "horaCreacion": 1582468289829,
+      "id": 4
     }
   ]
 }

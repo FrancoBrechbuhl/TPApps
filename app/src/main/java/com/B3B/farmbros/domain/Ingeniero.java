@@ -6,7 +6,7 @@ public class Ingeniero{
     private Integer id;
     private String nombre;
     private String email;
-    private Integer calificacion; // que vaya de 0 a 50 y despues la mostramos tipo 4,5
+    private float calificacion; // que vaya de 0 a 5 y despues la mostramos tipo 4,5
 
     public Ingeniero(){
         calificacion = 0;
@@ -42,11 +42,11 @@ public class Ingeniero{
         this.email = email;
     }
 
-    public Integer getCalificacion() {
+    public float getCalificacion() {
         return calificacion;
     }
 
-    public void setCalificacion(Integer calificacion) {
+    public void setCalificacion(float calificacion) {
         this.calificacion = calificacion;
     }
 }
