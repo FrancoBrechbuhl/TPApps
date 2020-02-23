@@ -2,13 +2,16 @@ package com.B3B.farmbros;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -17,10 +20,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.B3B.farmbros.firebase.ConsultaMsgService;
 import com.B3B.farmbros.retrofit.MensajeRepository;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 /*
     Esta clase es la principal, aqui se encuentra la barra deslizable con el menu que tiene las
@@ -185,7 +193,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 startActivity(i1);
                 return true;
             case R.id.menuItemMiPerfil:
-                //Do something
+                getToken();
                 return true;
             case android.R.id.home:
                 onBackPressed();
@@ -193,6 +201,27 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             default:
                 return true;
         }
+    }
+
+    private void getToken(){
+        /*
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        return preferences.getString("registration_id", null);
+
+         */
+        FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+            @Override
+            public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                if(!task.isSuccessful()){
+                    Toast.makeText(getApplicationContext(), "Fallo token", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                String token = task.getResult().getToken();
+                Log.d("Token ", token);
+                Toast.makeText(getApplicationContext(), "El token es: "+token, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override

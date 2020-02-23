@@ -69,4 +69,7 @@
     <string name="campo_mensaje">Escriba su mensaje</string>
     <string name="ver_conversacion">Ver</string>
 
+    <!-- Notificaciones push -->
+    <string name="channel_default">Notificaciones push</string>
+
 </resources>

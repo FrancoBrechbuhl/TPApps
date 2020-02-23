@@ -705,6 +705,7 @@ color fondo_claro
 color foreground_material_dark
 color foreground_material_light
 color golden
+color green
 color grey
 color highlighted_text_material_dark
 color highlighted_text_material_light
@@ -1129,6 +1130,7 @@ drawable ic_menu_options
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_notificacion_firebase
 drawable ic_profile
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
@@ -1611,6 +1613,7 @@ string btn_enviar_mensaje_DetCons
 string btn_finalizar_consulta
 string btn_ver_detalles
 string campo_mensaje
+string channel_default
 string character_counter_content_description
 string character_counter_pattern
 string chats
@@ -1634,6 +1637,7 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string consulta
+string default_web_client_id
 string detalle_DetCons
 string drawer_closed
 string drawer_opened
@@ -1641,8 +1645,15 @@ string enviar
 string error_BD
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string fcm_fallback_notification_channel_label
+string firebase_database_url
 string foro_consultas
+string gcm_defaultSenderId
+string google_api_key
+string google_app_id
+string google_crash_reporting_api_key
 string google_maps_key
+string google_storage_bucket
 string hide_bottom_view_on_scroll_behavior
 string indicador_consulta
 string ingeniero
@@ -1670,6 +1681,7 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string productor
+string project_id
 string registro
 string search_menu_title
 string status_bar_notification_info_overflow
