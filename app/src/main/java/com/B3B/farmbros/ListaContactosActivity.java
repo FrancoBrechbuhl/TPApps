@@ -49,14 +49,6 @@ public class ListaContactosActivity extends AppCompatActivity {
             }
         }
 
-        /*
-        //se buscan los ingenieros asociados a los emails correspondientes
-        for (String email : correosContactos){
-            IngenieroRepository.getInstance().buscarIngeniero(email, handlerListarIngenieros);
-        }
-
-         */
-
         IngenieroRepository.getInstance().listarIngenieros(handlerListarIngenieros);
 
         mRecyclerViewContactos = findViewById(R.id.recyclerListaContactos);
@@ -75,11 +67,7 @@ public class ListaContactosActivity extends AppCompatActivity {
             Log.d("HANDLER","Vuelve al handler"+msg.arg1);
             switch (msg.arg1){
                 case IngenieroRepository._GET:
-                    /*
-                    contactos.add(IngenieroRepository.getInstance().getIngeniero());
-                    mAdapterContactos.notifyDataSetChanged();
-
-                     */
+                    contactos.clear();
                     List<Ingeniero> todosIngenieros = IngenieroRepository.getInstance().getListaIngenieros();
                     for(Ingeniero ingeniero : todosIngenieros){
                         if(correosContactos.contains(ingeniero.getEmail())){
@@ -90,7 +78,7 @@ public class ListaContactosActivity extends AppCompatActivity {
                     break;
                 case MensajeRepository._ERROR:
                     Log.d("HANDLER","Llego con error");
-                    Toast.makeText(getApplicationContext(),"@string/error_BD",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Error al cargar la base de datos",Toast.LENGTH_SHORT).show();
             }
         }
     };

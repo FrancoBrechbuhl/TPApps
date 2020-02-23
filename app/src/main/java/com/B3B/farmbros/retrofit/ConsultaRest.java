@@ -33,6 +33,9 @@ public interface ConsultaRest {
     Call<List<Consulta>> buscarConsultasPorIngeniero(@Query("encargadoConsulta.email") String encargado);
 
     @GET("consultas/")
+    Call<List<Consulta>> buscarConsultasPorIngenieroyAsunto(@Query("encargadoConsulta.email") String encargado, @Query("asuntoConsulta") String asunto);
+
+    @GET("consultas/")
     Call<List<Consulta>> buscarConsultasPorAsunto(@Query("asuntoConsulta") String asunto);
 
     @PUT("consultas/{id}")

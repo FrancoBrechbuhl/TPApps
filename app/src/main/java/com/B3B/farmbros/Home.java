@@ -162,6 +162,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 i1 = new Intent(getApplicationContext(), ConsultasAtendidasActivity.class);
                 i1.putExtra("profesion", profesion);
                 startActivity(i1);
+                return true;
             case R.id.menuItemChats:
                 i1 = new Intent (this, ListaContactosActivity.class);
                 startActivity(i1);
