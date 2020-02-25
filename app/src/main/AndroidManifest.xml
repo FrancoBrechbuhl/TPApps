@@ -49,20 +49,6 @@
             </intent-filter>
         </service>
 
-        <!--
-        <meta-data
-            android:value="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/ic_notificacion_firebase"/>
-
-        <meta-data
-            android:value="com.google.firebase.messaging.default_notification_color"
-            android:resource="@color/green"/>
-
-        <meta-data
-            android:value="com.google.firebase.messaging.default_notification_channel_id"
-            android:resource="@string/channel_default"/>
-            -->
-
         <activity
             android:name=".MapsActivity" android:parentActivityName=".NuevaConsulta"
             android:label="@string/title_activity_maps"></activity>

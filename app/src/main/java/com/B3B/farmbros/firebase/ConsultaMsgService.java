@@ -29,15 +29,12 @@ public class ConsultaMsgService extends FirebaseMessagingService {
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage){
-        Log.d("From ", remoteMessage.getFrom());
-        Log.d("Time ", String.valueOf(remoteMessage.getSentTime()));
-        for(Map.Entry<String, String> entrada : remoteMessage.getData().entrySet()){
-            Log.d("Detalle ", entrada.getKey() + "" + entrada.getValue());
-        }
-        if (remoteMessage.getNotification() != null){
-            Log.d("Body ", remoteMessage.getNotification().getBody());
-        }
-        //sendNotification();
+        sendNotification();
+    }
+
+    @Override
+    public void onMessageSent(String msg){
+        Log.d("Firebase", "Mensaje enviado");
     }
 
     private void saveTokenToPref(String token){
@@ -63,10 +60,12 @@ public class ConsultaMsgService extends FirebaseMessagingService {
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(this, channelId)
                         .setSmallIcon(R.drawable.ic_notificacion_firebase)
-                        .setContentTitle("Hola")
-                        .setContentText("Franco")
+                        .setContentTitle("FarmBros")
+                        .setContentText("Tenes una respuesta en la consulta que realizaste!")
                         .setAutoCancel(true)
                         .setContentIntent(pendingIntent);
+
+        Log.d("Se entra", "Notificacion");
 
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(getApplicationContext().NOTIFICATION_SERVICE);

@@ -90,6 +90,7 @@ public class ChatsActivity extends AppCompatActivity {
                 mensaje.setReceptor(emailReceptor);
                 textoMensaje.setText("");
                 MensajeRepository.getInstance().crearMensaje(mensaje, handlerListarMensajes);
+                //TODO: averiguar como avisar esto a firebase
                 if(profesion.equals("ingeniero")){
                     IngenieroRepository.getInstance().buscarIngeniero(emailEmisor, handlerListarMensajes);
                 }

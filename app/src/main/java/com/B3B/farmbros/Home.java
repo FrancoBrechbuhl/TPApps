@@ -2,9 +2,10 @@ package com.B3B.farmbros;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,7 +21,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.B3B.farmbros.firebase.ConsultaMsgService;
+import com.B3B.farmbros.firebase.JSONFirebase;
+import com.B3B.farmbros.retrofit.FirebaseRepository;
 import com.B3B.farmbros.retrofit.MensajeRepository;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -29,6 +31,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
+
+import java.util.List;
 
 /*
     Esta clase es la principal, aqui se encuentra la barra deslizable con el menu que tiene las
@@ -39,6 +43,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     private Button btnCierreSesion;
     private TextView txtIdentificadorUsuario;
     private String profesion;
+    //TODO: borrar
+    private String token;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private NavigationView mNavigationView;
@@ -203,21 +209,20 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         }
     }
 
+    //TODO: borrar este metodo
     private void getToken(){
-        /*
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        return preferences.getString("registration_id", null);
-
-         */
         FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
             @Override
             public void onComplete(@NonNull Task<InstanceIdResult> task) {
                 if(!task.isSuccessful()){
                     Toast.makeText(getApplicationContext(), "Fallo token", Toast.LENGTH_SHORT).show();
+                    token = null;
                     return;
                 }
-
-                String token = task.getResult().getToken();
+                token = task.getResult().getToken();
+                JSONFirebase jsonFirebase = new JSONFirebase();
+                jsonFirebase.setTo(token);
+                FirebaseRepository.getInstance().sendToSync(jsonFirebase, handlerHome);
                 Log.d("Token ", token);
                 Toast.makeText(getApplicationContext(), "El token es: "+token, Toast.LENGTH_LONG).show();
             }
@@ -230,4 +235,22 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         //se cierra siempre el drawer para evitar que si se retorna de una actividad se muestre abierto
         mDrawerLayout.closeDrawer(GravityCompat.START);
     }
+
+    //TODO: borrar
+    Handler handlerHome = new Handler(Looper.myLooper()){
+        @Override
+        public void handleMessage(Message msg) {
+            Log.d("HANDLER","Vuelve al handler"+msg.arg1);
+            switch (msg.arg1){
+                case FirebaseRepository._POST:
+                    Log.d("HANDLER ", "POST exitoso");
+                    Toast.makeText(getApplicationContext(),"POST exitoso",Toast.LENGTH_SHORT).show();
+                    break;
+                case FirebaseRepository._ERROR:
+                    Log.d("HANDLER","Llego con error");
+                    Toast.makeText(getApplicationContext(),"Error al cargar la base de datos",Toast.LENGTH_SHORT).show();
+                    break;
+            }
+        }
+    };
 }
