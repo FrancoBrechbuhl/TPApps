@@ -61,11 +61,33 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <!--
         <service
-            android:name="com.B3B.farmbros.firebase.ConsultaMsgService"
-            android:exported="false" >
+            android:name=".firebase.ConsultaMsgService">
             <intent-filter>
-                <action android:name=".com.google.firebase.MESSAGING_EVENT" />
+                <action android:name=".com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="com.google.firebase.messaging.default_notification_icon"
+                android:resource="@drawable/ic_notificacion_firebase"/>
+
+            <meta-data
+                android:name="com.google.firebase.default_notification_color"
+                android:resource="@color/green"/>
+
+            <meta-data
+                android:name="com.google.firebase.default_notification_channel_id"
+                android:value="@string/channel_default"/>
+        </service>
+        -->
+
+        <service
+            android:name="com.B3B.farmbros.firebase.ServiceFirebase"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 

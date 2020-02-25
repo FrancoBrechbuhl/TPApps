@@ -10,7 +10,7 @@ import retrofit2.http.POST;
 public interface FirebaseRest {
 
     @Headers({
-            "Authorization:key =AIzaSyZAIzaSyDhXkDb8kXsuXND-mWC5RYVTDbGZ05BsWA",
+            "Authorization:key=AIzaSyBBUDcFybSu7wY38cA8MTGIUg-IW9tmvJI",
             "Content-Type:application/json"
     })
     @POST("send/")

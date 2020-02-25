@@ -22,17 +22,18 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.B3B.farmbros.firebase.JSONFirebase;
+import com.B3B.farmbros.firebase.NotificacionFirebase;
 import com.B3B.farmbros.retrofit.FirebaseRepository;
 import com.B3B.farmbros.retrofit.MensajeRepository;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 
 import java.util.List;
+
 
 /*
     Esta clase es la principal, aqui se encuentra la barra deslizable con el menu que tiene las
@@ -209,26 +210,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         }
     }
 
-    //TODO: borrar este metodo
-    private void getToken(){
-        FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
-            @Override
-            public void onComplete(@NonNull Task<InstanceIdResult> task) {
-                if(!task.isSuccessful()){
-                    Toast.makeText(getApplicationContext(), "Fallo token", Toast.LENGTH_SHORT).show();
-                    token = null;
-                    return;
-                }
-                token = task.getResult().getToken();
-                JSONFirebase jsonFirebase = new JSONFirebase();
-                jsonFirebase.setTo(token);
-                FirebaseRepository.getInstance().sendToSync(jsonFirebase, handlerHome);
-                Log.d("Token ", token);
-                Toast.makeText(getApplicationContext(), "El token es: "+token, Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-
     @Override
     protected void onStart(){
         super.onStart();
@@ -236,15 +217,31 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         mDrawerLayout.closeDrawer(GravityCompat.START);
     }
 
-    //TODO: borrar
+    private void getToken(){
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+                token = instanceIdResult.getToken();
+                Log.d("El token es ", token);
+                NotificacionFirebase notificacionFirebase = new NotificacionFirebase();
+                notificacionFirebase.setTitle("FarmBros");
+                notificacionFirebase.setBody("Se ha respondido una consulta que realizaste!");
+                notificacionFirebase.setIcon("appicon");
+                JSONFirebase jsonFirebase = new JSONFirebase();
+                jsonFirebase.setTo(token);
+                jsonFirebase.setNotificacionFirebase(notificacionFirebase);
+                FirebaseRepository.getInstance().sendNotification(jsonFirebase, handlerHome);
+            }
+        });
+    }
+
     Handler handlerHome = new Handler(Looper.myLooper()){
         @Override
         public void handleMessage(Message msg) {
             Log.d("HANDLER","Vuelve al handler"+msg.arg1);
             switch (msg.arg1){
                 case FirebaseRepository._POST:
-                    Log.d("HANDLER ", "POST exitoso");
-                    Toast.makeText(getApplicationContext(),"POST exitoso",Toast.LENGTH_SHORT).show();
+                    Log.d("HANDLER","Exito");
                     break;
                 case FirebaseRepository._ERROR:
                     Log.d("HANDLER","Llego con error");

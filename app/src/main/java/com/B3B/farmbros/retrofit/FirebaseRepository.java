@@ -77,4 +77,27 @@ public class FirebaseRepository {
             }
         });
     }
+
+    public void sendNotification(JSONFirebase mensaje, final Handler h){
+        Call<JSONFirebase> llamada = this.firebaseRest.actualizarFirebase(mensaje);
+        llamada.enqueue(new Callback<JSONFirebase>() {
+            @Override
+            public void onResponse(Call<JSONFirebase> call, Response<JSONFirebase> response) {
+                if(response.isSuccessful()){
+                    Log.d("Request to Retrofit","Successful");
+                    Message m = new Message();
+                    m.arg1 = _POST;
+                    h.sendMessage(m);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JSONFirebase> call, Throwable t) {
+                Log.d("Request to Retrofit","Fail");
+                Message m = new Message();
+                m.arg1 = _ERROR;
+                h.sendMessage(m);
+            }
+        });
+    }
 }
