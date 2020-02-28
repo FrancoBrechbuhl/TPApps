@@ -19,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class IngenieroRepository {
 
     private static IngenieroRepository _INSTANCE;
-    public static String _SERVER = "http://192.168.0.168:5000/";
+    public static String _SERVER = "http://192.168.43.100:5000/";
 
     /*
     Retornos de llamadas en el handler

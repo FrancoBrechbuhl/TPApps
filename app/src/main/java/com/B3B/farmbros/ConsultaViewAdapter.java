@@ -68,11 +68,9 @@ public class ConsultaViewAdapter extends RecyclerView.Adapter<ConsultaViewHolder
                 Intent detalle = new Intent(contexto,DetalleConsultaActivity.class);
                 detalle.putExtra("nombre productor",consulta.getRemitenteConsulta().getNombre());
                 detalle.putExtra("email productor", consulta.getRemitenteConsulta().getEmail());
-                detalle.putExtra("consulta",consulta.getTextoConsulta());
                 detalle.putExtra("idConsulta", consulta.getId());
                 detalle.putExtra("profesion", profesion);
-                if (consulta.getFotoConsultaBase64()!=null)
-                    detalle.putExtra("foto consulta",consulta.getFotoConsultaBase64());
+
                 if(actividad == ACTIVITY_LISTA_CONSULTAS) {
                     listaConsultasActivity.startActivity(detalle);
                 }

@@ -68,14 +68,6 @@ public class DetalleConsultaActivity extends AppCompatActivity {
         int idConsulta = getIntent().getExtras().getInt("idConsulta");
         ConsultaRepository.getInstance().buscarConsultaPorIdConsulta(idConsulta, handlerDetalleConsulta);
 
-        nameProductor.setText(this.getIntent().getExtras().getString("nombre productor"));
-        consulta.setText(this.getIntent().getExtras().getString("consulta"));
-        if (!this.getIntent().getExtras().getString("foto consulta").equals("")){
-            byte[] decoded = Base64.decode(this.getIntent().getExtras().getString("foto consulta"),Base64.DEFAULT);
-            Bitmap imagen = BitmapFactory.decodeByteArray(decoded,0,decoded.length);
-            imagenConsulta.setImageBitmap(imagen);
-        }
-
         envioMensaje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -104,6 +96,7 @@ public class DetalleConsultaActivity extends AppCompatActivity {
                         }
                         consultaDetallada.setEstado(EstadoConsulta.FINALIZADA);
                         ConsultaRepository.getInstance().actualizarConsulta(consultaDetallada);
+                        Toast.makeText(getApplicationContext(), "La consulta se ha finalizado con éxito", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getApplicationContext(), "Lo sentimos, no tiene permiso para finalizar esta consulta", Toast.LENGTH_SHORT).show();
                     }
@@ -124,7 +117,15 @@ public class DetalleConsultaActivity extends AppCompatActivity {
             Log.d("HANDLER","Vuelve al handler"+msg.arg1);
             switch (msg.arg1){
                 case ConsultaRepository._GET:
+                    //se setean los campos de la consulta
                     consultaDetallada = ConsultaRepository.getInstance().getConsulta();
+                    nameProductor.setText(consultaDetallada.getRemitenteConsulta().getNombre());
+                    consulta.setText(consultaDetallada.getTextoConsulta());
+                    if(consultaDetallada.getFotoConsultaBase64() != null){
+                        byte[] decoded = Base64.decode(consultaDetallada.getFotoConsultaBase64(),Base64.DEFAULT);
+                        Bitmap imagen = BitmapFactory.decodeByteArray(decoded,0,decoded.length);
+                        imagenConsulta.setImageBitmap(imagen);
+                    }
                     if(consultaDetallada.getEstado().equals(EstadoConsulta.FINALIZADA)){
                         //si la consulta ya fue cerrada no se permite cerrarla de nuevo
                         cierreConsulta.setVisibility(View.INVISIBLE);
