@@ -72,4 +72,10 @@
     <!-- Notificaciones push -->
     <string name="channel_default">Notificaciones push</string>
 
+    <!-- Notificacion consulta creada -->
+    <string name="nombreNotificacionConsulta">FarmBros</string>
+    <string name="detalleNotificacionOferta1">Consulta creada con éxito</string>
+    <string name="nombreCanal">Consultas</string>
+    <string name="descripcionCanal">Canal utilizado para notificaciones de consultas creadas</string>
+
 </resources>

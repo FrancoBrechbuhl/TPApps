@@ -1,7 +1,9 @@
 package com.B3B.farmbros;
 
+import android.content.BroadcastReceiver;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -29,6 +31,7 @@ import com.B3B.farmbros.domain.Consulta;
 import com.B3B.farmbros.domain.EstadoConsulta;
 import com.B3B.farmbros.domain.Productor;
 import com.B3B.farmbros.retrofit.ConsultaRepository;
+import com.B3B.farmbros.util.ConsultaBroadcastReceiver;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
@@ -52,6 +55,7 @@ public class NuevaConsulta extends AppCompatActivity {
     private Spinner spinnerAsunto;
     private String fotoEnBase64;
     private String asuntoConsulta;
+    private BroadcastReceiver br;
     static String pathFoto;
     static ImageView fotoConsulta;
     private ArrayAdapter<CharSequence> adapterAsunto;
@@ -75,6 +79,12 @@ public class NuevaConsulta extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.ic_flower);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+        //creacion del broadcast receiver para gestionar notificaciones de consultas creadas
+        br = new ConsultaBroadcastReceiver();
+        IntentFilter filtro = new IntentFilter();
+        filtro.addAction(ConsultaBroadcastReceiver.CONSULTA);
+        getApplicationContext().registerReceiver(br, filtro);
 
         adapterAsunto = ArrayAdapter.createFromResource(getApplicationContext(), R.array.asuntos, android.R.layout.simple_spinner_item);
         adapterAsunto.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -210,12 +220,11 @@ public class NuevaConsulta extends AppCompatActivity {
             Log.d("HANDLER","Vuelve al handler"+msg.arg1);
             switch (msg.arg1){
                 case ConsultaRepository._POST:
-                 //TODO notificacion
-                    /*
-                    codigo de notificacion exitosa
-                     */
-                    Toast.makeText(getApplicationContext(), "La consulta se ha registrado con éxito", Toast.LENGTH_SHORT).show();
-
+                    //Toast.makeText(getApplicationContext(), "La consulta se ha registrado con éxito", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "La consulta está siendo creada", Toast.LENGTH_SHORT).show();
+                    Intent i1 = new Intent();
+                    i1.setAction(ConsultaBroadcastReceiver.CONSULTA);
+                    sendBroadcast(i1);
                     break;
                 case ConsultaRepository._ERROR:
                     Log.d("HANDLER","Llego con error");
@@ -223,4 +232,9 @@ public class NuevaConsulta extends AppCompatActivity {
             }
         }
     };
+
+    @Override
+    protected void onDestroy(){
+        getApplicationContext().unregisterReceiver(br);
+    }
 }
