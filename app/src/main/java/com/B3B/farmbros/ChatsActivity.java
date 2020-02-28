@@ -19,6 +19,7 @@ import com.B3B.farmbros.domain.EstadoConsulta;
 import com.B3B.farmbros.domain.Ingeniero;
 import com.B3B.farmbros.domain.Mensaje;
 import com.B3B.farmbros.domain.Productor;
+import com.B3B.farmbros.firebase.CuerpoNotificacionJSON;
 import com.B3B.farmbros.firebase.FirebaseRepository;
 import com.B3B.farmbros.firebase.NotificacionJSON;
 import com.B3B.farmbros.retrofit.ConsultaRepository;
@@ -203,8 +204,18 @@ public class ChatsActivity extends AppCompatActivity {
     }
 
     private void enviarMensaje(String token){
+        CuerpoNotificacionJSON cuerpoJson = new CuerpoNotificacionJSON();
+        cuerpoJson.setTitle("FarmBros");
+        cuerpoJson.setIcon("appicon");
         NotificacionJSON notificacionJSON = new NotificacionJSON();
         notificacionJSON.setTo(token);
+        if(profesion.equals("productor")) {
+            cuerpoJson.setBody("Se ha respondido una consulta que realizaste");
+        }
+        else {
+            cuerpoJson.setBody("Tenes un nuevo mensaje en una de tus consultas asignadas");
+        }
+        notificacionJSON.setNotification(cuerpoJson);
         FirebaseRepository.getInstance().enviarNotificacion(notificacionJSON);
     }
 }

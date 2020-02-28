@@ -37,10 +37,13 @@ public class ServiceFirebase extends FirebaseMessagingService {
     public void onMessageReceived(RemoteMessage remoteMessage) {
         createNotificationChannel();
 
+        String title = remoteMessage.getNotification().getTitle();
+        String body = remoteMessage.getNotification().getBody();
+
         NotificationManagerCompat manager = NotificationManagerCompat.from(this);
         Notification notification = new NotificationCompat.Builder(this, "push_notification")
-                .setContentText("Se ha respondido una consulta que realizaste!")
-                .setContentTitle("FarmBros")
+                .setContentText(body)
+                .setContentTitle(title)
                 .setSmallIcon(R.drawable.ic_notificacion_firebase)
                 .build();
         manager.notify(0, notification);
