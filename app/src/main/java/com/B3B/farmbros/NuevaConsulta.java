@@ -194,8 +194,6 @@ public class NuevaConsulta extends AppCompatActivity {
                     getApplication().getApplicationContext().registerReceiver(br, filtro);
 
                     Intent servicio = new Intent(getApplicationContext(), ConsultaIntentService.class);
-                    //servicio.putExtra("Posicion", position);
-                    //servicio.putExtra("NombrePlato", plato.getNombre());
                     startService(servicio);
                     /*
                     codigo de notificacion exitosa

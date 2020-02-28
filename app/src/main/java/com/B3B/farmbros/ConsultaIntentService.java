@@ -12,14 +12,12 @@ public class ConsultaIntentService extends IntentService {
     protected void onHandleIntent(Intent intent) {
         //logica servicio
         try {
-            Thread.sleep(10000);
+            Thread.sleep(2500);
         }
         catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
         Intent i1 = new Intent();
-//      i1.putExtra("Posicion", intent.getExtras().getInt("Posicion"));
-//      i1.putExtra("NombrePlato", intent.getExtras().getString("NombrePlato"));
         i1.setAction(ConsultaBroadcastReceiver.CONSULTA);
         sendBroadcast(i1);
     }

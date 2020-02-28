@@ -60,8 +60,7 @@
 
     <!-- Notificacion consulta creada -->
     <string name="nombreNotificacionConsulta">FarmBros</string>
-    <string name="detalleNotificacionOferta1">Consulta </string>
-    <string name="detalleNotificacionOferta2"> creada con éxito</string>
     <string name="nombreCanal">Consultas</string>
     <string name="descripcionCanal">Canal utilizado para notificaciones de consultas creadas</string>
+    <string name="detalleNotificacionOferta">La consulta ha sido creada con éxito</string>
 </resources>

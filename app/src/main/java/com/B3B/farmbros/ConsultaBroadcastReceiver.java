@@ -29,7 +29,7 @@ public class ConsultaBroadcastReceiver extends BroadcastReceiver {
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, CHANNEL1)
                 .setSmallIcon(R.drawable.icono_notify).setContentTitle(context.getString(R.string.nombreNotificacionConsulta))
-                .setContentText(context.getString(R.string.detalleNotificacionOferta2) + intent.getExtras().getInt("idConsulta") + context.getString(R.string.detalleNotificacionOferta2))
+                .setContentText(context.getString(R.string.detalleNotificacionOferta))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
