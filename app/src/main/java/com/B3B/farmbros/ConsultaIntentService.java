@@ -20,7 +20,7 @@ public class ConsultaIntentService extends IntentService {
         Intent i1 = new Intent();
 //      i1.putExtra("Posicion", intent.getExtras().getInt("Posicion"));
 //      i1.putExtra("NombrePlato", intent.getExtras().getString("NombrePlato"));
-        i1.setAction(ConsultaBroadcastReciever.CONSULTA);
+        i1.setAction(ConsultaBroadcastReceiver.CONSULTA);
         sendBroadcast(i1);
     }
 

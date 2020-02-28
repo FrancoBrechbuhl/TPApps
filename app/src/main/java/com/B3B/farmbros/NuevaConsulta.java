@@ -188,9 +188,9 @@ public class NuevaConsulta extends AppCompatActivity {
                 case ConsultaRepository._POST:
                  //TODO notificacion
                     Toast.makeText(getApplicationContext(), "La consulta está siendo creada", Toast.LENGTH_SHORT).show();
-                    br = new ConsultaBroadcastReciever();
+                    br = new ConsultaBroadcastReceiver();
                     IntentFilter filtro = new IntentFilter();
-                    filtro.addAction(ConsultaBroadcastReciever.CONSULTA);
+                    filtro.addAction(ConsultaBroadcastReceiver.CONSULTA);
                     getApplication().getApplicationContext().registerReceiver(br, filtro);
 
                     Intent servicio = new Intent(getApplicationContext(), ConsultaIntentService.class);

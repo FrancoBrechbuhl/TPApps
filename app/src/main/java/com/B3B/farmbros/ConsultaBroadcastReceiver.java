@@ -11,7 +11,7 @@ import android.os.Build;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-public class ConsultaBroadcastReciever extends BroadcastReceiver {
+public class ConsultaBroadcastReceiver extends BroadcastReceiver {
     public static final String CONSULTA = "New Consult";
 
     private Context contexto;
