@@ -27,7 +27,7 @@ public class MensajeRepository {
     public static final int _ERROR = 309;
 
     private static MensajeRepository _INSTANCE;
-    public static String _SERVER = /*"http://10.0.2.2:5000";*/"http://192.168.43.100:5000";
+    public static String _SERVER = "http://192.168.0.168:5000";
     private List<Mensaje> listaMensajes;
     private Mensaje mensaje;
 

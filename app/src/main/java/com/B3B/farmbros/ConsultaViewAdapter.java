@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.B3B.farmbros.domain.Consulta;
-import com.B3B.farmbros.retrofit.ConsultaRepository;
 
 import java.util.List;
 

@@ -14,7 +14,6 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 public class ServiceFirebase extends FirebaseMessagingService {
-    private String emailUsuario;
 
     public ServiceFirebase() {
     }

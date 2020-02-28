@@ -1,131 +1,77 @@
 {
   "consultas": [
     {
-      "LatConsulta": -31.564739643345728,
-      "LngConsulta": -60.79291205853224,
-      "asuntoConsulta": "Semillas",
-      "estado": "ABIERTA",
-      "fechaConsulta": 1582314491593,
-      "id": 1,
-      "remitenteConsulta": {
-        "email": "francob19051997@gmail.com",
-        "nombre": "Franco Brechbuhl"
-      },
-      "textoConsulta": "Que variedad de soja de segunda sembrar entre el 15 y 20 de diciembre?"
-    },
-    {
-      "LatConsulta": -31.65006271030799,
-      "LngConsulta": -60.86148139089346,
+      "LatConsulta": -31.223304035742668,
+      "LngConsulta": -60.920918472111225,
       "asuntoConsulta": "Fertilizantes",
       "encargadoConsulta": {
         "calificacion": 0,
         "email": "fybrechbuhl@gmail.com",
         "id": 1,
         "nombre": "Franco Brechbuhl",
-        "token": "cRDPnH_VOFY:APA91bERg1UTyQomygy4XtafwRPZeWfuz9SeO4H6LNXnrR84QzEA7tUGjTVOhVK2o0gZhzFUE5Y-iTqfejqjDWE4x9jxZ2-s0s9NPB9RUTqmRs4McLpNUJoNGvccDfjTKvqvlb-np7oW"
+        "token": "cbitCb_zzcQ:APA91bFXX6DwSjpXzY7df-vY2Z2tomhzI6DhQ_2f-joYGROYPZKbn-HZgGstA82O5GfMRsUavSjowmh6txNgLSKfDcVEWd376LWMdsabSW0iRKU5shUJZUOCNqcRrIMCsYIw1zwToYlX"
       },
-      "estado": "FINALIZADA",
-      "fechaConsulta": 1582314531299,
+      "estado": "EN_TRATAMIENTO",
+      "fechaConsulta": 1582897189384,
       "fotoConsultaBase64": "",
+      "id": 1,
+      "remitenteConsulta": {
+        "email": "francob19051997@gmail.com",
+        "nombre": "Franco Brechbuhl"
+      },
+      "textoConsulta": "Que fertilante usar para sembrar maiz?"
+    },
+    {
+      "LatConsulta": -31.208469224654237,
+      "LngConsulta": -60.7364210486412,
+      "asuntoConsulta": "Asegurado de cultivos",
+      "estado": "ABIERTA",
+      "fechaConsulta": 1582897260376,
       "id": 2,
       "remitenteConsulta": {
         "email": "francob19051997@gmail.com",
         "nombre": "Franco Brechbuhl"
       },
-      "textoConsulta": "Que fertilizante usar para sembrar maiz?"
+      "textoConsulta": "Cuanto tiempo antes hay que asegurar un cultivo?"
     },
     {
-      "LatConsulta": -31.428357861198176,
-      "LngConsulta": -60.99242314696313,
-      "asuntoConsulta": "Fitosanitarios",
+      "LatConsulta": -31.542388863619408,
+      "LngConsulta": -61.08249474316835,
+      "asuntoConsulta": "Movimiento de suelos",
       "estado": "ABIERTA",
-      "fechaConsulta": 1582314590254,
+      "fechaConsulta": 1582897528659,
       "id": 3,
       "remitenteConsulta": {
         "email": "francob19051997@gmail.com",
         "nombre": "Franco Brechbuhl"
       },
-      "textoConsulta": "Que productos usar para controlar malezas resistentes?"
-    },
-    {
-      "LatConsulta": -31.48516700816928,
-      "LngConsulta": -60.975084006786346,
-      "asuntoConsulta": "Siembra",
-      "estado": "ABIERTA",
-      "fechaConsulta": 1582314636488,
-      "id": 4,
-      "remitenteConsulta": {
-        "email": "francob19051997@gmail.com",
-        "nombre": "Franco Brechbuhl"
-      },
-      "textoConsulta": "Que densidad de siembra se recomienda para sorgo a sembrar a 35 cm?"
-    },
-    {
-      "LatConsulta": -31.485266792532748,
-      "LngConsulta": -60.99187329411506,
-      "asuntoConsulta": "Movimiento de suelos",
-      "encargadoConsulta": {
-        "calificacion": 0,
-        "email": "fybrechbuhl@gmail.com",
-        "id": 1,
-        "nombre": "Franco Brechbuhl",
-        "token": "cRDPnH_VOFY:APA91bERg1UTyQomygy4XtafwRPZeWfuz9SeO4H6LNXnrR84QzEA7tUGjTVOhVK2o0gZhzFUE5Y-iTqfejqjDWE4x9jxZ2-s0s9NPB9RUTqmRs4McLpNUJoNGvccDfjTKvqvlb-np7oW"
-      },
-      "estado": "EN_TRATAMIENTO",
-      "fechaConsulta": 1582314685981,
-      "fotoConsultaBase64": "",
-      "id": 5,
-      "remitenteConsulta": {
-        "email": "francob19051997@gmail.com",
-        "nombre": "Franco Brechbuhl"
-      },
-      "textoConsulta": "Es recomendable mover la tierra para la siembra de alfalfa?"
+      "textoConsulta": "Es recomendable mover la tierra para sembrar alfalfa?"
     }
   ],
   "productores": [
     {
-      "email": "eliasbrizi@gmail.com",
-      "nombre": "elias brizi",
-      "id": 1,
-      "token": "cRDPnH_VOFY:APA91bERg1UTyQomygy4XtafwRPZeWfuz9SeO4H6LNXnrR84QzEA7tUGjTVOhVK2o0gZhzFUE5Y-iTqfejqjDWE4x9jxZ2-s0s9NPB9RUTqmRs4McLpNUJoNGvccDfjTKvqvlb-np7oW"
-    },
-    {
       "email": "francob19051997@gmail.com",
-      "id": 2,
+      "id": 1,
       "nombre": "Franco Brechbuhl",
-      "token": "cRDPnH_VOFY:APA91bERg1UTyQomygy4XtafwRPZeWfuz9SeO4H6LNXnrR84QzEA7tUGjTVOhVK2o0gZhzFUE5Y-iTqfejqjDWE4x9jxZ2-s0s9NPB9RUTqmRs4McLpNUJoNGvccDfjTKvqvlb-np7oW"
+      "token": "cybrg2d093s:APA91bFrYR0bUcB3F7PPtPfyRLF4TzDexmNqQ7GjQIIUEE8q0d94dITHI8Y9sKEZQ2cWqjs_cQZ8WmHY-TOdNGf7p9YDP4nwlU4KgiO5Z2Wr9xKwGFAD_nMi-QrNlLhabldOhh6FYcnO"
     }
   ],
   "ingenieros": [
     {
-      "calificacion": 5,
+      "calificacion": 0,
       "email": "fybrechbuhl@gmail.com",
       "id": 1,
       "nombre": "Franco Brechbuhl",
-      "token": "cRDPnH_VOFY:APA91bERg1UTyQomygy4XtafwRPZeWfuz9SeO4H6LNXnrR84QzEA7tUGjTVOhVK2o0gZhzFUE5Y-iTqfejqjDWE4x9jxZ2-s0s9NPB9RUTqmRs4McLpNUJoNGvccDfjTKvqvlb-np7oW"
+      "token": "cbitCb_zzcQ:APA91bFXX6DwSjpXzY7df-vY2Z2tomhzI6DhQ_2f-joYGROYPZKbn-HZgGstA82O5GfMRsUavSjowmh6txNgLSKfDcVEWd376LWMdsabSW0iRKU5shUJZUOCNqcRrIMCsYIw1zwToYlX"
     }
   ],
   "mensajes": [
     {
-      "datos": "Hola Franco, lo ideal es usar fosfato diamonico en la siembra y en V5 aplicar urea granulada",
+      "datos": "Hola Franco, lo ideal es usar fosfato diamonico en la siembra y en V5 usar urea granulada",
       "emailReceptor": "francob19051997@gmail.com",
       "emailRemitente": "fybrechbuhl@gmail.com",
-      "horaCreacion": 1582860362352,
+      "horaCreacion": 1582898647082,
       "id": 1
-    },
-    {
-      "datos": "Genial, gracias por la atencion",
-      "emailReceptor": "fybrechbuhl@gmail.com",
-      "emailRemitente": "francob19051997@gmail.com",
-      "horaCreacion": 1582860637822,
-      "id": 2
-    },
-    {
-      "datos": "Hola nuevamente Franco, siempre es recomendable mover la tierra para la siembra de alfalfa",
-      "emailReceptor": "francob19051997@gmail.com",
-      "emailRemitente": "fybrechbuhl@gmail.com",
-      "horaCreacion": 1582860705206,
-      "id": 3
     }
   ]
 }
