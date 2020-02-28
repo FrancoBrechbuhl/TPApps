@@ -21,7 +21,8 @@
         "calificacion": 0,
         "email": "fybrechbuhl@gmail.com",
         "id": 1,
-        "nombre": "Franco Brechbuhl"
+        "nombre": "Franco Brechbuhl",
+        "token": "cRDPnH_VOFY:APA91bERg1UTyQomygy4XtafwRPZeWfuz9SeO4H6LNXnrR84QzEA7tUGjTVOhVK2o0gZhzFUE5Y-iTqfejqjDWE4x9jxZ2-s0s9NPB9RUTqmRs4McLpNUJoNGvccDfjTKvqvlb-np7oW"
       },
       "estado": "FINALIZADA",
       "fechaConsulta": 1582314531299,
@@ -64,12 +65,13 @@
       "LngConsulta": -60.99187329411506,
       "asuntoConsulta": "Movimiento de suelos",
       "encargadoConsulta": {
-        "calificacion": 4,
+        "calificacion": 0,
         "email": "fybrechbuhl@gmail.com",
         "id": 1,
-        "nombre": "Franco Brechbuhl"
+        "nombre": "Franco Brechbuhl",
+        "token": "cRDPnH_VOFY:APA91bERg1UTyQomygy4XtafwRPZeWfuz9SeO4H6LNXnrR84QzEA7tUGjTVOhVK2o0gZhzFUE5Y-iTqfejqjDWE4x9jxZ2-s0s9NPB9RUTqmRs4McLpNUJoNGvccDfjTKvqvlb-np7oW"
       },
-      "estado": "FINALIZADA",
+      "estado": "EN_TRATAMIENTO",
       "fechaConsulta": 1582314685981,
       "fotoConsultaBase64": "",
       "id": 5,
@@ -84,50 +86,46 @@
     {
       "email": "eliasbrizi@gmail.com",
       "nombre": "elias brizi",
-      "id": 1
+      "id": 1,
+      "token": "cRDPnH_VOFY:APA91bERg1UTyQomygy4XtafwRPZeWfuz9SeO4H6LNXnrR84QzEA7tUGjTVOhVK2o0gZhzFUE5Y-iTqfejqjDWE4x9jxZ2-s0s9NPB9RUTqmRs4McLpNUJoNGvccDfjTKvqvlb-np7oW"
     },
     {
       "email": "francob19051997@gmail.com",
+      "id": 2,
       "nombre": "Franco Brechbuhl",
-      "id": 2
+      "token": "cRDPnH_VOFY:APA91bERg1UTyQomygy4XtafwRPZeWfuz9SeO4H6LNXnrR84QzEA7tUGjTVOhVK2o0gZhzFUE5Y-iTqfejqjDWE4x9jxZ2-s0s9NPB9RUTqmRs4McLpNUJoNGvccDfjTKvqvlb-np7oW"
     }
   ],
   "ingenieros": [
     {
-      "calificacion": 4.5,
+      "calificacion": 5,
       "email": "fybrechbuhl@gmail.com",
       "id": 1,
-      "nombre": "Franco Brechbuhl"
+      "nombre": "Franco Brechbuhl",
+      "token": "cRDPnH_VOFY:APA91bERg1UTyQomygy4XtafwRPZeWfuz9SeO4H6LNXnrR84QzEA7tUGjTVOhVK2o0gZhzFUE5Y-iTqfejqjDWE4x9jxZ2-s0s9NPB9RUTqmRs4McLpNUJoNGvccDfjTKvqvlb-np7oW"
     }
   ],
   "mensajes": [
     {
-      "datos": "Hola Franco, lo usual es usar fosfato diamonico en la siembra y en v5 aplicar urea granulada",
+      "datos": "Hola Franco, lo ideal es usar fosfato diamonico en la siembra y en V5 aplicar urea granulada",
       "emailReceptor": "francob19051997@gmail.com",
       "emailRemitente": "fybrechbuhl@gmail.com",
-      "horaCreacion": 1582376700416,
+      "horaCreacion": 1582860362352,
       "id": 1
     },
     {
       "datos": "Genial, gracias por la atencion",
       "emailReceptor": "fybrechbuhl@gmail.com",
       "emailRemitente": "francob19051997@gmail.com",
-      "horaCreacion": 1582376748917,
+      "horaCreacion": 1582860637822,
       "id": 2
     },
     {
-      "datos": "Hola de nuevo franco, para alfalfa es siempre beneficioso labrar la tierra ya que se eliminan muchas malezas indeseadas.",
+      "datos": "Hola nuevamente Franco, siempre es recomendable mover la tierra para la siembra de alfalfa",
       "emailReceptor": "francob19051997@gmail.com",
       "emailRemitente": "fybrechbuhl@gmail.com",
-      "horaCreacion": 1582468251811,
+      "horaCreacion": 1582860705206,
       "id": 3
-    },
-    {
-      "datos": "Perfecto, muchas gracias",
-      "emailReceptor": "fybrechbuhl@gmail.com",
-      "emailRemitente": "francob19051997@gmail.com",
-      "horaCreacion": 1582468289829,
-      "id": 4
     }
   ]
 }

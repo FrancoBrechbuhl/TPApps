@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -21,20 +20,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.B3B.farmbros.firebase.JSONFirebase;
-import com.B3B.farmbros.firebase.NotificacionFirebase;
-import com.B3B.farmbros.retrofit.FirebaseRepository;
+import com.B3B.farmbros.domain.Ingeniero;
+import com.B3B.farmbros.domain.Productor;
+import com.B3B.farmbros.retrofit.IngenieroRepository;
 import com.B3B.farmbros.retrofit.MensajeRepository;
+import com.B3B.farmbros.retrofit.ProductorRepository;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
-
-import java.util.List;
-
-
 /*
     Esta clase es la principal, aqui se encuentra la barra deslizable con el menu que tiene las
     opciones disponibles de la aplicación
@@ -44,7 +40,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     private Button btnCierreSesion;
     private TextView txtIdentificadorUsuario;
     private String profesion;
-    //TODO: borrar
     private String token;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -129,6 +124,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 dialog.show();
             }
         });
+
+        registrationToken(account.getEmail());
     }
 
     @Override
@@ -200,7 +197,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 startActivity(i1);
                 return true;
             case R.id.menuItemMiPerfil:
-                getToken();
+                //A editar perfil
                 return true;
             case android.R.id.home:
                 onBackPressed();
@@ -217,20 +214,19 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         mDrawerLayout.closeDrawer(GravityCompat.START);
     }
 
-    private void getToken(){
+    private void registrationToken(final String emailUsuario){
         FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
             @Override
             public void onSuccess(InstanceIdResult instanceIdResult) {
                 token = instanceIdResult.getToken();
                 Log.d("El token es ", token);
-                NotificacionFirebase notificacionFirebase = new NotificacionFirebase();
-                notificacionFirebase.setTitle("FarmBros");
-                notificacionFirebase.setBody("Se ha respondido una consulta que realizaste!");
-                notificacionFirebase.setIcon("appicon");
-                JSONFirebase jsonFirebase = new JSONFirebase();
-                jsonFirebase.setTo(token);
-                jsonFirebase.setNotificacionFirebase(notificacionFirebase);
-                FirebaseRepository.getInstance().sendNotification(jsonFirebase, handlerHome);
+
+                if (profesion.equals("ingeniero")){
+                    IngenieroRepository.getInstance().buscarIngeniero(emailUsuario, handlerHome);
+                }
+                else {
+                    ProductorRepository.getInstance().buscarProductor(emailUsuario, handlerHome);
+                }
             }
         });
     }
@@ -240,12 +236,19 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         public void handleMessage(Message msg) {
             Log.d("HANDLER","Vuelve al handler"+msg.arg1);
             switch (msg.arg1){
-                case FirebaseRepository._POST:
-                    Log.d("HANDLER","Exito");
+                case IngenieroRepository._GET:
+                    Ingeniero ingeniero = IngenieroRepository.getInstance().getIngeniero();
+                    ingeniero.setToken(token);
+                    IngenieroRepository.getInstance().actualizarIngeniero(ingeniero);
                     break;
-                case FirebaseRepository._ERROR:
-                    Log.d("HANDLER","Llego con error");
-                    Toast.makeText(getApplicationContext(),"Error al cargar la base de datos",Toast.LENGTH_SHORT).show();
+                case ProductorRepository._GET:
+                    Productor productor = ProductorRepository.getInstance().getProductor();
+                    productor.setToken(token);
+                    ProductorRepository.getInstance().actualizarProductor(productor);
+                    break;
+                case IngenieroRepository._ERROR:
+                case ProductorRepository._ERROR:
+                    Log.d("HANDLER","Retorno error");
                     break;
             }
         }

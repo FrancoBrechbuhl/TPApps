@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.os.Build;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+
 import android.util.Log;
 
 import com.B3B.farmbros.R;
@@ -13,7 +14,7 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
 public class ServiceFirebase extends FirebaseMessagingService {
-    private static final String TAG = "MessagingService";
+    private String emailUsuario;
 
     public ServiceFirebase() {
     }

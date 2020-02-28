@@ -101,6 +101,23 @@ public class ProductorRepository {
         });
     }
 
+    public void actualizarProductor(Productor productor){
+        Call<Productor> llamada = this.productorRest.actualizarProductor(productor.getId(), productor);
+        llamada.enqueue(new Callback<Productor>() {
+            @Override
+            public void onResponse(Call<Productor> call, Response<Productor> response) {
+                if(response.isSuccessful()){
+                    Log.d("Request to Retrofit","Successful");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Productor> call, Throwable t) {
+                Log.d("Request to Retrofit","Fail");
+            }
+        });
+    }
+
     public Productor getProductor() {
         return productor;
     }

@@ -6,6 +6,7 @@ public class Ingeniero{
     private Integer id;
     private String nombre;
     private String email;
+    private String token;
     private float calificacion; // que vaya de 0 a 5 y despues la mostramos tipo 4,5
 
     public Ingeniero(){
@@ -40,6 +41,14 @@ public class Ingeniero{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public float getCalificacion() {

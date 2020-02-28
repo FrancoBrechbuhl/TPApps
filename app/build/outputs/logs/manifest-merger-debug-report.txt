@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:2:1-118:12
-INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:2:1-118:12
-INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:2:1-118:12
-INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:2:1-118:12
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:2:1-98:12
+INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:2:1-98:12
+INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:2:1-98:12
+INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:2:1-98:12
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\5258630c60642b8c4be3dfbbb03d9203\material-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\d3b6ea0458196941bc2a135f5829d875\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f182f53886c31db0398e9ff875a38a4a\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
@@ -62,20 +62,20 @@ MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Usuario\.gradle\cach
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\c99e4170190da1cfc49c7a76eb4d4c91\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\4116a7ad2494cfd434d9158ebf6e8192\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\1dd23a4072c15289dfa2bb4368218d36\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:2:1-118:12
-INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:2:1-118:12
-INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:2:1-118:12
+INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:2:1-98:12
+INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:2:1-98:12
+INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:2:1-98:12
 	package
 		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:3:5-31
 		INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:2:1-118:12
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:2:1-98:12
 		INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:2:1-118:12
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:2:1-98:12
 		INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:2:11-69
@@ -83,18 +83,12 @@ uses-permission#android.permission.ACCESS_FINE_LOCATION
 ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:10:5-79
 	android:name
 		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:10:22-76
-uses-feature#android.hardware.camera2
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:12:5-14:35
-	android:required
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:14:9-32
-	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:13:9-48
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:16:5-81
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:11:5-81
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:16:22-78
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:11:22-78
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:17:5-67
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:12:5-67
 MERGED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\6420a01221f8d17013266de88d49662d\jetified-play-services-maps-16.1.0\AndroidManifest.xml:24:5-67
 MERGED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\6420a01221f8d17013266de88d49662d\jetified-play-services-maps-16.1.0\AndroidManifest.xml:24:5-67
 MERGED from [com.google.android.gms:play-services-measurement-api:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fc03622647d2a791a413dccd072d516c\play-services-measurement-api-17.0.0\AndroidManifest.xml:22:5-67
@@ -108,9 +102,31 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:17.0.0] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\5d2cd77c2db5129114ed287240c84302\play-services-measurement-sdk-api-17.0.0\AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\5d2cd77c2db5129114ed287240c84302\play-services-measurement-sdk-api-17.0.0\AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:17:22-64
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:12:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:13:5-78
+MERGED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\6420a01221f8d17013266de88d49662d\jetified-play-services-maps-16.1.0\AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\6420a01221f8d17013266de88d49662d\jetified-play-services-maps-16.1.0\AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fc03622647d2a791a413dccd072d516c\play-services-measurement-api-17.0.0\AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fc03622647d2a791a413dccd072d516c\play-services-measurement-api-17.0.0\AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-iid:20.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\a1d81eea55afb4ca3a109fbdb1e3c22d\firebase-iid-20.0.0\AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-iid:20.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\a1d81eea55afb4ca3a109fbdb1e3c22d\firebase-iid-20.0.0\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.gms:play-services-measurement:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\9782074b5c64c80191991a71925476cd\play-services-measurement-17.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\9782074b5c64c80191991a71925476cd\play-services-measurement-17.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\500d1f1a4f77976d62bb7ea0f0b0941a\play-services-measurement-impl-17.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\500d1f1a4f77976d62bb7ea0f0b0941a\play-services-measurement-impl-17.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\5d2cd77c2db5129114ed287240c84302\play-services-measurement-sdk-api-17.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\5d2cd77c2db5129114ed287240c84302\play-services-measurement-sdk-api-17.0.0\AndroidManifest.xml:24:5-79
+	android:name
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:13:22-76
+uses-feature#android.hardware.camera2
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:15:5-17:35
+	android:required
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:17:9-32
+	android:name
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:16:9-48
 application
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:19:5-116:19
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:19:5-96:19
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\5258630c60642b8c4be3dfbbb03d9203\material-1.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\5258630c60642b8c4be3dfbbb03d9203\material-1.0.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\f182f53886c31db0398e9ff875a38a4a\constraintlayout-1.1.3\AndroidManifest.xml:9:5-20
@@ -159,6 +175,8 @@ MERGED from [androidx.core:core:1.1.0] C:\Users\Usuario\.gradle\caches\transform
 MERGED from [androidx.core:core:1.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\dc8c556056bc2430dbdbbfc74baae2d4\core-1.1.0\AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\23aac9beb02e24a9053c4151f5b4bdc9\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\23aac9beb02e24a9053c4151f5b4bdc9\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+	android:screenOrientation
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:26:9-45
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\dc8c556056bc2430dbdbbfc74baae2d4\core-1.1.0\AndroidManifest.xml:24:18-86
 	android:supportsRtl
@@ -174,121 +192,121 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Us
 	android:theme
 		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:25:9-46
 	android:usesCleartextTraffic
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:26:9-44
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:27:9-44
 meta-data#com.google.android.gms.version
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:36:9-38:69
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:37:9-39:69
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\36c92346408589b540735eb33e9bac7a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\36c92346408589b540735eb33e9bac7a\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:38:13-66
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:39:13-66
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:37:13-58
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:38:13-58
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:40:9-42:55
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:41:9-43:55
 	android:value
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:42:13-52
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:43:13-52
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:41:13-58
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:42:13-58
 service#com.B3B.farmbros.firebase.ServiceFirebase
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:65:9-72:19
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:45:9-52:19
 	android:enabled
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:67:13-35
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:47:13-35
 	android:exported
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:68:13-36
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:48:13-36
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:66:13-53
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:46:13-53
 intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:69:13-71:29
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:49:13-51:29
 action#com.google.firebase.MESSAGING_EVENT
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:70:17-78
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:50:17-78
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:70:25-75
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:50:25-75
 activity#com.B3B.farmbros.MapsActivity
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:74:9-76:68
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:54:9-56:68
 	android:parentActivityName
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:75:42-85
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:55:42-85
 	android:label
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:76:13-56
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:56:13-56
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:75:13-41
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:55:13-41
 provider#androidx.core.content.FileProvider
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:78:9-86:20
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:58:9-66:20
 	android:grantUriPermissions
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:82:13-47
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:62:13-47
 	android:authorities
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:80:13-72
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:60:13-72
 	android:exported
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:81:13-37
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:61:13-37
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:79:13-62
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:59:13-62
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:83:13-85:63
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:63:13-65:63
 	android:resource
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:85:17-50
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:65:17-50
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:84:17-67
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:64:17-67
 activity#com.B3B.farmbros.MainActivity
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:88:9-94:20
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:68:9-74:20
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:88:19-47
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:68:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:89:13-93:29
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:69:13-73:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:90:17-69
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:70:17-69
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:90:25-66
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:70:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:92:17-77
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:72:17-77
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:92:27-74
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:72:27-74
 activity#com.B3B.farmbros.Home
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:95:9-97:58
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:75:9-77:58
 	android:parentActivityName
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:97:13-55
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:77:13-55
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:96:13-33
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:76:13-33
 activity#com.B3B.farmbros.NuevaConsulta
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:98:9-100:50
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:78:9-80:50
 	android:parentActivityName
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:100:13-47
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:80:13-47
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:99:13-42
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:79:13-42
 activity#com.B3B.farmbros.ListaConsultasActivity
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:101:9-103:49
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:81:9-83:49
 	android:parentActivityName
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:103:13-47
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:83:13-47
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:102:13-51
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:82:13-51
 activity#com.B3B.farmbros.DetalleConsultaActivity
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:104:9-106:67
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:84:9-86:67
 	android:parentActivityName
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:106:13-65
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:86:13-65
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:105:13-52
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:85:13-52
 activity#com.B3B.farmbros.ChatsActivity
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:107:9-109:68
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:87:9-89:68
 	android:parentActivityName
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:109:13-66
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:89:13-66
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:108:13-42
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:88:13-42
 activity#com.B3B.farmbros.ConsultasRealizadasActivity
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:110:9-111:49
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:90:9-91:49
 	android:parentActivityName
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:111:13-47
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:91:13-47
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:110:19-62
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:90:19-62
 activity#com.B3B.farmbros.ConsultasAtendidasActivity
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:112:9-113:49
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:92:9-93:49
 	android:parentActivityName
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:113:13-47
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:93:13-47
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:112:19-61
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:92:19-61
 activity#com.B3B.farmbros.ListaContactosActivity
-ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:114:9-115:49
+ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:94:9-95:49
 	android:parentActivityName
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:115:13-47
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:95:13-47
 	android:name
-		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:114:19-57
+		ADDED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml:94:19-57
 uses-sdk
 INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Usuario\AndroidStudioProjects\TPApps\app\src\main\AndroidManifest.xml
@@ -437,20 +455,6 @@ ADDED from [com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.
 		ADDED from [com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\66767690d83e34f0040150ba871188c1\play-services-auth-17.0.0\AndroidManifest.xml:36:13-107
 	android:name
 		ADDED from [com.google.android.gms:play-services-auth:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\66767690d83e34f0040150ba871188c1\play-services-auth-17.0.0\AndroidManifest.xml:34:13-89
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\6420a01221f8d17013266de88d49662d\jetified-play-services-maps-16.1.0\AndroidManifest.xml:23:5-79
-MERGED from [com.google.android.gms:play-services-measurement-api:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fc03622647d2a791a413dccd072d516c\play-services-measurement-api-17.0.0\AndroidManifest.xml:23:5-79
-MERGED from [com.google.android.gms:play-services-measurement-api:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\fc03622647d2a791a413dccd072d516c\play-services-measurement-api-17.0.0\AndroidManifest.xml:23:5-79
-MERGED from [com.google.firebase:firebase-iid:20.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\a1d81eea55afb4ca3a109fbdb1e3c22d\firebase-iid-20.0.0\AndroidManifest.xml:22:5-79
-MERGED from [com.google.firebase:firebase-iid:20.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\a1d81eea55afb4ca3a109fbdb1e3c22d\firebase-iid-20.0.0\AndroidManifest.xml:22:5-79
-MERGED from [com.google.android.gms:play-services-measurement:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\9782074b5c64c80191991a71925476cd\play-services-measurement-17.0.0\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\9782074b5c64c80191991a71925476cd\play-services-measurement-17.0.0\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-impl:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\500d1f1a4f77976d62bb7ea0f0b0941a\play-services-measurement-impl-17.0.0\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-impl:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\500d1f1a4f77976d62bb7ea0f0b0941a\play-services-measurement-impl-17.0.0\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\5d2cd77c2db5129114ed287240c84302\play-services-measurement-sdk-api-17.0.0\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.0.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\5d2cd77c2db5129114ed287240c84302\play-services-measurement-sdk-api-17.0.0\AndroidManifest.xml:24:5-79
-	android:name
-		ADDED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\6420a01221f8d17013266de88d49662d\jetified-play-services-maps-16.1.0\AndroidManifest.xml:23:22-76
 uses-feature#0x00020000
 ADDED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\Usuario\.gradle\caches\transforms-2\files-2.1\6420a01221f8d17013266de88d49662d\jetified-play-services-maps-16.1.0\AndroidManifest.xml:26:5-28:35
 	android:glEsVersion
