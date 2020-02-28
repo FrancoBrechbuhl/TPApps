@@ -60,19 +60,6 @@
         "nombre": "Franco Brechbuhl"
       },
       "textoConsulta": "Cual es la densidad de siembra recomendada para sembrar sorgo a 35 cm?"
-    },
-    {
-      "LatConsulta": -31.652399047995978,
-      "LngConsulta": -60.63725944608449,
-      "asuntoConsulta": "Semillas",
-      "estado": "ABIERTA",
-      "fechaConsulta": 1582930741985,
-      "id": 5,
-      "remitenteConsulta": {
-        "email": "francob19051997@gmail.com",
-        "nombre": "Franco Brechbuhl"
-      },
-      "textoConsulta": "jskdk"
     }
   ],
   "productores": [

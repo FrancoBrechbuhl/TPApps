@@ -235,6 +235,7 @@ public class NuevaConsulta extends AppCompatActivity {
 
     @Override
     protected void onDestroy(){
+        super.onDestroy();
         getApplicationContext().unregisterReceiver(br);
     }
 }
